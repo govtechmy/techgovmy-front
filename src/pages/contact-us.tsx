@@ -12,7 +12,7 @@ const ContactUs: Page = () => {
           <h1 className="text-center text-[42px]">
             We build digital products to improve
             <br />
-            <span className="text-orange">the rakyat's convenience</span>
+            <span className="text-orange">the rakyat&apos;s convenience</span>
           </h1>
         }
         description="We want to provide a place in the public sector that Malaysia’s best and brightest can call home"
