@@ -87,7 +87,7 @@
   /* Applying multi background in tailwind */
   .hero {
     @apply bg-[url:theme("backgroundImage.close"),theme("backgroundImage.gradient-radial")];
-    @apply from-[#f1a590];
+    @apply from-[#EFAA23];
     @apply to-white;
     @apply dark:from-[#EF4E23];
     @apply dark:to-black;
