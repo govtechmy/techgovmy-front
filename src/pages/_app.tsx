@@ -5,8 +5,10 @@ import { AppPropsLayout } from "@/lib/types";
 import { clx } from "@/lib/helper";
 import { ThemeProvider } from "next-themes";
 import Layout from "@/components/Layout";
+import { appWithTranslation } from "next-i18next";
+import Nexti18NextConfig from "../../next-i18next.config";
 
-export default function App({ Component, pageProps }: AppPropsLayout) {
+function App({ Component, pageProps }: AppPropsLayout) {
   const layout =
     Component.layout ||
     ((page: ReactNode) => <Layout className={clx(body.variable, "font-sans")}>{page}</Layout>);
@@ -24,3 +26,5 @@ export default function App({ Component, pageProps }: AppPropsLayout) {
     </div>
   );
 }
+
+export default appWithTranslation(App, Nexti18NextConfig);

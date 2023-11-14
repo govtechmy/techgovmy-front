@@ -11,19 +11,13 @@ const config: Config = {
   ],
   theme: {
     colors: {
+      transparent: "transparent",
       ...COLORS,
-    },
-    spacing: {
-      "1": "8px",
-      "2": "12px",
-      "3": "24px",
-      "4": "32px",
-      "5": "48px",
     },
     extend: {
       backgroundImage: {
-        "gradient-radial":
-          "radial-gradient(59.1% 166.02% at 50% -66.02%, var(--tw-gradient-stops))",
+        "gradient-radial": "radial-gradient(50% 125% at 50% -70%, var(--tw-gradient-stops))",
+        "close": "url(../../public/static/images/hero-pattern.png)",
       },
       fontFamily: {
         sans: ["var(--font-body)", ...fontFamily.sans],

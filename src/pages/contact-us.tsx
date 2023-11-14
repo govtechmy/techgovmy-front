@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 
-const Home: Page = () => {
+const ContactUs: Page = () => {
   return (
     <>
       <Hero
@@ -18,19 +18,19 @@ const Home: Page = () => {
         description="We want to provide a place in the public sector that Malaysia’s best and brightest can call home"
       />
       <Container>
-        <p>hello</p>
+        <p>contact us</p>
       </Container>
     </>
   );
 };
 
-export const getStaticProps: GetStaticProps = withi18n(["home"], async () => {
+export const getStaticProps: GetStaticProps = withi18n(["contact-us"], async () => {
   try {
     return {
       notFound: false,
       props: {
         meta: {
-          id: "home",
+          id: "contact-us",
           type: "misc",
         },
       },
@@ -41,4 +41,4 @@ export const getStaticProps: GetStaticProps = withi18n(["home"], async () => {
   }
 });
 
-export default Home;
+export default ContactUs;

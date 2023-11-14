@@ -2,26 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  h1 {
+    @apply font-header text-4xl font-bold leading-[54px] dark:text-white;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  h2 {
+    @apply font-header text-3xl font-bold leading-[38px] text-black dark:text-white;
+  }
+
+  h3 {
+    @apply font-header text-2xl font-bold text-black dark:text-white;
+  }
+
+  h4 {
+    @apply font-header text-xl font-bold text-black dark:text-white;
+  }
+
+  h5 {
+    @apply text-lg font-bold text-black dark:text-white;
+  }
+
+  h6 {
+    @apply text-base font-semibold uppercase tracking-wider text-black dark:text-white;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    appearance: none;
+  }
+
+  textarea {
+    @apply resize-none;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .btn {
+    @apply flex select-none items-center gap-1.5 rounded-md border border-transparent text-start text-sm font-medium outline-none transition;
+  }
+
+  .btn-primary {
+    @apply btn from-primary to-primary-dark shadow-button bg-gradient-to-t px-3 py-1.5 text-white hover:to-[#5B8EFF];
+  }
+
+  .btn-primary svg {
+    @apply fill-white;
+  }
+
+  .btn-ghost {
+    @apply btn hover:bg-washed dark:hover:bg-washed-dark px-3 py-1.5;
+  }
+
+  .btn-default {
+    @apply btn btn-border active:bg-washed hover:dark:bg-washed-dark/50 active:dark:bg-washed-dark bg-white px-3 py-1.5 text-black dark:bg-black dark:text-white;
+  }
+
+  .btn-border {
+    @apply border-outline dark:border-washed-dark hover:border-outlineHover hover:dark:border-outlineHover-dark;
+  }
+
+  .btn-disabled {
+    @apply disabled:bg-outline dark:disabled:bg-washed-dark 
+    disabled:border-outline dark:disabled:border-washed-dark 
+    disabled:text-outlineHover dark:disabled:text-outlineHover-dark 
+    disabled:pointer-events-none disabled:cursor-not-allowed;
+  }
+
+  .link-primary {
+    @apply text-primary cursor-pointer font-medium [text-underline-position:from-font] hover:underline;
+  }
+
+  .link-dim {
+    @apply text-dim cursor-pointer text-sm [text-underline-position:from-font] hover:text-black hover:underline dark:hover:text-white;
+  }
+
+  .number {
+    @apply font-medium;
+  }
+
+  /* HERO MESH GRADIENTS */
+  /* Applying multi background in tailwind */
+  .hero {
+    @apply bg-[url:theme("backgroundImage.close"),theme("backgroundImage.gradient-radial")];
+    @apply from-[#f1a590];
+    @apply to-white;
+    @apply dark:from-[#EF4E23];
+    @apply dark:to-black;
+    @apply bg-no-repeat;
+    @apply bg-[length:100%,100%];
+    @apply bg-cover
+  }
 }
