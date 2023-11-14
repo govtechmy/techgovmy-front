@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import { COLORS } from "./src/lib/constants";
 
 const config: Config = {
   darkMode: "class",
@@ -9,6 +10,16 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      ...COLORS,
+    },
+    spacing: {
+      "1": "8px",
+      "2": "12px",
+      "3": "24px",
+      "4": "32px",
+      "5": "48px",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial":

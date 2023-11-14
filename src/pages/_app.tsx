@@ -11,7 +11,13 @@ export default function App({ Component, pageProps }: AppPropsLayout) {
     Component.layout ||
     ((page: ReactNode) => <Layout className={clx(body.variable, "font-sans")}>{page}</Layout>);
   return (
-    <div className={clx(body.variable, header.variable, "font-sans dark:bg-zinc-900")}>
+    <div
+      className={clx(
+        body.variable,
+        header.variable,
+        "font-sans bg-white text-black dark:text-white dark:bg-black"
+      )}
+    >
       <ThemeProvider attribute="class" enableSystem={false} forcedTheme={Component.theme}>
         {layout(<Component {...pageProps} />, pageProps)}
       </ThemeProvider>
