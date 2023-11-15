@@ -85,12 +85,20 @@
 
   /* HERO MESH GRADIENTS */
   /* Applying multi background in tailwind */
-  .hero {
+  .hero-bg {
     @apply bg-[url:theme("backgroundImage.close"),theme("backgroundImage.gradient-radial")];
-    @apply from-[#EFAA23];
-    @apply to-white;
+    @apply from-[#EF4E23];
+    @apply from-[9.38%];
+    @apply via-[#EFAA2380];
+    @apply via-[37.5%];
+    @apply to-[#FFFFFF];
+    @apply to-[100%];
     @apply dark:from-[#EF4E23];
-    @apply dark:to-black;
+    @apply dark:from-[9.38%];
+    @apply dark:via-[#EF4E2380];
+    @apply dark:via-[37.5%];
+    @apply dark:to-[#111111];
+    @apply dark:to-[100%];
     @apply bg-no-repeat;
     @apply bg-[length:100%,100%];
     @apply bg-cover

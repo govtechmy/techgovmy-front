@@ -37,7 +37,7 @@ const Hero: FunctionComponent<HeroProps> = ({
 
   return (
     <Container
-      background={clx("hero", "relative")}
+      background={clx("hero-bg", "relative")}
       className={clx("px-0 lg:px-0 divide-y-0", className)}
     >
       <Header />
