@@ -1,24 +1,27 @@
+import { clx } from "@/lib/helper";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { FunctionComponent } from "react";
 
-type SiteIconsProps = {};
+type SiteIconsProps = {
+  height: number;
+};
 
-const SiteIcons: FunctionComponent<SiteIconsProps> = () => {
+const SiteIcons: FunctionComponent<SiteIconsProps> = ({ height }) => {
   const { t, i18n } = useTranslation();
   const { theme } = useTheme();
 
   if (theme === "dark") {
     return (
-      <div className="flex items-center gap-1.5 tracking-[3px]">
+      <div className={"flex items-center gap-1.5 tracking-[3px] transition-all duration-500"}>
         <>
-          <div className="w-[42px] h-[36px]">
+          <div className={clx("w-[42px]", height ? `h-[${height}px]` : "h-[36px]")}>
             <Image
               src={"/static/images/icons/tiger-dark.png"}
               alt="GovTech Icon Dark"
-              width={42}
-              height={36}
+              width={height * 1.167 ?? 42}
+              height={height ?? 36}
             />
           </div>
 
@@ -46,14 +49,14 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = () => {
   }
 
   return (
-    <div className="flex items-center gap-1.5 tracking-[3px]">
+    <div className="flex items-center gap-1.5 tracking-[3px] transition-all duration-500">
       <>
-        <div className="w-[42px] h-[36px]">
+        <div className={clx("w-[42px]", height ? `h-[${height}px]` : "h-[36px]")}>
           <Image
             src={"/static/images/icons/tiger-white.png"}
             alt="GovTech Icon"
-            width={42}
-            height={36}
+            width={height * 1.167 ?? 42}
+            height={height ?? 36}
           />
         </div>
         <div className="uppercase">

@@ -42,7 +42,7 @@ const Item: FunctionComponent<NavItemProps> = ({
         scroll={false}
         onClick={onClick}
         className={clx(
-          "flex items-center gap-2 rounded-none px-2 py-2 text-sm font-medium transition hover:cursor-pointer md:rounded-md ",
+          "flex items-center gap-2 rounded-none px-2 py-2 text-sm font-medium transition hover:cursor-pointer md:rounded-md flex-1",
           className
         )}
         external={external}
@@ -53,7 +53,7 @@ const Item: FunctionComponent<NavItemProps> = ({
       {pathname.startsWith(link) && link !== "/" ? (
         <div className="h-1 rounded-[4px] w-1/4 self-center bg-orange" />
       ) : (
-        <div className="h-1" />
+        <div className="h-1 w-1/4" />
       )}
     </div>
   );
@@ -67,7 +67,7 @@ const Nav: NavFunctionComponent = ({ children, stateSelector }) => {
   const open = () => setShowMobile(true);
 
   return (
-    <div className="flex absolute left-1/2 -translate-x-1/2">
+    <div className="flex h-full absolute left-1/2 -translate-x-1/2">
       {/* Desktop */}
       <div className="hidden w-fit gap-1 lg:flex">{children(close)}</div>
 
