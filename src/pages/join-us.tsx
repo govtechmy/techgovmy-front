@@ -89,8 +89,8 @@ const JoinUs: Page = () => {
               </div>
 
               <div className="grid-cols-2 grid gap-4.5">
-                {PEOPLE.map(people => (
-                  <PeopleCard people={people} />
+                {PEOPLE.map((people, index) => (
+                  <PeopleCard key={index} people={people} />
                 ))}
               </div>
             </div>
@@ -99,8 +99,8 @@ const JoinUs: Page = () => {
               <h4 className="font-semibold">Benefits</h4>
 
               <div className="grid-cols-2 grid gap-8 bg-background dark:bg-washed-dark p-6 rounded-xl">
-                {BENEFITS.map(benefit => (
-                  <div className="flex flex-col gap-3">
+                {BENEFITS.map((benefit, index) => (
+                  <div key={index} className="flex flex-col gap-3">
                     {benefit.icon}
                     <p className="font-medium">{benefit.title}</p>
                     <p className="text-outline-hover dark:text-dim text-sm">
