@@ -27,3 +27,8 @@ export type MetaPage = Record<string, any> & {
     type: "misc" | "dashboard";
   };
 };
+
+export type Precision = {
+  default: number;
+  columns?: Record<string, number>;
+};

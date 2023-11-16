@@ -65,13 +65,13 @@
   }
 
   .btn-border {
-    @apply border-outline dark:border-washed-dark hover:border-outlineHover hover:dark:border-outlineHover-dark;
+    @apply border-outline dark:border-washed-dark hover:border-outline-hover hover:dark:border-outline-hover-dark;
   }
 
   .btn-disabled {
     @apply disabled:bg-outline dark:disabled:bg-washed-dark 
     disabled:border-outline dark:disabled:border-washed-dark 
-    disabled:text-outlineHover dark:disabled:text-outlineHover-dark 
+    disabled:text-outline-hover dark:disabled:text-outline-hover-dark 
     disabled:pointer-events-none disabled:cursor-not-allowed;
   }
 

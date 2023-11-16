@@ -76,3 +76,55 @@ export const interpolate = (raw_text: string): string | ReactElement[] => {
     );
   }) as ReactElement[];
 };
+
+/**
+ * Format a number to the given type.
+ * @param value number
+ * @param type Intl format type
+ * @returns string
+ */
+export const numFormat = (
+  value: number,
+  type: "compact" | "standard" | "scientific" | "engineering" | undefined = "compact",
+  precision: number | [max: number, min: number] = 0,
+  compactDisplay: "short" | "long" = "short",
+  locale: string = "en",
+  smart: boolean = false
+): string => {
+  const [max, min] = Array.isArray(precision) ? precision : [precision, precision];
+
+  if (smart === true) {
+    let formatter: Intl.NumberFormat;
+
+    if (value < 1_000_000 && value > -1_000_000) {
+      formatter = Intl.NumberFormat(locale, {
+        notation: type,
+        maximumFractionDigits: max,
+        minimumFractionDigits: min,
+        compactDisplay: "short",
+      });
+    } else {
+      formatter = Intl.NumberFormat(locale, {
+        notation: type,
+        maximumFractionDigits: max,
+        minimumFractionDigits: min,
+        compactDisplay,
+      });
+    }
+
+    return formatter
+      .format(value)
+      .replace("trillion", "tril")
+      .replace("trilion", "tril")
+      .replace("billion", "bil")
+      .replace("bilion", "bil")
+      .replace("million", "mil");
+  } else {
+    return Intl.NumberFormat(locale, {
+      notation: type,
+      maximumFractionDigits: max,
+      minimumFractionDigits: min,
+      compactDisplay,
+    }).format(value);
+  }
+};

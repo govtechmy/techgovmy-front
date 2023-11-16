@@ -15,7 +15,7 @@ export const COLORS = {
   "background": "#f8fafc",
   "background-dark": "#121212",
   "dim": "#71717a",
-  "primary": "#0C3284",
+  "primary": "#2563EB",
   "primary-dark": "#3E7AFF",
   "danger": "#D94242",
   "success": "#10b981",

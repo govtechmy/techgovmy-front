@@ -27,7 +27,7 @@ const Header: FunctionComponent<HeaderProps> = ({ isFixedHeader }) => {
         )}
         className={clx(
           "flex items-center gap-4 max-w-screen-2xl pt-[50px]",
-          isFixedHeader && "pt-0 items-center"
+          isFixedHeader && "pt-0 items-center shadow-floating"
         )}
       >
         <div className={clx("flex w-full justify-between items-center gap-4 relative h-[58px]")}>
