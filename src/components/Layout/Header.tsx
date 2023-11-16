@@ -26,16 +26,11 @@ const Header: FunctionComponent<HeaderProps> = ({ isFixedHeader }) => {
           isFixedHeader && "bg-opacity-100 dark:bg-black"
         )}
         className={clx(
-          "flex items-end gap-4 h-[106px] max-w-screen-2xl",
-          isFixedHeader && "pt-1 h-[50px] items-center"
+          "flex items-center gap-4 max-w-screen-2xl pt-[50px]",
+          isFixedHeader && "pt-0 items-center"
         )}
       >
-        <div
-          className={clx(
-            "flex w-full justify-between items-center gap-4 relative",
-            isFixedHeader && "h-full"
-          )}
-        >
+        <div className={clx("flex w-full justify-between items-center gap-4 relative h-[58px]")}>
           <Link href="/">
             <SiteIcons height={isFixedHeader ? 32 : 36} />
           </Link>

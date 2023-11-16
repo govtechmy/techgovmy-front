@@ -1,4 +1,5 @@
 import { clx } from "@/lib/helper";
+import useScrollPosition from "@/lib/hooks/useScrollPosition";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -11,10 +12,17 @@ type SiteIconsProps = {
 const SiteIcons: FunctionComponent<SiteIconsProps> = ({ height }) => {
   const { t, i18n } = useTranslation();
   const { theme } = useTheme();
+  const scrollPosition = useScrollPosition();
+  const isFixedHeader = scrollPosition > 50;
 
   if (theme === "dark") {
     return (
-      <div className={"flex items-center gap-1.5 tracking-[3px] transition-all duration-500"}>
+      <div
+        className={clx(
+          "flex items-center gap-1.5 tracking-[3px] transition-all duration-200",
+          isFixedHeader && "tracking-widest"
+        )}
+      >
         <>
           <div className={clx("w-[42px]", height ? `h-[${height}px]` : "h-[36px]")}>
             <Image
@@ -49,7 +57,12 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = ({ height }) => {
   }
 
   return (
-    <div className="flex items-center gap-1.5 tracking-[3px] transition-all duration-500">
+    <div
+      className={clx(
+        "flex items-center gap-1.5 tracking-[3px] transition-all duration-200",
+        isFixedHeader && "tracking-widest"
+      )}
+    >
       <>
         <div className={clx("w-[42px]", height ? `h-[${height}px]` : "h-[36px]")}>
           <Image

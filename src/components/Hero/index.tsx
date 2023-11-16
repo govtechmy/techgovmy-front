@@ -11,7 +11,7 @@ type HeroProps = {
 
 const Hero: FunctionComponent<HeroProps> = ({ className, title, description }) => {
   const scrollPosition = useScrollPosition();
-  const isFixedHeader = scrollPosition >= 50;
+  const isFixedHeader = scrollPosition > 50;
 
   return (
     <div className={`flex h-full w-full justify-center hero-bg relative`}>
@@ -19,8 +19,8 @@ const Hero: FunctionComponent<HeroProps> = ({ className, title, description }) =
         <Header isFixedHeader={isFixedHeader} />
         <div
           className={clx(
-            "flex flex-col items-center space-y-6 pb-20 max-w-[800px] mx-auto pt-12",
-            isFixedHeader && "pt-[150px]"
+            "flex flex-col items-center space-y-8 pb-12 max-w-[800px] mx-auto pt-[62px]",
+            isFixedHeader && "pt-[172px]"
           )}
         >
           {typeof title === "string" ? <h1 className="text-[42px]">{title}</h1> : title}
