@@ -3,13 +3,33 @@ import { Page } from "@/lib/types";
 import { GetStaticProps } from "next";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
+import Section from "@/components/Section";
 
 const OurWork: Page = () => {
   return (
     <>
       <Hero title={"Our Work"} description="List of projects GovTech team have done in the past." />
       <Container>
-        <p>our work</p>
+        <Section className="max-w-[800px] mx-auto py-16">
+          <div className="gap-16 pb-5 flex flex-col">
+            {/* Title */}
+            <div className="flex flex-col gap-6 px-[50px]">
+              <p className="text-orange dark:text-orange font-semibold uppercase">Our Projects</p>
+              <div className="flex flex-col gap-3">
+                <h2 className="font-semibold">We build for the nation&apos;s benefit</h2>
+                <p className="text-outline-hover-dark dark:text-dim">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p className="text-outline-hover-dark dark:text-dim">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Section>
       </Container>
     </>
   );

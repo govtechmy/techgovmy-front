@@ -25,7 +25,7 @@ const Hero: FunctionComponent<HeroProps> = ({ className, title, description }) =
         >
           {typeof title === "string" ? <h1 className="text-[42px]">{title}</h1> : title}
 
-          <p className="text-dim">{description}</p>
+          <p className="text-dim dark:text-dim">{description}</p>
         </div>
       </div>
     </div>
