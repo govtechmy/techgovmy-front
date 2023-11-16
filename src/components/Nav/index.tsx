@@ -42,7 +42,8 @@ const Item: FunctionComponent<NavItemProps> = ({
         scroll={false}
         onClick={onClick}
         className={clx(
-          "flex items-center gap-2 rounded-none px-2 py-2 text-sm font-medium transition hover:cursor-pointer md:rounded-md flex-1",
+          "flex items-center gap-2 rounded-none px-2 py-2 text-sm font-medium transition hover:cursor-pointer md:rounded-md flex-1 text-black/50 dark:text-white/50",
+          pathname.startsWith(link) && link !== "/" && "text-black dark:text-white",
           className
         )}
         external={external}
