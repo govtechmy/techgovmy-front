@@ -4,6 +4,8 @@ import { GetStaticProps } from "next";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
+import ProjectCard from "@/components/SiteComponents/project-card";
+import { LAUNCHED_PROJECTS, UPCOMING_PROJECTS } from "@/resources/projects";
 
 const OurWork: Page = () => {
   return (
@@ -26,6 +28,24 @@ const OurWork: Page = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                 </p>
+              </div>
+            </div>
+            {/* Launched Project */}
+            <div className="flex flex-col gap-6 px-[50px]">
+              <h4 className="font-semibold">Launched</h4>
+              <div className="grid-cols-2 grid gap-4.5">
+                {LAUNCHED_PROJECTS.map(project => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
+              </div>
+            </div>
+            {/* Upcoming Project */}
+            <div className="flex flex-col gap-6 px-[50px]">
+              <h4 className="font-semibold">Under Development</h4>
+              <div className="grid-cols-2 grid gap-4.5">
+                {UPCOMING_PROJECTS.map(project => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
               </div>
             </div>
           </div>

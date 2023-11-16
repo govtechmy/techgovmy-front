@@ -17,7 +17,7 @@ const Home: Page = () => {
             <span className="text-orange">the rakyat&apos;s convenience</span>
           </h1>
         }
-        description="We want to provide a place in the public sector that Malaysia’s best and brightest can call home"
+        description="We want to provide a place in the public sector that Malaysia's best and brightest can call home"
       />
       <Container>
         <Section className="max-w-[800px] mx-auto py-16">
