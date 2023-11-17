@@ -9,6 +9,8 @@ import {
   EnvelopeIcon,
   MapPinIcon,
 } from "@heroicons/react/20/solid";
+import { clx } from "@/lib/helper";
+import { header, body } from "@/lib/configs/fonts";
 
 type JobOpeningModalProps = {
   show: boolean;
@@ -22,7 +24,7 @@ export const JobOpeningModal: FunctionComponent<JobOpeningModalProps> = ({ show,
       <Transition show={show} as={Fragment}>
         <Dialog
           as="div"
-          className="relative z-30"
+          className={clx("relative z-30", body.variable, header.variable, "font-sans")}
           onClose={() => {
             hide();
           }}
@@ -52,22 +54,22 @@ export const JobOpeningModal: FunctionComponent<JobOpeningModalProps> = ({ show,
               >
                 <Dialog.Panel
                   className={
-                    "border-outline dark:border-washed-dark shadow-floating dark:border-outlineHover-dark w-full max-w-[800px] transform overflow-hidden rounded-lg border bg-white p-8 text-left align-middle font-sans transition-all dark:bg-black"
+                    "border-outline dark:border-washed-dark shadow-floating dark:border-outlineHover-dark w-full max-w-[800px] transform overflow-hidden rounded-lg border bg-white p-4 md:p-8 text-left align-middle transition-all dark:bg-black"
                   }
                 >
                   <Dialog.Title
                     as="div"
-                    className="border-outline flex items-start text-black dark:text-white"
+                    className="border-outline flex-col-reverse sm:flex-row flex items-start text-black dark:text-white"
                   >
                     <div className="flex flex-1 flex-col gap-2">
-                      <h4 className="font-semibold">Hacker in the GovTech Nucleus Unit</h4>
+                      <h4 className={clx("font-semibold")}>Hacker in the GovTech Nucleus Unit</h4>
                       <p className="text-orange dark:text-orange text-sm font-medium">
                         Cyber Security
                       </p>
                     </div>
                     <Button
                       variant="reset"
-                      className="hover:bg-washed dark:hover:bg-washed-dark h-6 w-6 rounded-full"
+                      className="hover:bg-washed dark:hover:bg-washed-dark h-6 w-6 rounded-full self-end sm:self-auto"
                       onClick={() => {
                         hide();
                       }}
