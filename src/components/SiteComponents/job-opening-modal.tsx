@@ -103,7 +103,8 @@ export const JobOpeningModal: FunctionComponent<JobOpeningModalProps> = ({ show,
                   <div className="mt-6 rounded-lg border border-[#EFAE75] bg-[#FFF6EF] p-3 flex items-center gap-3">
                     <EnvelopeIcon className="w-6 h-6 text-orange" />
                     <p className="text-sm font-medium text-outline-hover-dark dark:text-outline-hover-dark">
-                      To apply, please send your CV to jobs@tech.gov.my with task assigned under
+                      To apply, please send your CV to{" "}
+                      <span className="text-orange">jobs@tech.gov.my</span> with task assigned under
                       this role.
                     </p>
                   </div>

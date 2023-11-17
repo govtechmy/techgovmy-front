@@ -38,12 +38,7 @@ const Header: FunctionComponent<HeaderProps> = ({ isFixedHeader }) => {
           <Nav>
             {close => (
               <>
-                <Nav.Item
-                  title={t("common:nav.about_us")}
-                  link="/about-us"
-                  key="/about-us"
-                  onClick={close}
-                />
+                <Nav.Item title={t("common:nav.about_us")} link="/" key="/" onClick={close} />
                 <Nav.Item
                   title={t("common:nav.our_work")}
                   key="/our-work"

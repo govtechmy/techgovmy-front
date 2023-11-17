@@ -13,7 +13,10 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
   const { i18n } = useTranslation();
   const router = useRouter();
   return (
-    <Card onClick={project.url ? () => {} : undefined} className="p-6 flex flex-col gap-4.5">
+    <Card
+      onClick={project.url ? () => {} : undefined}
+      className="p-6 flex flex-col gap-4.5 hover:border-outline-hover hover:dark:border-outline-hover-dark dark:hover:bg-washed-dark/50 hover:bg-background"
+    >
       <ProjectTitle project={project.id} title={project.name} />
       <p className="text-dim dark:text-dim text-sm">
         {i18n.language === "en-GB" ? project.description : project.description_bm}

@@ -67,7 +67,7 @@ const JoinUs: Page = () => {
         <Section className="max-w-[800px] mx-auto py-16">
           <div className="gap-16 pb-5 flex flex-col">
             {/* Title */}
-            <div className="flex flex-col gap-6 px-[50px]">
+            <div className="flex flex-col gap-6 px-0 md:px-[50px]">
               <p className="text-orange dark:text-orange font-semibold uppercase">Join Us</p>
               <div className="flex flex-col gap-3">
                 <h2 className="font-semibold">Come build for the nation</h2>
@@ -79,7 +79,7 @@ const JoinUs: Page = () => {
             </div>
 
             {/* Our People */}
-            <div className="flex flex-col gap-6 px-[50px]">
+            <div className="flex flex-col gap-6 px-0 md:px-[50px]">
               <div className="flex flex-col gap-3">
                 <h3 className="font-semibold">Our People</h3>
                 <p className="text-outline-hover-dark dark:text-dim">
@@ -88,17 +88,17 @@ const JoinUs: Page = () => {
                 </p>
               </div>
 
-              <div className="grid-cols-2 grid gap-4.5">
+              <div className="md:grid-cols-2 grid gap-4.5">
                 {PEOPLE.map((people, index) => (
                   <PeopleCard key={index} people={people} />
                 ))}
               </div>
             </div>
             {/* Benefits */}
-            <div className="flex flex-col gap-3 px-[50px]">
+            <div className="flex flex-col gap-3 px-0 md:px-[50px]">
               <h4 className="font-semibold">Benefits</h4>
 
-              <div className="grid-cols-2 grid gap-8 bg-background dark:bg-washed-dark p-6 rounded-xl">
+              <div className="md:grid-cols-2 grid gap-8 bg-background dark:bg-washed-dark p-6 rounded-xl">
                 {BENEFITS.map((benefit, index) => (
                   <div key={index} className="flex flex-col gap-3">
                     {benefit.icon}
@@ -111,7 +111,7 @@ const JoinUs: Page = () => {
               </div>
             </div>
             {/* Available Roles */}
-            <div className="flex flex-col gap-3 px-[50px]">
+            <div className="flex flex-col gap-3 px-0 md:px-[50px]">
               <h4 className="font-semibold">Roles available</h4>
               <p className="text-outline-hover-dark dark:text-dim">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

@@ -5,17 +5,17 @@ import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import Image from "next/image";
+import { BREAKPOINTS } from "@/lib/constants";
 
 const Home: Page = () => {
   return (
     <>
       <Hero
         title={
-          <h1 className="text-center text-[42px]">
-            We build digital products to improve
-            <br />
-            <span className="text-orange">the rakyat&apos;s convenience</span>
-          </h1>
+          <div>
+            <h1 className="text-center text-[42px]">We build digital products to improve</h1>
+            <h1 className="text-orange text-center text-[42px]">the rakyat&apos;s convenience</h1>
+          </div>
         }
         description="We want to provide a place in the public sector that Malaysia's best and brightest can call home"
       />
@@ -23,7 +23,7 @@ const Home: Page = () => {
         <Section className="max-w-[800px] mx-auto py-16">
           <div className="gap-16 pb-5 flex flex-col">
             {/* Title */}
-            <div className="flex flex-col gap-6 px-[50px]">
+            <div className="flex flex-col gap-6 px-0 md:px-[50px]">
               <p className="text-orange dark:text-orange font-semibold uppercase">About Us</p>
               <h2 className="font-semibold">GovTech Solutions</h2>
             </div>
@@ -42,7 +42,7 @@ const Home: Page = () => {
               <p className="text-sm text-dim text-center">Image caption</p>
             </div>
             {/* Our story */}
-            <div className="flex flex-col gap-3 px-[50px]">
+            <div className="flex flex-col gap-3 px-0 md:px-[50px]">
               <h3 className="font-semibold text-black">Our story</h3>
               <p className="text-outline-hover-dark dark:text-dim">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -60,7 +60,7 @@ const Home: Page = () => {
               </p>
             </div>
             {/* Our vision */}
-            <div className="flex flex-col gap-3 px-[50px]">
+            <div className="flex flex-col gap-3 px-0 md:px-[50px]">
               <h3 className="font-semibold text-black">Our vision</h3>
               <ul className="text-outline-hover-dark dark:text-dim">
                 Everything we do is dedicated to improving:
@@ -76,7 +76,7 @@ const Home: Page = () => {
               </p>
             </div>
             {/* Our mission */}
-            <div className="flex flex-col gap-3 px-[50px]">
+            <div className="flex flex-col gap-3 px-0 md:px-[50px]">
               <h3 className="font-semibold text-black">Our mission</h3>
               <ul className="text-outline-hover-dark dark:text-dim">
                 Everything we do is dedicated to improving:

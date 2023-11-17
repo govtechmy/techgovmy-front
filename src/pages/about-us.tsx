@@ -101,7 +101,7 @@ const AboutUs: Page = () => {
 export const getStaticProps: GetStaticProps = withi18n(["about-us"], async () => {
   try {
     return {
-      notFound: false,
+      notFound: true,
       props: {
         meta: {
           id: "about-us",

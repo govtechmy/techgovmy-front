@@ -26,7 +26,7 @@ const Footer: FunctionComponent<FooterProps> = ({ title, children }) => {
 
         {/* NAV */}
         <div className="flex flex-col gap-4.5">
-          <div className="flex items-center gap-6 justify-center">
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 justify-center">
             <p className="font-medium">{t("common:nav.open_source")}:</p>
             <At className="link-dim" external href="https://github.com/data-gov-my/datagovmy-front">
               {t("common:nav.frontend")}
@@ -40,7 +40,7 @@ const Footer: FunctionComponent<FooterProps> = ({ title, children }) => {
             </At>
           </div>
 
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex flex-col md:flex-row gap-3 items-center justify-center md:gap-6">
             <At className="link-dim" external href="https://github.com/data-gov-my/datagovmy-front">
               {t("common:nav.about_us")}
             </At>

@@ -7,10 +7,10 @@ import ThemeToggle from "./theme";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/router";
 import { FunctionComponent, ReactNode, useState } from "react";
+import useScrollPosition from "@/lib/hooks/useScrollPosition";
 
 type NavRootProps = {
   children: (close: () => void) => ReactNode;
-  stateSelector?: ReactNode;
 };
 
 type NavItemProps = {
@@ -43,7 +43,7 @@ const Item: FunctionComponent<NavItemProps> = ({
         onClick={onClick}
         className={clx(
           "flex items-center gap-2 rounded-none px-2 py-2 text-sm font-medium transition hover:cursor-pointer md:rounded-md flex-1 text-black/50 dark:text-white/50",
-          pathname.startsWith(link) && link !== "/" && "text-black dark:text-white",
+          pathname === link && "text-black dark:text-white",
           className
         )}
         external={external}
@@ -51,8 +51,8 @@ const Item: FunctionComponent<NavItemProps> = ({
         {icon}
         {title}
       </At>
-      {pathname.startsWith(link) && link !== "/" ? (
-        <div className="h-1 rounded-[4px] w-1/4 self-center bg-orange" />
+      {pathname === link ? (
+        <div className="h-1 rounded-[4px] w-1/4 self-center bg-orange hidden lg:block" />
       ) : (
         <div className="h-1 w-1/4" />
       )}
@@ -60,21 +60,22 @@ const Item: FunctionComponent<NavItemProps> = ({
   );
 };
 
-const Nav: NavFunctionComponent = ({ children, stateSelector }) => {
+const Nav: NavFunctionComponent = ({ children }) => {
   const [showMobile, setShowMobile] = useState<boolean>(false);
   const { language, onLanguageChange } = useLanguage();
+  const scrollPosition = useScrollPosition();
+  const isFixedHeader = scrollPosition > 50;
 
   const close = () => setShowMobile(false);
   const open = () => setShowMobile(true);
 
   return (
-    <div className="flex h-full absolute left-1/2 -translate-x-1/2">
+    <div className="flex h-full absolute right-0 lg:right-1/2 lg:translate-x-1/2">
       {/* Desktop */}
       <div className="hidden w-fit gap-1 lg:flex">{children(close)}</div>
 
       {/* Mobile - Header*/}
       <div className="flex w-full items-center justify-end gap-3 lg:hidden">
-        {stateSelector}
         <ThemeToggle />
         <Dropdown
           width="w-fit"
@@ -97,8 +98,9 @@ const Nav: NavFunctionComponent = ({ children, stateSelector }) => {
       {/* Mobile - Menu */}
       <div
         className={clx(
-          "dark:divide-washed-dark shadow-floating fixed left-0 top-[57px] flex w-full flex-col gap-0 divide-y bg-white px-4 py-2 backdrop-blur-md dark:bg-black/80 lg:hidden lg:gap-1 lg:divide-y-0 lg:p-1",
-          showMobile ? "flex" : "hidden"
+          "dark:divide-washed-dark shadow-floating fixed left-0  flex w-full flex-col gap-0 divide-y bg-white px-4 py-2 backdrop-blur-md dark:bg-black/80 lg:hidden lg:gap-1 lg:divide-y-0 lg:p-1",
+          showMobile ? "flex" : "hidden",
+          isFixedHeader ? "top-[58px]" : "top-[108px]"
         )}
       >
         {children(close)}

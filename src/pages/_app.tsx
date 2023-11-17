@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import Layout from "@/components/Layout";
 import { appWithTranslation } from "next-i18next";
 import Nexti18NextConfig from "../../next-i18next.config";
+import { WindowProvider } from "@/lib/context/window";
 
 function App({ Component, pageProps }: AppPropsLayout) {
   const layout =
@@ -21,7 +22,7 @@ function App({ Component, pageProps }: AppPropsLayout) {
       )}
     >
       <ThemeProvider attribute="class" enableSystem={false} forcedTheme={Component.theme}>
-        {layout(<Component {...pageProps} />, pageProps)}
+        <WindowProvider>{layout(<Component {...pageProps} />, pageProps)}</WindowProvider>
       </ThemeProvider>
     </div>
   );

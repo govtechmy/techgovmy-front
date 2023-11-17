@@ -19,13 +19,13 @@ const Hero: FunctionComponent<HeroProps> = ({ className, title, description }) =
         <Header isFixedHeader={isFixedHeader} />
         <div
           className={clx(
-            "flex flex-col items-center space-y-8 pb-12 max-w-[800px] mx-auto pt-[62px]",
+            "flex flex-col items-center space-y-8 pb-12 max-w-[800px] px-4 md:px-0 mx-auto pt-[62px]",
             isFixedHeader && "pt-[172px]"
           )}
         >
-          {typeof title === "string" ? <h1 className="text-[42px]">{title}</h1> : title}
+          {typeof title === "string" ? <h1 className="text-[42px] text-center">{title}</h1> : title}
 
-          <p className="text-dim dark:text-dim">{description}</p>
+          <p className="text-dim text-center dark:text-dim">{description}</p>
         </div>
       </div>
     </div>

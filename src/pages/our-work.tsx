@@ -15,7 +15,7 @@ const OurWork: Page = () => {
         <Section className="max-w-[800px] mx-auto py-16">
           <div className="gap-16 pb-5 flex flex-col">
             {/* Title */}
-            <div className="flex flex-col gap-6 px-[50px]">
+            <div className="flex flex-col gap-6 px-0 md:px-[50px]">
               <p className="text-orange dark:text-orange font-semibold uppercase">Our Projects</p>
               <div className="flex flex-col gap-3">
                 <h2 className="font-semibold">We build for the nation&apos;s benefit</h2>
@@ -31,18 +31,18 @@ const OurWork: Page = () => {
               </div>
             </div>
             {/* Launched Project */}
-            <div className="flex flex-col gap-6 px-[50px]">
+            <div className="flex flex-col gap-6 px-0 md:px-[50px]">
               <h4 className="font-semibold">Launched</h4>
-              <div className="grid-cols-2 grid gap-4.5">
+              <div className="md:grid-cols-2 grid gap-4.5">
                 {LAUNCHED_PROJECTS.map(project => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
               </div>
             </div>
             {/* Upcoming Project */}
-            <div className="flex flex-col gap-6 px-[50px]">
+            <div className="flex flex-col gap-6 px-0 md:px-[50px]">
               <h4 className="font-semibold">Under Development</h4>
-              <div className="grid-cols-2 grid gap-4.5">
+              <div className="md:grid-cols-2 grid gap-4.5">
                 {UPCOMING_PROJECTS.map(project => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
