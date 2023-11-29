@@ -1,6 +1,6 @@
 const I18NextHttpBackend = require("i18next-http-backend/cjs");
 
-const namespaces = ["common", "home", "about-us"];
+const namespaces = ["common", "home", "our-work", "join-us", "benefit"];
 
 /** @type {import('next-i18next').UserConfig} */
 const defineConfig = (namespace, autoloadNs) => {

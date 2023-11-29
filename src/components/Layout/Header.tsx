@@ -38,24 +38,33 @@ const Header: FunctionComponent<HeaderProps> = ({ isFixedHeader }) => {
           <Nav>
             {close => (
               <>
-                <Nav.Item title={t("common:nav.about_us")} link="/" key="/" onClick={close} />
+                <Nav.Item
+                  title={t("common:nav.about")}
+                  link="/"
+                  key="/"
+                  onClick={close}
+                  className="uppercase tracking-[1.4px]"
+                />
                 <Nav.Item
                   title={t("common:nav.our_work")}
                   key="/our-work"
                   link="/our-work"
                   onClick={close}
+                  className="uppercase tracking-[1.4px]"
                 />
                 <Nav.Item
                   title={t("common:nav.join_us")}
                   key="/join-us"
                   link="/join-us"
                   onClick={close}
+                  className="uppercase tracking-[1.4px]"
                 />
                 <Nav.Item
                   title={t("common:nav.contact_us")}
                   key="/contact-us"
                   link="/contact-us"
                   onClick={close}
+                  className="uppercase tracking-[1.4px]"
                 />
               </>
             )}

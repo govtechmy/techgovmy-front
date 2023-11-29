@@ -5,27 +5,32 @@ import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import Image from "next/image";
-import { BREAKPOINTS } from "@/lib/constants";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 const Home: Page = () => {
+  const { t } = useTranslation(["home"]);
   return (
     <>
       <Hero
         title={
           <div>
-            <h1 className="text-center text-[42px]">We build digital products to improve</h1>
-            <h1 className="text-orange text-center text-[42px]">the rakyat&apos;s convenience</h1>
+            <h1 className="text-center text-[42px]">{t("hero.title")}</h1>
+            <h1 className="text-orange text-center text-[42px]">
+              {t("hero.typewriter", { context: 1 })}
+            </h1>
           </div>
         }
-        description="We want to provide a place in the public sector that Malaysia's best and brightest can call home"
+        description={t("hero.description")}
       />
       <Container>
         <Section className="max-w-[800px] mx-auto py-16">
           <div className="gap-16 pb-5 flex flex-col">
             {/* Title */}
             <div className="flex flex-col gap-6 px-0 md:px-[50px]">
-              <p className="text-orange dark:text-orange font-semibold uppercase">About Us</p>
-              <h2 className="font-semibold">GovTech Solutions</h2>
+              <p className="text-orange dark:text-orange font-semibold uppercase">
+                {t("section.about_us")}
+              </p>
+              <h2 className="font-semibold">{t("common:site.name")}</h2>
             </div>
             {/* Image */}
             <div className="flex flex-col gap-6">
@@ -39,56 +44,58 @@ const Home: Page = () => {
                   alt="Govtech unit with PM"
                 />
               </div>
-              <p className="text-sm text-dim text-center">Image caption</p>
+              <p className="text-sm text-dim text-center">{t("section.image_caption")}</p>
             </div>
             {/* Our story */}
             <div className="flex flex-col gap-3 px-0 md:px-[50px]">
-              <h3 className="font-semibold text-black">Our story</h3>
+              <h3 className="font-semibold text-black">{t("section.story.title")}</h3>
               <p className="text-outline-hover-dark dark:text-dim">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
+                {t("section.story.paragraph", { context: 1 })}
               </p>
               <p className="text-outline-hover-dark dark:text-dim">
-                We are currently set up as a unit under the Prime Minister&apos;s Office, with a
-                long-term goal of being incorporated as GovTech Malaysia. Formally, we report
-                directly to the Prime Minister. Operationally, we function as the implementation arm
-                for MAMPU, who holds the mandate for digital policymaking within government.
+                {t("section.story.paragraph", { context: 2 })}
               </p>
             </div>
             {/* Our vision */}
             <div className="flex flex-col gap-3 px-0 md:px-[50px]">
-              <h3 className="font-semibold text-black">Our vision</h3>
+              <h3 className="font-semibold text-black">{t("section.vision.title")}</h3>
               <ul className="text-outline-hover-dark dark:text-dim">
-                Everything we do is dedicated to improving:
+                {t("section.vision.paragraph", { context: 1 })}
               </ul>
               <li className="text-outline-hover-dark dark:text-dim">
-                The rakyat&apos;s convenience
+                {t("section.vision.list_item", { context: 1 })}
               </li>
-              <li className="text-outline-hover-dark dark:text-dim">Civil service efficiency</li>
-              <li className="text-outline-hover-dark dark:text-dim">Government transparency</li>
+              <li className="text-outline-hover-dark dark:text-dim">
+                {" "}
+                {t("section.vision.list_item", { context: 2 })}
+              </li>
+              <li className="text-outline-hover-dark dark:text-dim">
+                {" "}
+                {t("section.vision.list_item", { context: 3 })}
+              </li>
               <p className="text-outline-hover-dark dark:text-dim">
-                The rest is details. We pursue these goals with a passion, collaborating with
-                stakeholders across the public, private, and civil sectors as required.
+                {t("section.vision.paragraph", { context: 2 })}
               </p>
             </div>
             {/* Our mission */}
             <div className="flex flex-col gap-3 px-0 md:px-[50px]">
-              <h3 className="font-semibold text-black">Our mission</h3>
+              <h3 className="font-semibold text-black">{t("section.mission.title")}</h3>
               <ul className="text-outline-hover-dark dark:text-dim">
-                Everything we do is dedicated to improving:
+                {t("section.mission.paragraph", { context: 1 })}
               </ul>
               <li className="text-outline-hover-dark dark:text-dim">
-                The rakyat&apos;s convenience
+                {t("section.mission.list_item", { context: 1 })}
               </li>
-              <li className="text-outline-hover-dark dark:text-dim">Civil service efficiency</li>
-              <li className="text-outline-hover-dark dark:text-dim">Government transparency</li>
+              <li className="text-outline-hover-dark dark:text-dim">
+                {" "}
+                {t("section.mission.list_item", { context: 2 })}
+              </li>
+              <li className="text-outline-hover-dark dark:text-dim">
+                {" "}
+                {t("section.mission.list_item", { context: 3 })}
+              </li>
               <p className="text-outline-hover-dark dark:text-dim">
-                The rest is details. We pursue these goals with a passion, collaborating with
-                stakeholders across the public, private, and civil sectors as required.
+                {t("section.mission.paragraph", { context: 2 })}
               </p>
             </div>
           </div>

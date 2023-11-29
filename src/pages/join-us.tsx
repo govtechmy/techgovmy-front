@@ -13,30 +13,34 @@ import { clx } from "@/lib/helper";
 import Button from "@/components/Button";
 import { useState } from "react";
 import { JobOpeningModal } from "@/components/SiteComponents/job-opening-modal";
+import { t } from "i18next";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 const JoinUs: Page = () => {
+  const { t } = useTranslation(["join-us", "benefit"]);
+
   const [showJob, setShowJob] = useState(false);
   const tableConfig: TableConfig[] = [
     {
       accessorKey: "section",
       id: "section",
-      header: "Section",
+      header: t("avai_roles.table.section"),
     },
     {
       accessorKey: "position",
       id: "position",
-      header: "Position",
+      header: t("avai_roles.table.position"),
     },
     {
       accessorKey: "status",
       id: "status",
       className: "",
-      header: "Status",
+      header: t("avai_roles.table.status"),
       cell: ({ row, getValue }) => (
         <p
           className={clx(getValue() ? "text-success dark:text-success" : "text-dim dark:text-dim")}
         >
-          {getValue() ? "Available" : "Unavailable"}
+          {getValue() ? t("avai_roles.table.available") : t("avai_roles.table.unavailable")}
         </p>
       ),
     },
@@ -52,28 +56,26 @@ const JoinUs: Page = () => {
           className="text-primary disabled:text-outline-hover"
           variant="ghost"
         >
-          Apply
+          {t("avai_roles.table.apply")}
         </Button>
       ),
     },
   ];
   return (
     <>
-      <Hero
-        title={"Join the GovTech Nucleus Unit!"}
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
-      />
+      <Hero title={t("hero.title")} description={t("hero.description")} />
       <Container>
         <Section className="max-w-[800px] mx-auto py-16">
           <div className="gap-16 pb-5 flex flex-col">
             {/* Title */}
             <div className="flex flex-col gap-6 px-0 md:px-[50px]">
-              <p className="text-orange dark:text-orange font-semibold uppercase">Join Us</p>
+              <p className="text-orange dark:text-orange font-semibold uppercase">
+                {t("section.join_us")}
+              </p>
               <div className="flex flex-col gap-3">
-                <h2 className="font-semibold">Come build for the nation</h2>
+                <h2 className="font-semibold">{t("section.story.title")}</h2>
                 <p className="text-outline-hover-dark dark:text-dim">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua.
+                  {t("section.story.paragraph", { context: 1 })}
                 </p>
               </div>
             </div>
@@ -81,10 +83,9 @@ const JoinUs: Page = () => {
             {/* Our People */}
             <div className="flex flex-col gap-6 px-0 md:px-[50px]">
               <div className="flex flex-col gap-3">
-                <h3 className="font-semibold">Our People</h3>
+                <h3 className="font-semibold">{t("section.our_people.title")}</h3>
                 <p className="text-outline-hover-dark dark:text-dim">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                  {t("section.our_people.paragraph", { context: 1 })}
                 </p>
               </div>
 
@@ -102,9 +103,9 @@ const JoinUs: Page = () => {
                 {BENEFITS.map((benefit, index) => (
                   <div key={index} className="flex flex-col gap-3">
                     {benefit.icon}
-                    <p className="font-medium">{benefit.title}</p>
+                    <p className="font-medium">{t(`benefit:${benefit.key}.title`)}</p>
                     <p className="text-outline-hover dark:text-dim text-sm">
-                      {benefit.description}
+                      {t(`benefit:${benefit.key}.description`)}
                     </p>
                   </div>
                 ))}
@@ -112,10 +113,9 @@ const JoinUs: Page = () => {
             </div>
             {/* Available Roles */}
             <div className="flex flex-col gap-3 px-0 md:px-[50px]">
-              <h4 className="font-semibold">Roles available</h4>
+              <h4 className="font-semibold">{t("avai_roles.title")}</h4>
               <p className="text-outline-hover-dark dark:text-dim">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                {t("avai_roles.paragraph", { context: 1 })}
               </p>
 
               <div className="">
@@ -140,7 +140,7 @@ const JoinUs: Page = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = withi18n(["join-us"], async () => {
+export const getStaticProps: GetStaticProps = withi18n(["join-us", "benefit"], async () => {
   try {
     return {
       notFound: false,

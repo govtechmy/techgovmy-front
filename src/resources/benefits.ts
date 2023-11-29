@@ -14,71 +14,64 @@ import {
 } from "@heroicons/react/20/solid";
 
 const benefitList = [
-  "currency-dollar",
-  "globe-asia-australia",
-  "trophy",
+  "competitive_salary",
+  "remote_work",
+  "culture_excellence",
+  "high_impact",
+  "fulfilment",
+  "supportive_env",
+  // BELOW ARE CURRENTLY NOT IN USE
   "share",
   "computer-desktop",
-  "fire",
   "briefcase",
   "map-pin",
-  "check-badge",
   "envelope",
-  "user-group",
 ] as const;
 
 export type BenefitList = (typeof benefitList)[number];
 
 const BenefitIcons: Record<BenefitList, ReactNode> = {
-  "currency-dollar": createElement(CurrencyDollarIcon, { className: "h-5 w-5" }),
-  "globe-asia-australia": createElement(GlobeAsiaAustraliaIcon, { className: "h-5 w-5" }),
-  "trophy": createElement(TrophyIcon, { className: "h-5 w-5" }),
+  "competitive_salary": createElement(CurrencyDollarIcon, { className: "h-5 w-5" }),
+  "remote_work": createElement(GlobeAsiaAustraliaIcon, { className: "h-5 w-5" }),
+  "culture_excellence": createElement(TrophyIcon, { className: "h-5 w-5" }),
   "share": createElement(ShareIcon, { className: "h-5 w-5" }),
   "computer-desktop": createElement(ComputerDesktopIcon, { className: "h-5 w-5" }),
-  "fire": createElement(FireIcon, { className: "h-5 w-5" }),
+  "high_impact": createElement(FireIcon, { className: "h-5 w-5" }),
   "briefcase": createElement(BriefcaseIcon, { className: "h-5 w-5" }),
   "map-pin": createElement(MapPinIcon, { className: "h-5 w-5" }),
-  "check-badge": createElement(CheckBadgeIcon, { className: "h-5 w-5" }),
+  "fulfilment": createElement(CheckBadgeIcon, { className: "h-5 w-5" }),
   "envelope": createElement(EnvelopeIcon, { className: "h-5 w-5" }),
-  "user-group": createElement(UserGroupIcon, { className: "h-5 w-5" }),
+  "supportive_env": createElement(UserGroupIcon, { className: "h-5 w-5" }),
 };
 
 type Benefit = {
-  title: string;
-  description: string;
+  key: BenefitList;
   icon: ReactNode;
 };
 
 export const BENEFITS: Array<Benefit> = [
   {
-    title: "Competitive Salary",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-    icon: BenefitIcons["currency-dollar"],
+    key: "competitive_salary",
+    icon: BenefitIcons["competitive_salary"],
   },
   {
-    title: "High Impact",
-    description: "The entire Malaysia uses the stuff you build. It’s an impact like none other.",
-    icon: BenefitIcons["fire"],
+    key: "high_impact",
+    icon: BenefitIcons["high_impact"],
   },
   {
-    title: "Remote Work",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-    icon: BenefitIcons["globe-asia-australia"],
+    key: "remote_work",
+    icon: BenefitIcons["remote_work"],
   },
   {
-    title: "Culture of Excellence",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-    icon: BenefitIcons["trophy"],
+    key: "culture_excellence",
+    icon: BenefitIcons["culture_excellence"],
   },
   {
-    title: "Supportive Environment",
-    description:
-      "High-quality machines, on-the-job upskilling, you name it - if you need it, we try to give it ",
-    icon: BenefitIcons["user-group"],
+    key: "supportive_env",
+    icon: BenefitIcons["supportive_env"],
   },
   {
-    title: "Sense of Fulfilment",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
-    icon: BenefitIcons["check-badge"],
+    key: "fulfilment",
+    icon: BenefitIcons["fulfilment"],
   },
 ];
