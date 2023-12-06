@@ -30,7 +30,7 @@ const benefitList = [
 
 export type BenefitList = (typeof benefitList)[number];
 
-const BenefitIcons: Record<BenefitList, ReactNode> = {
+export const BenefitIcons: Record<BenefitList, ReactNode> = {
   "competitive_salary": createElement(CurrencyDollarIcon, { className: "h-5 w-5" }),
   "remote_work": createElement(GlobeAsiaAustraliaIcon, { className: "h-5 w-5" }),
   "culture_excellence": createElement(TrophyIcon, { className: "h-5 w-5" }),

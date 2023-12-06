@@ -28,30 +28,34 @@ const Footer: FunctionComponent<FooterProps> = ({ title, children }) => {
         <div className="flex flex-col gap-4.5">
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 justify-center">
             <p className="font-medium">{t("common:nav.open_source")}:</p>
-            <At className="link-dim" external href="https://github.com/data-gov-my/datagovmy-front">
+            <At
+              className="link-dim"
+              external
+              href="https://github.com/govtech-malaysia/techgovmy-front"
+            >
               {t("common:nav.frontend")}
             </At>
             <At
               className="link-dim"
               external
-              href="https://www.figma.com/file/6iNojR8hO5bWvH0c3rvGD4"
+              href="https://www.figma.com/file/VUDZ7IbrRLoTssGwSIwFDL"
             >
               {t("common:nav.uiux")}
             </At>
           </div>
 
           <div className="flex flex-col md:flex-row gap-3 items-center justify-center md:gap-6">
-            <At className="link-dim" external href="https://github.com/data-gov-my/datagovmy-front">
-              {t("common:nav.about_us")}
+            <At className="link-dim" href="/">
+              {t("common:nav.about")}
             </At>
-            <At className="link-dim" external href="https://github.com/data-gov-my/datagovmy-front">
+            <At className="link-dim" href="/our-work">
               {t("common:nav.our_work")}
             </At>
-            <At className="link-dim" external href="https://github.com/data-gov-my/datagovmy-front">
-              {t("common:nav.contact_us")}
-            </At>
-            <At className="link-dim" external href="https://github.com/data-gov-my/datagovmy-front">
+            <At className="link-dim" href="/join-us">
               {t("common:nav.join_us")}
+            </At>
+            <At className="link-dim" href="contact-us">
+              {t("common:nav.contact_us")}
             </At>
           </div>
         </div>
