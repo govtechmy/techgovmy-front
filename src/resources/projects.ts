@@ -30,15 +30,17 @@ export const LAUNCHED_PROJECTS: Array<Project> = [
     id: "datagovmy-docs",
     name: "data.gov.my docs",
     description:
-      "Documentation for Malaysia’s official Open API, covering both static and realtime APIs.",
+      "Documentation for Malaysia's official Open API, covering both static and realtime APIs.",
     description_bm:
-      "Documentation for Malaysia’s official Open API, covering both static and realtime APIs.",
+      "Documentation for Malaysia's official Open API, covering both static and realtime APIs.",
+    url: "https://developer.data.gov.my/",
   },
   {
     id: "opendosm",
     name: "OpenDOSM",
     description: "A platform that catalogs, visualises, and analyses data published by DOSM.",
     description_bm: "A platform that catalogs, visualises, and analyses data published by DOSM.",
+    url: "https://open.dosm.gov.my/",
   },
   {
     id: "hansard",
