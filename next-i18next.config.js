@@ -16,10 +16,10 @@ const defineConfig = (namespace, autoloadNs) => {
         allowMultiLoading: true,
       },
       // USE THIS for local translation file
-      localePath:
-        typeof window === "undefined"
-          ? require("path").resolve("./public/translations")
-          : "./public/translations",
+      // localePath:
+      //   typeof window === "undefined"
+      //     ? require("path").resolve("./public/translations")
+      //     : "./public/translations",
     },
     debug: false,
     ns: namespace,
@@ -28,7 +28,7 @@ const defineConfig = (namespace, autoloadNs) => {
     preload: ["en-GB"],
     serializeConfig: false,
     reloadOnPrerender: true,
-    // use: [I18NextHttpBackend],
+    use: [I18NextHttpBackend],
   };
 };
 
