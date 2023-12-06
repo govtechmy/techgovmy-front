@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./markdown.css";
+
 @layer base {
   h1 {
     @apply font-header text-4xl font-bold leading-[54px] dark:text-white;

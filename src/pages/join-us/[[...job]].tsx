@@ -9,7 +9,7 @@ import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import { PEOPLE } from "@/resources/people";
 import PeopleCard from "@/components/SiteComponents/people-card";
-import { BENEFITS } from "@/resources/benefits";
+import { BENEFITS, BenefitIcon } from "@/resources/benefits";
 import Table, { TableConfig } from "@/components/Table";
 import { JOB_OPENINGS } from "@/resources/job-opening";
 import { clx } from "@/lib/helper";
@@ -132,7 +132,7 @@ const JoinUs: Page = ({
               <div className="md:grid-cols-2 grid gap-8 bg-background dark:bg-washed-dark p-6 rounded-xl">
                 {BENEFITS.map((benefit, index) => (
                   <div key={index} className="flex flex-col gap-3">
-                    {benefit.icon}
+                    <BenefitIcon benefit={benefit.key} />
                     <p className="font-medium">{t(`benefit:${benefit.key}.title`)}</p>
                     <p className="text-outline-hover dark:text-dim text-sm">
                       {t(`benefit:${benefit.key}.description`)}

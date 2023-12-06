@@ -1,0 +1,20 @@
+/* Markdown css for job detail modal */
+.markdown {
+  @apply space-y-3;
+}
+
+.markdown p {
+  @apply text-sm font-normal text-outline-hover-dark dark:text-dim;
+}
+
+.markdown ul {
+  @apply my-5 list-inside list-disc space-y-3 text-sm  text-outline-hover-dark dark:text-dim;
+}
+
+.markdown ol {
+  @apply ml-5 list-outside list-decimal space-y-3 text-sm  text-outline-hover-dark dark:text-dim;
+}
+
+.markdown a {
+  @apply text-primary dark:text-primary-dark [text-underline-position:from-font] hover:underline;
+}

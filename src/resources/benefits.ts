@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, createElement } from "react";
+import { FunctionComponent, createElement } from "react";
 import {
   BriefcaseIcon,
   CheckBadgeIcon,
@@ -12,6 +12,7 @@ import {
   TrophyIcon,
   UserGroupIcon,
 } from "@heroicons/react/20/solid";
+import { clx } from "@/lib/helper";
 
 const benefitList = [
   "competitive_salary",
@@ -30,48 +31,55 @@ const benefitList = [
 
 export type BenefitList = (typeof benefitList)[number];
 
-export const BenefitIcons: Record<BenefitList, ReactNode> = {
-  "competitive_salary": createElement(CurrencyDollarIcon, { className: "h-5 w-5" }),
-  "remote_work": createElement(GlobeAsiaAustraliaIcon, { className: "h-5 w-5" }),
-  "culture_excellence": createElement(TrophyIcon, { className: "h-5 w-5" }),
-  "share": createElement(ShareIcon, { className: "h-5 w-5" }),
-  "computer-desktop": createElement(ComputerDesktopIcon, { className: "h-5 w-5" }),
-  "high_impact": createElement(FireIcon, { className: "h-5 w-5" }),
-  "briefcase": createElement(BriefcaseIcon, { className: "h-5 w-5" }),
-  "map-pin": createElement(MapPinIcon, { className: "h-5 w-5" }),
-  "fulfilment": createElement(CheckBadgeIcon, { className: "h-5 w-5" }),
-  "envelope": createElement(EnvelopeIcon, { className: "h-5 w-5" }),
-  "supportive_env": createElement(UserGroupIcon, { className: "h-5 w-5" }),
+const IconList: Record<BenefitList, FunctionComponent<{ className?: string }>> = {
+  "competitive_salary": CurrencyDollarIcon,
+  "remote_work": GlobeAsiaAustraliaIcon,
+  "culture_excellence": TrophyIcon,
+  "share": ShareIcon,
+  "computer-desktop": ComputerDesktopIcon,
+  "high_impact": FireIcon,
+  "briefcase": BriefcaseIcon,
+  "map-pin": MapPinIcon,
+  "fulfilment": CheckBadgeIcon,
+  "envelope": EnvelopeIcon,
+  "supportive_env": UserGroupIcon,
 };
 
 type Benefit = {
   key: BenefitList;
-  icon: ReactNode;
 };
 
 export const BENEFITS: Array<Benefit> = [
   {
     key: "competitive_salary",
-    icon: BenefitIcons["competitive_salary"],
   },
   {
     key: "high_impact",
-    icon: BenefitIcons["high_impact"],
   },
   {
     key: "remote_work",
-    icon: BenefitIcons["remote_work"],
   },
   {
     key: "culture_excellence",
-    icon: BenefitIcons["culture_excellence"],
   },
   {
     key: "supportive_env",
-    icon: BenefitIcons["supportive_env"],
   },
   {
     key: "fulfilment",
-    icon: BenefitIcons["fulfilment"],
   },
 ];
+
+interface IBenefitIcon {
+  benefit: BenefitList;
+  className?: string;
+}
+
+export const BenefitIcon: FunctionComponent<IBenefitIcon> = ({ benefit, className }) => {
+  const Icon = IconList[benefit];
+
+  if (typeof Icon !== "undefined") {
+    return createElement(Icon, { className: clx("h-5 w-5", className) });
+  }
+  return null;
+};

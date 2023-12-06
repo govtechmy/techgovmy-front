@@ -7,7 +7,8 @@ import { EnvelopeIcon } from "@heroicons/react/20/solid";
 import { clx } from "@/lib/helper";
 import { header, body } from "@/lib/configs/fonts";
 import { JobOpening } from "@/resources/job-opening";
-import { BenefitIcons } from "@/resources/benefits";
+import { BenefitIcon } from "@/resources/benefits";
+import Markdown from "../Markdown";
 
 type JobOpeningModalProps = {
   show: boolean;
@@ -87,7 +88,7 @@ export const JobOpeningModal: FunctionComponent<JobOpeningModalProps> = ({
                       <div className="flex flex-row items-center flex-wrap gap-3">
                         {data.job_details.perks.map((item, index) => (
                           <div key={index} className="flex items-center gap-3 w-[300px]">
-                            {BenefitIcons[item.icon]}
+                            <BenefitIcon benefit={item.icon} className="text-orange" />
                             <p className="text-outline-hover-dark dark:text-dim text-sm">
                               {item.title}
                             </p>
@@ -97,9 +98,17 @@ export const JobOpeningModal: FunctionComponent<JobOpeningModalProps> = ({
                     </div>
 
                     {/* Job Description section */}
-                    <div className="p-3 min-h-[500px] max-h-[500px] w-full overflow-scroll bg-background dark:bg-washed-dark/50 rounded-lg border dark:border-washed-dark border-outline">
-                      <p>{data.job_details.job_description}</p>
-                      <p>{data.job_details.skills}</p>
+                    <div className="p-3 min-h-[500px] max-h-[500px] w-full overflow-scroll bg-background dark:bg-washed-dark/50 rounded-lg border dark:border-washed-dark border-outline flex flex-col gap-6">
+                      <div className="flex flex-col gap-3">
+                        <p className="font-medium dark:font-medium">
+                          {t("modal.job_description")}:
+                        </p>
+                        <Markdown className="markdown">{data.job_details.job_description}</Markdown>
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        <p className="font-medium dark:font-medium">{t("modal.skills")}:</p>
+                        <Markdown>{data.job_details.skills}</Markdown>
+                      </div>
                     </div>
 
                     <div className="mt-6 rounded-lg border border-[#EFAE75] bg-[#FFF6EF] p-3 flex items-center gap-3">
