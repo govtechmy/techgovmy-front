@@ -15,7 +15,7 @@ const Home: Page = () => {
         title={
           <div>
             <h1 className="text-center text-[42px]">{t("hero.title")}</h1>
-            <h1 className="text-orange text-center text-[42px]">
+            <h1 className="text-orange dark:text-orange text-center text-[42px]">
               {t("hero.typewriter", { context: 1 })}
             </h1>
           </div>
