@@ -107,4 +107,8 @@
     @apply bg-[length:100%,100%];
     @apply bg-cover
   }
+
+  .job-detail-apply a {
+    @apply text-orange
+  }
 }

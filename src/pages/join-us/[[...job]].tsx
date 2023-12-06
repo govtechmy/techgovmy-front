@@ -1,6 +1,9 @@
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { withi18n } from "@/lib/decorator";
 import { Page } from "@/lib/types";
-import { GetStaticProps } from "next";
+import { useTranslation } from "@/lib/hooks/useTranslation";
+import { useRouter } from "next/router";
+import { JobOpeningModal } from "@/components/SiteComponents/job-opening-modal";
 import Container from "@/components/Container";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
@@ -11,15 +14,34 @@ import Table, { TableConfig } from "@/components/Table";
 import { JOB_OPENINGS } from "@/resources/job-opening";
 import { clx } from "@/lib/helper";
 import Button from "@/components/Button";
-import { useState } from "react";
-import { JobOpeningModal } from "@/components/SiteComponents/job-opening-modal";
-import { t } from "i18next";
-import { useTranslation } from "@/lib/hooks/useTranslation";
+import { useEffect, useState } from "react";
 
-const JoinUs: Page = () => {
+const JOIN_ROUTE = "/join-us";
+
+const JoinUs: Page = ({
+  meta,
+  job_detail,
+  params,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { t } = useTranslation(["join-us", "benefit"]);
+  const { push, events } = useRouter();
+  const [show, setShow] = useState(false);
+  const [modalLoading, setModalLoading] = useState(false);
 
-  const [showJob, setShowJob] = useState(false);
+  useEffect(() => {
+    if (job_detail) {
+      setShow(true);
+    }
+    events.on("routeChangeComplete", () => {
+      setModalLoading(false);
+    });
+    return () => {
+      events.off("routeChangeComplete", () => {
+        setModalLoading(false);
+      });
+    };
+  }, [job_detail]);
+
   const tableConfig: TableConfig[] = [
     {
       accessorKey: "section",
@@ -52,7 +74,15 @@ const JoinUs: Page = () => {
       cell: ({ row, getValue }) => (
         <Button
           disabled={!row.original.status}
-          onClick={() => setShowJob(true)}
+          onClick={() => {
+            setShow(true);
+            setModalLoading(true);
+            push(
+              JOIN_ROUTE.concat("/", row.original.key),
+              JOIN_ROUTE.concat("/", row.original.key),
+              { scroll: false }
+            );
+          }}
           className="text-primary disabled:text-outline-hover"
           variant="ghost"
         >
@@ -131,30 +161,55 @@ const JoinUs: Page = () => {
         </Section>
       </Container>
       <JobOpeningModal
-        show={showJob}
+        show={show}
+        data={job_detail}
+        loading={modalLoading}
         hide={() => {
-          setShowJob(false);
+          setShow(false);
+          push(JOIN_ROUTE, undefined, {
+            scroll: false,
+          });
         }}
       />
     </>
   );
 };
 
-export const getStaticProps: GetStaticProps = withi18n(["join-us", "benefit"], async () => {
-  try {
-    return {
-      notFound: false,
-      props: {
-        meta: {
-          id: "join-us",
-          type: "misc",
+export const getServerSideProps: GetServerSideProps = withi18n(
+  ["join-us", "benefit"],
+  async ({ locale, query, params }) => {
+    try {
+      if (params) {
+        const job_id = params.job ? params.job[0] : "";
+        const job_detail = job_id ? JOB_OPENINGS.find(item => item.key === job_id) : null;
+        return {
+          notFound: false,
+          props: {
+            meta: {
+              id: "join-us",
+              type: "misc",
+            },
+            job_detail: job_detail,
+            params: { job_id },
+          },
+        };
+      }
+      return {
+        notFound: false,
+        props: {
+          meta: {
+            id: "join-us",
+            type: "misc",
+          },
+          job_detail: null,
+          params: {},
         },
-      },
-    };
-  } catch (error: any) {
-    console.error(error.message);
-    return { notFound: true };
+      };
+    } catch (e: any) {
+      console.error(e.message);
+      return { notFound: true };
+    }
   }
-});
+);
 
 export default JoinUs;

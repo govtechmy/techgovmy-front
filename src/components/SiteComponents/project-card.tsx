@@ -23,7 +23,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
 
   if (project.url) {
     return (
-      <Link href={project.url} target="_blank">
+      <Link href={project.url} target="_blank" rel="noopener noreferrer">
         {content}
       </Link>
     );

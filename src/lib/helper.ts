@@ -60,13 +60,15 @@ export const interpolate = (raw_text: string): string | ReactElement[] => {
 
   if (matches.length <= 1) return raw_text;
 
-  return matches.map(item => {
+  return matches.map((item, index) => {
     const match = item.split("](");
-    if (match.length <= 1) return createElement("span", { className: "text-inherit" }, item);
+    if (match.length <= 1)
+      return createElement("span", { className: "text-inherit", key: index }, item);
     const [text, url] = match;
     return createElement(
       "a",
       {
+        key: index,
         href: url,
         className:
           "text-primary dark:text-primary-dark hover:underline inline [text-underline-position:from-font]",
