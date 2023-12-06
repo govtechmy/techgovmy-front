@@ -34,7 +34,8 @@ const Item: FunctionComponent<NavItemProps> = ({
   title,
   external = false,
 }) => {
-  const { pathname } = useRouter();
+  const { asPath } = useRouter();
+
   return (
     <div className="flex flex-col">
       <At
@@ -43,7 +44,7 @@ const Item: FunctionComponent<NavItemProps> = ({
         onClick={onClick}
         className={clx(
           "flex items-center gap-2 rounded-none px-2 py-2 text-sm font-medium transition hover:cursor-pointer md:rounded-md flex-1 text-black/50 dark:text-white/50",
-          pathname === link && "text-black dark:text-white",
+          asPath === link && "text-black dark:text-white",
           className
         )}
         external={external}
@@ -51,7 +52,7 @@ const Item: FunctionComponent<NavItemProps> = ({
         {icon}
         {title}
       </At>
-      {pathname === link ? (
+      {asPath === link ? (
         <div className="h-1 rounded-[4px] w-1/4 self-center bg-orange hidden lg:block" />
       ) : (
         <div className="h-1 w-1/4" />
