@@ -113,4 +113,9 @@
   .job-detail-apply a {
     @apply text-orange
   }
+
+  .Typewriter {
+    @apply text-orange dark:text-orange text-center text-[42px]
+  }
 }
+

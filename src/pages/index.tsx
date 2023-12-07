@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import Image from "next/image";
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import Typewriter from "typewriter-effect";
 
 const Home: Page = () => {
   const { t } = useTranslation(["home"]);
@@ -15,9 +16,27 @@ const Home: Page = () => {
         title={
           <div>
             <h1 className="text-center text-[42px]">{t("hero.title")}</h1>
-            <h1 className="text-orange dark:text-orange text-center text-[42px]">
-              {t("hero.typewriter", { context: 1 })}
-            </h1>
+            <Typewriter
+              component={"h1"}
+              options={{
+                autoStart: true,
+                loop: true,
+                delay: 50,
+                deleteSpeed: 10,
+              }}
+              onInit={typewriter => {
+                typewriter
+                  .typeString(t("hero.typewriter", { context: 1 }))
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .typeString(t("hero.typewriter", { context: 2 }))
+                  .pauseFor(1000)
+                  .deleteAll()
+                  .typeString(t("hero.typewriter", { context: 3 }))
+                  .pauseFor(1000)
+                  .start();
+              }}
+            />
           </div>
         }
         description={t("hero.description")}
