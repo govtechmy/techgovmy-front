@@ -15,6 +15,7 @@ import { JOB_OPENINGS } from "@/resources/job-opening";
 import { clx } from "@/lib/helper";
 import Button from "@/components/Button";
 import { useEffect, useState } from "react";
+import Metadata from "@/components/Metadata";
 
 const JOIN_ROUTE = "/join-us";
 
@@ -93,6 +94,7 @@ const JoinUs: Page = ({
   ];
   return (
     <>
+      <Metadata title={t("hero.title")} />
       <Hero title={t("hero.title")} description={t("hero.description")} />
       <Container>
         <Section className="max-w-[800px] mx-auto py-16">

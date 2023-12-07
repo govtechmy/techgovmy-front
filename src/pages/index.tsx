@@ -7,11 +7,13 @@ import Section from "@/components/Section";
 import Image from "next/image";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import Typewriter from "typewriter-effect";
+import Metadata from "@/components/Metadata";
 
 const Home: Page = () => {
   const { t } = useTranslation(["home"]);
   return (
     <>
+      <Metadata title={t("common:site.name")} />
       <Hero
         title={
           <div>

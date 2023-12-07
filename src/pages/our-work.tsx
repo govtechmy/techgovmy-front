@@ -7,11 +7,13 @@ import Section from "@/components/Section";
 import ProjectCard from "@/components/SiteComponents/project-card";
 import { LAUNCHED_PROJECTS, UPCOMING_PROJECTS } from "@/resources/projects";
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import Metadata from "@/components/Metadata";
 
 const OurWork: Page = () => {
   const { t } = useTranslation(["our-work"]);
   return (
     <>
+      <Metadata title={t("hero.title")} />
       <Hero title={t("hero.title")} description={t("hero.description")} />
       <Container>
         <Section className="max-w-[800px] mx-auto py-16">
