@@ -22,16 +22,16 @@ const Home: Page = () => {
                 autoStart: true,
                 loop: true,
                 delay: 50,
-                deleteSpeed: 10,
+                deleteSpeed: 2,
               }}
               onInit={typewriter => {
                 typewriter
                   .typeString(t("hero.typewriter", { context: 1 }))
                   .pauseFor(1000)
-                  .deleteAll()
+                  .deleteAll(10)
                   .typeString(t("hero.typewriter", { context: 2 }))
                   .pauseFor(1000)
-                  .deleteAll()
+                  .deleteAll(10)
                   .typeString(t("hero.typewriter", { context: 3 }))
                   .pauseFor(1000)
                   .start();
