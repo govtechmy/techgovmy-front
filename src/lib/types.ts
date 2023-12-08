@@ -12,6 +12,8 @@ export type Page = NextPage & {
   theme?: "light" | "dark";
 };
 
+export type SiteLanguage = "en-GB" | "ms-MY";
+
 export type OptionType = {
   label: string;
   value: string;

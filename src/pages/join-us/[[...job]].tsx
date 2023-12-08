@@ -1,6 +1,6 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { withi18n } from "@/lib/decorator";
-import { Page } from "@/lib/types";
+import { Page, SiteLanguage } from "@/lib/types";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import { useRouter } from "next/router";
 import { JobOpeningModal } from "@/components/SiteComponents/job-opening-modal";
@@ -11,7 +11,7 @@ import { PEOPLE } from "@/resources/people";
 import PeopleCard from "@/components/SiteComponents/people-card";
 import { BENEFITS, BenefitIcon } from "@/resources/benefits";
 import Table, { TableConfig } from "@/components/Table";
-import { JOB_OPENINGS } from "@/resources/job-opening";
+import { JobOpening } from "@/resources/job-opening";
 import { clx } from "@/lib/helper";
 import Button from "@/components/Button";
 import { useEffect, useState } from "react";
@@ -22,6 +22,7 @@ const JOIN_ROUTE = "/join-us";
 const JoinUs: Page = ({
   meta,
   job_detail,
+  all_jobs,
   params,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { t } = useTranslation(["join-us", "benefit"]);
@@ -153,7 +154,7 @@ const JoinUs: Page = ({
               <div className="">
                 <Table
                   className="md:mx-auto lg:w-full"
-                  data={JOB_OPENINGS}
+                  data={all_jobs}
                   enablePagination={false}
                   config={tableConfig}
                 />
@@ -181,9 +182,15 @@ export const getServerSideProps: GetServerSideProps = withi18n(
   ["join-us", "benefit"],
   async ({ locale, query, params }) => {
     try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_I18N_URL}/${process.env.NEXT_PUBLIC_APP_ENV}/resources/job-opening.json`
+      );
+      const all_data = (await response.json()) as Record<SiteLanguage, Array<JobOpening>>;
       if (params) {
         const job_id = params.job ? params.job[0] : "";
-        const job_detail = job_id ? JOB_OPENINGS.find(item => item.key === job_id) : null;
+        const job_detail = job_id
+          ? all_data[locale as SiteLanguage].find(item => item.key === job_id)
+          : null;
         return {
           notFound: false,
           props: {
@@ -192,6 +199,7 @@ export const getServerSideProps: GetServerSideProps = withi18n(
               type: "misc",
             },
             job_detail: job_detail,
+            all_jobs: all_data[locale as SiteLanguage],
             params: { job_id },
           },
         };
@@ -204,6 +212,7 @@ export const getServerSideProps: GetServerSideProps = withi18n(
             type: "misc",
           },
           job_detail: null,
+          all_jobs: all_data[locale as SiteLanguage],
           params: {},
         },
       };
