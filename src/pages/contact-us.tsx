@@ -18,7 +18,7 @@ const ContactUs: Page = () => {
         description="We want to provide a place in the public sector that Malaysia’s best and brightest can call home"
       />
       <Container>
-        <p>contact us</p>
+        <div className="w-full h-96 flex items-center justify-center">Coming soon...</div>
       </Container>
     </>
   );

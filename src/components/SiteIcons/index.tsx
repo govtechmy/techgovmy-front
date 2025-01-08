@@ -25,7 +25,7 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = ({ height }) => {
           <Image
             src={"/static/images/icons/tiger-dark.png"}
             alt="GovTech Icon Dark"
-            width={height * 1.167 ?? 42}
+            width={height * 1.167 || 42}
             height={height ?? 36}
           />
         </div>
@@ -33,7 +33,7 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = ({ height }) => {
           <Image
             src={"/static/images/icons/tiger-white.png"}
             alt="GovTech Icon"
-            width={height * 1.167 ?? 42}
+            width={height * 1.167 || 42}
             height={height ?? 36}
           />
         </div>
@@ -43,12 +43,12 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = ({ height }) => {
               <p className="font-bold leading-tight text-lg">
                 GOV<span className="font-medium">TECH</span>
               </p>
-              <p className="font-semibold text-xs text-dim">Solutions</p>
+              <p className="font-semibold text-xs text-dim">Nucleus Unit</p>
             </>
           )}
           {i18n.language === "ms-MY" && (
             <>
-              <p className="font-semibold text-xs text-dim">Peneraju</p>
+              <p className="font-semibold text-xs text-dim">Unit Nukleus</p>
               <p className="font-bold leading-tight text-lg">
                 GOV<span className="font-medium">TECH</span>
               </p>

@@ -16,7 +16,7 @@ const Error404: Page = ({}: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Container className="min-h-[76vh] pt-7 text-black">
         <ErrorStatus
           title={t("error.404.title") as string}
-          description={<>{`${t("error.404.description")} ${t("error.404.legacy")}`}</>}
+          description={<>{`${t("error.404.description")}`}</>}
           code={404}
           reason={t("error.404.reason")}
         />

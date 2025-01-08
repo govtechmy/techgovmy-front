@@ -17,7 +17,7 @@ const AboutUs: Page = () => {
             <span className="text-orange dark:text-orange">the rakyat&apos;s convenience</span>
           </h1>
         }
-        description="We want to provide a place in the public sector that Malaysia’s best and brightest can call home"
+        description="We want to provide a place in the public sector that Malaysia's best and brightest can call home"
       />
       <Container>
         <Section className="max-w-[800px] mx-auto py-16">
@@ -25,7 +25,7 @@ const AboutUs: Page = () => {
             {/* Title */}
             <div className="flex flex-col gap-6 px-[50px]">
               <p className="text-orange dark:text-orange font-semibold uppercase">About Us</p>
-              <h2 className="font-semibold">GovTech Solutions</h2>
+              <h2 className="font-semibold">GovTech Nucleus Unit</h2>
             </div>
             {/* Image */}
             <div className="flex flex-col gap-6">
