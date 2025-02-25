@@ -1,0 +1,11 @@
+@import '@govtechmy/myds-style/color.css';
+
+/* Import Light theme */
+@import '@govtechmy/myds-style/light.css';
+
+/* Import Dark theme */
+@import '@govtechmy/myds-style/dark.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
