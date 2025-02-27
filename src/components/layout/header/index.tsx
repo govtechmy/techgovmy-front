@@ -9,6 +9,7 @@ import {
   NavItemsMenu,
 } from "@govtechmy/myds-react/navbar";
 import { useState } from "react";
+import ThemeToggle from "./theme-toggle";
 
 export default function Header() {
   const [showMenu, setMenu] = useState<boolean>(false);
@@ -24,7 +25,7 @@ export default function Header() {
       </NavbarContainer>
 
       <NavbarActionGroup showMenu={showMenu} setMenu={setMenu}>
-        {/* <ThemeToggle /> */}
+        <ThemeToggle />
         {/* <LocaleSwitch /> */}
       </NavbarActionGroup>
     </Navbar>

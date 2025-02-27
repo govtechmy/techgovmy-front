@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "@/styles/global.css";
 import { cn } from "@/lib/utils";
 import LocaleClientLayout from "./layout.client";
+import { ThemeProvider } from "next-themes";
 
 export const metadata = {
   description: "Mencipta produk digital untuk rakyat",
@@ -25,9 +26,11 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={cn(inter.className, inter.variable, poppins.variable)}>
-        <LocaleClientLayout>{children}</LocaleClientLayout>
+        <ThemeProvider attribute={"class"} enableSystem={false}>
+          <LocaleClientLayout>{children}</LocaleClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
