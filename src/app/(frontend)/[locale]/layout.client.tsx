@@ -17,7 +17,7 @@ export default function LocaleClientLayout({
     >
       <Masthead />
       <Header />
-      <main className=" h-full flex-1 flex flex-col divide-y divide-otl-divider">{children}</main>
+      <main className="grid flex-1 divide-y divide-otl-divider">{children}</main>
       <Footer />
     </div>
   );
