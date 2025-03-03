@@ -25,11 +25,11 @@ export const People: CollectionConfig = {
       relationTo: "media",
       required: false,
     },
-    // {
-    //   name: 'unit',
-    //   type: 'relationship',
-    //   relationTo: 'units',
-    //   required: true,
-    // },
+    {
+      name: 'unit',
+      type: 'relationship',
+      relationTo: 'units',
+      required: true,
+    },
   ],
 };
