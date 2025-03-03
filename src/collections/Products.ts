@@ -3,15 +3,21 @@ import type { CollectionConfig } from "payload";
 export const Products: CollectionConfig = {
   slug: "products",
   admin: {
-    useAsTitle: "title",
+    useAsTitle: "name",
   },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: "title",
+      name: "name",
       type: "text",
+      required: true,
+    },
+    {
+      name: "logo",
+      type: "upload",
+      relationTo: "media",
       required: true,
     },
     {
@@ -20,31 +26,37 @@ export const Products: CollectionConfig = {
       required: true,
     },
     {
-      name: "picture",
-      type: "upload",
-      relationTo: "media",
-      required: true,
-    },
-    {
-      name: "url",
-      type: "text",
-      required: true,
-    },
-    {
       name: "status",
       type: "select",
       required: true,
       options: [
         {
-          label: "Live",
-          value: "LIVE",
+          label: "Active",
+          value: "Active",
         },
         {
-          label: "Work in Progress",
-          value: "WIP",
+          label: "Under Development",
+          value: "Under Development",
+        },
+        {
+          label: "Discontinued",
+          value: "Discontinued",
+        },
+        {
+          label: "Beta",
+          value: "Beta",
+        },
+        {
+          label: "Maintenance",
+          value: "Maintenance",
         },
       ],
-      defaultValue: "WIP",
+      defaultValue: "Under Development",
+    },
+    {
+      name: "url",
+      type: "text",
+      required: false,
     },
   ],
 };
