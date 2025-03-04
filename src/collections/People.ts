@@ -26,10 +26,16 @@ export const People: CollectionConfig = {
       required: false,
     },
     {
-      name: 'unit',
-      type: 'relationship',
-      relationTo: 'units',
+      name: "unit",
+      type: "relationship",
+      relationTo: "units",
       required: true,
+    },
+    {
+      name: "role",
+      type: "relationship",
+      relationTo: "roles",
+      required: false,
     },
   ],
 };
