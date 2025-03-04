@@ -2,5 +2,28 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "About": {
+    "title": "About us",
+    "home": "Home",
+    "intro_header": "Who is GovTech?",
+    "intro_description": "",
+    "card1_title": "Our Mission",
+    "card1_description": "To drive digital adoption in the public sector, making government services more efficient, accessible, and people-centric.",
+    "card2_title": "Our Vision",
+    "card2_description": "A Malaysia where technology makes government services seamless, efficient, and transparent—empowering both the rakyat and the nation's progress.",
+    "our_values": "Our Values",
+    "value_card1_title": "Innovation",
+    "value_card1_description": "Continuously leveraging technology to improve public services.",
+    "value_card2_title": "User-Centricity",
+    "value_card2_description": "Designing solutions that prioritize rakyat’s needs and accessibility.",
+    "value_card3_title": "Transparency",
+    "value_card3_description": "Ensuring open, accountable, and trustworthy digital governance.",
+    "value_card4_title": "Collaboration",
+    "value_card4_description": "Working with agencies, and communities to solve problems.",
+    "our_community": "Our Community",
+    "community1_text": "Komuniti GovTech",
+    "community2_text": "GovTech Telegram",
+    "community3_text": "Developer Tangan"
   }
 }
