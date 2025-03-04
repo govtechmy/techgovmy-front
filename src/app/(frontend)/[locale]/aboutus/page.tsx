@@ -6,18 +6,20 @@ export default async function AboutPage() {
   const t = await getTranslations("About");
   return (
     <div className="flex-1 w-full border-otl-divider border-x">
-        <div className="bg-[#FFFBF4] border border-2 border-[#F4F4F5] h-[166px] px-4 py-6">
-            <Breadcrumb>
-                <BreadcrumbItem>
-                    <BreadcrumbLink href="/">
-                        {t('home')}
-                    </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbPage>{t('title')}</BreadcrumbPage>
-            </Breadcrumb>
-            <div className="text-3xl font-semibold my-2">
-                {t('title')}
+        <div className="bg-lightyellow border border-2 border-bordergrey h-[166px] px-4 py-6">
+            <div className="max-w-4xl m-auto">
+                <Breadcrumb >
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href="/">
+                            {t('home')}
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbPage>{t('title')}</BreadcrumbPage>
+                </Breadcrumb>
+                <div className="text-3xl font-semibold my-2">
+                    {t('title')}
+                </div>
             </div>
         </div>
         <div className="mx-auto max-w-4xl p-6">
