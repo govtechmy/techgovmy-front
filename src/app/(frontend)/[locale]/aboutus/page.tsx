@@ -14,7 +14,7 @@ export default async function AboutPage() {
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
-                <BreadcrumbPage />
+                <BreadcrumbPage>{t('title')}</BreadcrumbPage>
             </Breadcrumb>
             <div className="text-3xl font-semibold my-2">
                 {t('title')}
@@ -22,7 +22,7 @@ export default async function AboutPage() {
         </div>
         <div className="mx-auto max-w-4xl p-6">
             <figure className="w-full text-center py-8 flex flex-col items-center">
-                <img src="/static/images/aboutus.png" alt="" className="h-auto w-full m-auto rounded" />
+                <img src="/static/images/aboutus.png" alt={t('title')} className="h-auto w-full m-auto rounded" />
                 <figcaption className="mt-2 text-center text-gray-600">
                     adsfasfasdf afdsf asfd  asdfasfa sfa f a
                 </figcaption>
@@ -35,6 +35,7 @@ export default async function AboutPage() {
 
             </div>
 
+            {/* Our Mission Our Vision */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 my-12">
                 <div className="p-6 border border-gray-200 rounded-lg shadow-sm">
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full mb-4">
@@ -60,13 +61,14 @@ export default async function AboutPage() {
                 </div>
             </div>
 
+            {/* Our Values */}
             <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('our_values')} </h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mb-4">
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-rows gap-3">
-                    <div className="flex items-start justify-center w-48 h-auto bg-orange-100 rounded-full mb-4">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-4">
+                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-3">
+                    <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
                         <img src="/static/images/inovasi.png" className="icon" />
                     </div>
-                    <div className="">
+                    <div className="flex-1">
                         <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('value_card1_title')}</h3>
                         <p className="text-gray-600">
                             {t('value_card1_description')}
@@ -75,11 +77,11 @@ export default async function AboutPage() {
                 </div>
 
 
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-rows gap-3">
-                    <div className="flex items-start justify-center w-48 h-auto bg-orange-100 rounded-full mb-4">
+                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-3">
+                    <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
                         <img src="/static/images/berpusatkanpengguna.png" className="icon" />
                     </div>
-                    <div className="">
+                    <div className="flex-1">
                         <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('value_card2_title')}</h3>
                         <p className="text-gray-600">
                             {t('value_card2_description')}
@@ -88,12 +90,12 @@ export default async function AboutPage() {
                 </div>
                 
             </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mb-12">
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-rows gap-3">
-                    <div className="flex items-start justify-center w-48 h-auto bg-orange-100 rounded-full mb-4">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-12">
+                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-3">
+                    <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
                         <img src="/static/images/ketelusan.png" className="icon" />
                     </div>
-                    <div className="">
+                    <div className="flex-1">
                         <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('value_card3_title')}</h3>
                         <p className="text-gray-600">
                             {t('value_card3_description')}
@@ -102,11 +104,11 @@ export default async function AboutPage() {
                 </div>
 
 
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-rows gap-3">
-                    <div className="flex items-start justify-center w-48 h-auto bg-orange-100 rounded-full mb-4">
+                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-3">
+                    <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
                         <img src="/static/images/kerjasama.png" className="icon" />
                     </div>
-                    <div className="">
+                    <div className="flex-1">
                         <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('value_card4_title')}</h3>
                         <p className="text-gray-600">
                             {t('value_card4_description')}
