@@ -6,6 +6,8 @@ import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
+import { GlobalConfig } from "payload";
+import { AboutUsGlobals } from "./globals/aboutus";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
@@ -47,7 +49,7 @@ export default buildConfig({
     }
   },
   collections: [Users, Media, Products, Unit, People],
-
+  globals: [AboutUsGlobals],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
