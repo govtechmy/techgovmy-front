@@ -9,6 +9,9 @@ import sharp from "sharp";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
+import { Unit } from "./collections/Unit";
+import { People } from "./collections/People";
+import { Products } from "./collections/Products";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -43,7 +46,8 @@ export default buildConfig({
       });
     }
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Products, Unit, People],
+
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
