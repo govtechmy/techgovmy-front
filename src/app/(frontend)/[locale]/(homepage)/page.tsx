@@ -3,20 +3,11 @@ import React from "react";
 import { Tag } from "@govtechmy/myds-react/tag";
 import { ChevronRightIcon } from "@govtechmy/myds-react/icon";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { StatisticsSection } from "./sections";
+import HomepageClient from "./page.client";
 
 export default async function HomePage() {
   const t = await getTranslations();
 
-  const sections = [
-    { content: <StatisticsSection /> },
-    { content: "hello 2" },
-    { content: "hello 3" },
-    { content: "hello 4" },
-    { content: "hello 5" },
-    { content: "hello 6" },
-  ];
   return (
     <>
       <section
@@ -55,21 +46,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {sections.map((section, index) => (
-        <section
-          key={index}
-          className={cn(
-            "grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto flex-1",
-            index === 4
-              ? "bg-bg-white border-b border-otl-divider"
-              : index === 5
-                ? "bg-bg-white"
-                : "even:bg-bg-white odd:bg-bg-gray-50",
-          )}
-        >
-          <div className="max-w-[1280px] mx-auto w-full col-span-full py-16">{section.content}</div>
-        </section>
-      ))}
+      <HomepageClient />
     </>
   );
 }
