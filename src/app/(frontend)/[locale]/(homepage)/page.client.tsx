@@ -81,7 +81,9 @@ export default function HomepageClient() {
                 : "even:bg-bg-white odd:bg-bg-gray-50",
           )}
         >
-          <div className="max-w-[1280px] mx-auto w-full col-span-full py-16">{section.content}</div>
+          <div className="max-w-[350px] md:max-w-[600px] lg:max-w-screen-xl mx-auto w-full col-span-full py-16">
+            {section.content}
+          </div>
         </section>
       ))}
     </>

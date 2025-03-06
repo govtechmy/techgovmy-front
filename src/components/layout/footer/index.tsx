@@ -16,7 +16,7 @@ export default function LayoutFooter() {
   return (
     <Footer
       background="grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto border-0"
-      className="px-0 max-w-[1280px] col-span-full lg:py-12"
+      className="px-0 max-w-screen-xl col-span-full lg:py-12"
     >
       <FooterTopSection>
         <FooterMainInfo>

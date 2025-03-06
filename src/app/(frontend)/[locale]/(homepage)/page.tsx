@@ -14,8 +14,8 @@ export default async function HomePage() {
         className="grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto lg:h-[628px] md:h-[933px] h-[825px] bg-[#FFFBF4]"
         style={{ backgroundImage: `url('./theme/hero-pattern.svg')` }}
       >
-        <div className="max-w-[1280px] mx-auto w-full col-span-full flex items-center gap-6 py-16">
-          <div className="flex-1 flex-col flex gap-4.5">
+        <div className="max-w-[350px] md:max-w-[600px] lg:max-w-screen-xl mx-auto w-full col-span-full flex flex-col lg:flex-row items-center gap-6 py-16">
+          <div className="lg:flex-1 flex-col flex gap-4.5">
             <Tag
               className="w-fit mb-3 hover:cursor-pointer"
               variant="primary"
@@ -25,7 +25,7 @@ export default async function HomePage() {
               Peluncuran Portal Rasmi MYDS
               <ChevronRightIcon className="w-3 h-3" />
             </Tag>
-            <h1 className="font-heading text-heading-lg tracking-tighter font-semibold">
+            <h1 className="font-heading text-heading-md md:text-heading-lg lg:tracking-tighter font-semibold">
               Kami bina produk digital untuk meningkatkan{" "}
               <span className="text-txt-govtech-600">kemudahan rakyat</span>
               <span className="text-govtech-700"> |</span>
