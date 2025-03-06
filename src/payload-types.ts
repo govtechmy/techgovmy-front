@@ -71,6 +71,7 @@ export interface Config {
     products: Product;
     units: Unit;
     people: Person;
+    roles: Role;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -82,6 +83,7 @@ export interface Config {
     products: ProductsSelect<false> | ProductsSelect<true>;
     units: UnitsSelect<false> | UnitsSelect<true>;
     people: PeopleSelect<false> | PeopleSelect<true>;
+    roles: RolesSelect<false> | RolesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -193,6 +195,17 @@ export interface Person {
   email: string;
   picture?: (string | null) | Media;
   unit: string | Unit;
+  role?: (string | null) | Role;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "roles".
+ */
+export interface Role {
+  id: string;
+  name: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -222,6 +235,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'people';
         value: string | Person;
+      } | null)
+    | ({
+        relationTo: 'roles';
+        value: string | Role;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -330,6 +347,16 @@ export interface PeopleSelect<T extends boolean = true> {
   email?: T;
   picture?: T;
   unit?: T;
+  role?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "roles_select".
+ */
+export interface RolesSelect<T extends boolean = true> {
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
 }

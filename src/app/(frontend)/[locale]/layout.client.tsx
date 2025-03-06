@@ -10,15 +10,17 @@ export default function LocaleClientLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div
-      className={
-        "min-h-screen h-full flex flex-col bg-bg-white text-txt-black-900 text-body-sm font-body"
-      }
-    >
-      <Masthead />
-      <Header />
-      <main className="grid flex-1 divide-y divide-otl-divider">{children}</main>
-      <Footer />
-    </div>
+    <>
+      <main
+        className={
+          "min-h-screen h-full flex flex-col bg-bg-white text-txt-black-900 text-body-sm font-body box-border"
+        }
+      >
+        <Masthead />
+        <Header />
+        {children}
+        <Footer />
+      </main>
+    </>
   );
 }
