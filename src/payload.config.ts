@@ -14,6 +14,8 @@ import { Media } from "./collections/Media";
 import { Unit } from "./collections/Unit";
 import { People } from "./collections/People";
 import { Products } from "./collections/Products";
+import { en } from '@payloadcms/translations/languages/en'
+import { my } from '@payloadcms/translations/languages/my'
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -63,4 +65,12 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+  i18n: {
+    fallbackLanguage: 'my',
+    supportedLanguages: { en, my },
+  },
+  localization: {
+    locales: ['en-GB', 'ms-MY'],
+    defaultLocale: 'en-GB'
+  }
 });

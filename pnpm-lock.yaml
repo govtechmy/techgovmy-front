@@ -26,6 +26,9 @@ importers:
       '@payloadcms/richtext-lexical':
         specifier: latest
         version: 3.24.0(@faceless-ui/modal@3.0.0-beta.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@faceless-ui/scroll-info@2.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@payloadcms/next@3.24.0(@types/react@19.0.7)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@types/react@19.0.7)(monaco-editor@0.52.2)(next@15.1.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(yjs@13.6.23)
+      '@payloadcms/translations':
+        specifier: ^3.27.0
+        version: 3.27.0
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -997,6 +1000,9 @@ packages:
 
   '@payloadcms/translations@3.24.0':
     resolution: {integrity: sha512-IsexOErEyF2pzyudW8y/glLdv3njNlS/hO1ADMsULZEiZiaRkVK+96Co6CIOHWDLKggJ6elRA5NKvDRL2cLboQ==}
+
+  '@payloadcms/translations@3.27.0':
+    resolution: {integrity: sha512-PjO3A7tr+deRvdwn6VYAzp/g8+6Nt5gYwxdimjtK4m6W7SNn8PFSKYhatJ+SAVo6AznBjjlEd+TGQ+xvun9Jsg==}
 
   '@payloadcms/ui@3.24.0':
     resolution: {integrity: sha512-NcmYLzPsJPL2Hz4TSMgaRCmo19vGP7Q1qrgk/rX19vNERLvxEUCkIgtfBaGLvR4vKY8azfbKjyBRsFtr29Bc6w==}
@@ -5596,6 +5602,10 @@ snapshots:
       - yjs
 
   '@payloadcms/translations@3.24.0':
+    dependencies:
+      date-fns: 4.1.0
+
+  '@payloadcms/translations@3.27.0':
     dependencies:
       date-fns: 4.1.0
 

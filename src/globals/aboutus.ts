@@ -3,18 +3,120 @@ import { GlobalConfig } from "payload";
 // Globals for About Us Page
 export const AboutUsGlobals: GlobalConfig = {
     slug: 'about-us',
-    label: 'about us',
+    label: {
+        en: 'about us',
+        ms: "tentang kami"
+    },
     access: {
       read: () => true, // Allow public read access
     //   update: ({ req }) => req.user?.role === 'admin', // Only admins can update
     },
     fields: [
       {
-        name: 'header',
+        name: 'title',
         type: 'text',
-        label: '',
+        label: {
+            en: "title",
+            ms: "tajuk"
+        },
         localized: true
       },
+      {
+        name: 'intro-header',
+        type: 'text',
+        label: {
+            en: "intro-header",
+            ms: "pengenalan-header"
+        },
+        localized: true
+      },
+      {
+        name: 'intro-description',
+        type: 'text',
+        label: {
+            en: "intro-description",
+            ms: "pengenalan-description"
+        },
+        localized: true
+      },
+      {
+        name: 'card-header-1',
+        type: 'text',
+        label: 'card-header-1',
+        localized: true
+      },
+      {
+        name: 'card-description-1',
+        type: 'text',
+        label: {
+            en: "intro-description",
+            ms: "pengenalan-description"
+        },
+        localized: true
+      },
+      {
+        name: 'card-header-2',
+        type: 'text',
+        label: {
+            en: "card-header-2",
+            ms: "kad-header-2"
+        },
+        localized: true
+      },
+      {
+        name: 'card-description-2',
+        type: 'text',
+        label: {
+            en: "card-description-2",
+            ms: "kad-description-2"
+        },
+        localized: true
+      },
+      {
+        name: 'card-header-3',
+        type: 'text',
+        label: {
+            en: "card-header-3",
+            ms: "kad-header-3"
+        },
+        localized: true
+      },
+      {
+        name: 'card-description-4',
+        type: 'text',
+        label: {
+            en: "card-description-4",
+            ms: "kad-description-4"
+        },
+        localized: true
+      },
+      {
+        name: 'card-header-5',
+        type: 'text',
+        label: {
+            en: "card-header-5",
+            ms: "kad-header-5"
+        },
+        localized: true
+      },
+      {
+        name: 'card-description-6',
+        type: 'text',
+        label: {
+            en: "intro-description",
+            ms: "pengenalan-description"
+        },
+        localized: true
+      },
+      {
+        name: 'join-our-community',
+        type: 'text',
+        label: {
+            en: "join-our-community",
+            ms: "sertai-komuniti-kami"
+        },
+        localized: true
+      }
     //   {
     //     name: 'logo',
     //     type: 'upload',
@@ -36,60 +138,4 @@ export const AboutUsGlobals: GlobalConfig = {
         //     ],
         // },
     ],
-  };
-
-
-
-//   export async function getStaticProps() {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/globals/site-settings`);
-//     const data = await res.json();
-  
-//     return {
-//       props: {
-//         siteSettings: data,
-//       },
-//       revalidate: 60, // Revalidate every 60 seconds
-//     };
-//   }
-  
-
-
-// export async function getStaticProps() {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/globals/site-settings`);
-//     const data = await res.json();
-  
-//     return {
-//       props: {
-//         siteSettings: data,
-//       },
-//       revalidate: 60, // Revalidate every 60 seconds
-//     };
-//   }
-  
-
-// import { GetStaticProps } from 'next';
-// import { useTranslations } from 'next-intl';
-
-// export const getStaticProps: GetStaticProps = async ({ locale }) => {
-//   const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/globals/site-settings?locale=${locale}`);
-//   const siteSettings = await res.json();
-
-//   return {
-//     props: {
-//       messages: (await import(`../locales/${locale}.json`)).default, // Load translations
-//       siteSettings,
-//     },
-//     revalidate: 60, // Revalidate every 60 seconds
-//   };
-// };
-
-// export default function Home({ siteSettings }) {
-//   const t = useTranslations(); // next-intl hook
-
-//   return (
-//     <div>
-//       <h1>{siteSettings.siteName}</h1>
-//       <p>{siteSettings.description}</p>
-//     </div>
-//   );
-// }
+};
