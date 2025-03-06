@@ -8,4 +8,19 @@ export default {
   ],
   presets: [preset],
   plugins: [],
+  theme: {
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(101.65% 92.54% at 50% 0%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      colors: {
+        govtech: {
+          600: "rgba(var(--_govtech-600) / <alpha-value>)",
+          700: "rgba(var(--_govtech-700) / <alpha-value>)",
+        },
+        "txt-govtech-600": "rgb(var(--txt-govtech-600))",
+      },
+    },
+  },
 };
