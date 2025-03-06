@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, ButtonIcon } from "@govtechmy/myds-react/button";
-import { AboutGovtechSection, StatisticsSection } from "./sections";
+import { AboutGovtechSection, NewsSection, PagesSection, StatisticsSection } from "./sections";
 import { cn } from "@/lib/utils";
 import { ArrowForwardIcon } from "@govtechmy/myds-react/icon";
 
@@ -63,8 +63,8 @@ export default function HomepageClient() {
         />
       ),
     },
-    { content: "hello 5" },
-    { content: "hello 6" },
+    { content: <PagesSection /> },
+    { content: <NewsSection /> },
   ];
 
   return (

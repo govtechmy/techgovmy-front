@@ -1,6 +1,7 @@
-"use client";
+import { Link } from "@/lib/i18n/routing";
 import { cn } from "@/lib/utils";
-import { Button } from "@govtechmy/myds-react/button";
+import { Button, ButtonIcon } from "@govtechmy/myds-react/button";
+import { ArrowForwardIcon } from "@govtechmy/myds-react/icon";
 import Image from "next/image";
 import { FC, ReactNode } from "react";
 
@@ -69,6 +70,116 @@ export const AboutGovtechSection: FC<AboutGovtechSectionProps> = ({
       <div className="relative flex items-center flex-1 h-[519px]">
         <Image src={image_url} alt={`${category}-${title}`} fill={true} className="absolute" />
       </div>
+    </div>
+  );
+};
+
+export const PagesSection = () => {
+  const pages = [
+    {
+      title: "Produk Kami",
+      description: "Kenali produk digital yang telah kami hasilkan untuk rakyat dan pegawai awam.",
+      img_url: "./theme/gtm-our-products.svg",
+      blur: false,
+    },
+    {
+      title: "Sertai Pasukan Kami",
+      description: "Bina produk dan perkhidmatan digital yang beri impak untuk Malaysia!",
+      img_url: "./theme/gtm-join-us.svg",
+      blur: false,
+    },
+    {
+      title: "Komuniti GovTech",
+      description:
+        "Sertai komuniti developer, peminat teknologi dan pegawai awam dalam memacu transformasi digital.",
+      img_url: "./theme/gtm-our-community.svg",
+      blur: true,
+    },
+  ];
+
+  return (
+    <div className="flex flex-col gap-12 px-[109px]">
+      <h2 className="text-heading-sm font-semibold">Selesaikan masalah rakyat dan pegawai awam</h2>
+      <div className="flex gap-12">
+        {pages.map((page, index) => (
+          <div key={index} className={cn("flex flex-col gap-6", page.blur && "opacity-20")}>
+            <div className="relative w-[322px] h-[200px] overflow-hidden rounded-lg border border-gray-200">
+              <Image alt={page.title} src={page.img_url} className="absolute" fill={true} />
+            </div>
+            <div className="space-y-2">
+              <Link href={"/"}>
+                <p className="text-body-xl font-semibold flex items-center gap-2">
+                  {page.title} <ArrowForwardIcon className="w-5 h-5" />
+                </p>
+              </Link>
+              <p className="text-body-md text-txt-black-500">{page.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const NewsSection = () => {
+  const pages = [
+    {
+      title: "Produk Kami",
+      description: "Kenali produk digital yang telah kami hasilkan untuk rakyat dan pegawai awam.",
+      img_url: "./theme/gtm-our-products.svg",
+    },
+    {
+      title: "Sertai Pasukan Kami",
+      description: "Bina produk dan perkhidmatan digital yang beri impak untuk Malaysia!",
+      img_url: "./theme/gtm-join-us.svg",
+    },
+    {
+      title: "Komuniti GovTech",
+      description:
+        "Sertai komuniti developer, peminat teknologi dan pegawai awam dalam memacu transformasi digital.",
+      img_url: "./theme/gtm-our-community.svg",
+    },
+    {
+      title: "Komuniti GovTech",
+      description:
+        "Sertai komuniti developer, peminat teknologi dan pegawai awam dalam memacu transformasi digital.",
+      img_url: "./theme/gtm-our-community.svg",
+    },
+  ];
+
+  return (
+    <div className="flex flex-col gap-12 px-[109px]">
+      <h2 className="text-heading-sm font-semibold">Berita Govtech</h2>
+      <div className="flex gap-6">
+        {pages.map((page, index) => (
+          <div
+            key={index}
+            className={cn(
+              "flex flex-col h-full gap-4.5 border border-gray-200 bg-bg-dialog p-3 rounded-lg",
+            )}
+          >
+            <div className="relative w-[223.5px] h-[115.6px] overflow-hidden rounded-sm">
+              <Image
+                alt={page.title}
+                src={page.img_url}
+                className="absolute object-cover"
+                fill={true}
+              />
+            </div>
+            <div className="space-y-2 h-[116px] px-3">
+              <p className="font-semibold">{page.title}</p>
+              <p className="text-body-md text-txt-black-500 line-clamp-3">{page.description}</p>
+            </div>
+            <p className="text-gray-500 px-3 pb-2">6 March 2025</p>
+          </div>
+        ))}
+      </div>
+      <Button className="h-10 bg-bg-black-800 border-bg-black-900" size={"medium"}>
+        Semua Berita
+        <ButtonIcon>
+          <ArrowForwardIcon />
+        </ButtonIcon>
+      </Button>
     </div>
   );
 };
