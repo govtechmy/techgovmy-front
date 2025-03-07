@@ -11,9 +11,30 @@ import {
 import { useState } from "react";
 import ThemeToggle from "./theme-toggle";
 import LocaleSwitch from "./locale-switch";
+import { usePathname } from "@/lib/i18n/routing";
 
 export default function Header() {
+  const pathname = usePathname();
   const [showMenu, setMenu] = useState<boolean>(false);
+
+  const active = (href: string) =>
+    pathname === href && pathname === "/" ? true : `/${pathname.split("/")[1]}` === href;
+
+  const nav_items: Array<{ name: string; href: string }> = [
+    {
+      name: "Tentang Kami",
+      href: "/about-us",
+    },
+    {
+      name: "Produk",
+      href: "/products",
+    },
+    // Hide this page.
+    // {
+    //   name: t("Nav.Header.maintenance"),
+    //   href: "/maintenance",
+    // },
+  ];
 
   return (
     <Navbar
@@ -25,7 +46,11 @@ export default function Header() {
         <BrandLogo imageSrc="/favicon-color.png">Govtech Malaysia</BrandLogo>
 
         <NavigationMenuCombo showMenu={showMenu} setMenu={setMenu}>
-          <p>hello</p>
+          {nav_items.map((nav) => (
+            <NavItemsMenu key={nav.href} href={nav.href} active={active(nav.href)}>
+              {nav.name}
+            </NavItemsMenu>
+          ))}
         </NavigationMenuCombo>
       </NavbarContainer>
 
