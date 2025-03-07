@@ -97,7 +97,7 @@ export interface Config {
   globalsSelect: {
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
   };
-  locale: 'en-GB' | 'ms-MY';
+  locale: 'ms-MY' | 'en-GB';
   user: User & {
     collection: 'users';
   };

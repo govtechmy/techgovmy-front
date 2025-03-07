@@ -6,16 +6,13 @@ import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
-import { GlobalConfig } from "payload";
-import { AboutUsGlobals } from "./globals/aboutus";
+import { AboutUsGlobals } from "./globals/AboutUs";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Unit } from "./collections/Unit";
 import { People } from "./collections/People";
 import { Products } from "./collections/Products";
-import { en } from '@payloadcms/translations/languages/en'
-import { my } from '@payloadcms/translations/languages/my'
 import { Roles } from "./collections/Roles";
 
 const filename = fileURLToPath(import.meta.url);
@@ -67,12 +64,17 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
-  i18n: {
-    fallbackLanguage: 'my',
-    supportedLanguages: { en, my },
-  },
   localization: {
-    locales: ['en-GB', 'ms-MY'],
-    defaultLocale: 'en-GB'
-  }
+    locales: [
+      {
+        label: "Bahasa Melayu",
+        code: "ms-MY",
+      },
+      {
+        label: "English",
+        code: "en-GB",
+      },
+    ],
+    defaultLocale: "en-GB",
+  },
 });

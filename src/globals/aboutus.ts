@@ -2,140 +2,137 @@ import { GlobalConfig } from "payload";
 
 // Globals for About Us Page
 export const AboutUsGlobals: GlobalConfig = {
-    slug: 'about-us',
-    label: {
-        en: 'about us',
-        ms: "tentang kami"
-    },
-    access: {
-      read: () => true, // Allow public read access
+  slug: "about-us",
+  label: "About Us",
+  access: {
+    read: () => true, // Allow public read access
     //   update: ({ req }) => req.user?.role === 'admin', // Only admins can update
+  },
+  fields: [
+    {
+      name: "title",
+      type: "text",
+      label: {
+        en: "Title",
+        ms: "Tajuk",
+      },
+      localized: true,
     },
-    fields: [
-      {
-        name: 'title',
-        type: 'text',
-        label: {
-            en: "title",
-            ms: "tajuk"
-        },
-        localized: true
+    {
+      name: "intro-header",
+      type: "text",
+      label: {
+        en: "intro-header",
+        ms: "pengenalan-header",
       },
-      {
-        name: 'intro-header',
-        type: 'text',
-        label: {
-            en: "intro-header",
-            ms: "pengenalan-header"
-        },
-        localized: true
+      localized: true,
+    },
+    {
+      name: "intro-description",
+      type: "text",
+      label: {
+        en: "intro-description",
+        ms: "pengenalan-description",
       },
-      {
-        name: 'intro-description',
-        type: 'text',
-        label: {
-            en: "intro-description",
-            ms: "pengenalan-description"
-        },
-        localized: true
+      localized: true,
+    },
+    {
+      name: "card-header-1",
+      type: "text",
+      label: "card-header-1",
+      localized: true,
+    },
+    {
+      name: "card-description-1",
+      type: "text",
+      label: {
+        en: "intro-description",
+        ms: "pengenalan-description",
       },
-      {
-        name: 'card-header-1',
-        type: 'text',
-        label: 'card-header-1',
-        localized: true
+      localized: true,
+    },
+    {
+      name: "card-header-2",
+      type: "text",
+      label: {
+        en: "card-header-2",
+        ms: "kad-header-2",
       },
-      {
-        name: 'card-description-1',
-        type: 'text',
-        label: {
-            en: "intro-description",
-            ms: "pengenalan-description"
-        },
-        localized: true
+      localized: true,
+    },
+    {
+      name: "card-description-2",
+      type: "text",
+      label: {
+        en: "card-description-2",
+        ms: "kad-description-2",
       },
-      {
-        name: 'card-header-2',
-        type: 'text',
-        label: {
-            en: "card-header-2",
-            ms: "kad-header-2"
-        },
-        localized: true
+      localized: true,
+    },
+    {
+      name: "card-header-3",
+      type: "text",
+      label: {
+        en: "card-header-3",
+        ms: "kad-header-3",
       },
-      {
-        name: 'card-description-2',
-        type: 'text',
-        label: {
-            en: "card-description-2",
-            ms: "kad-description-2"
-        },
-        localized: true
+      localized: true,
+    },
+    {
+      name: "card-description-4",
+      type: "text",
+      label: {
+        en: "card-description-4",
+        ms: "kad-description-4",
       },
-      {
-        name: 'card-header-3',
-        type: 'text',
-        label: {
-            en: "card-header-3",
-            ms: "kad-header-3"
-        },
-        localized: true
+      localized: true,
+    },
+    {
+      name: "card-header-5",
+      type: "text",
+      label: {
+        en: "card-header-5",
+        ms: "kad-header-5",
       },
-      {
-        name: 'card-description-4',
-        type: 'text',
-        label: {
-            en: "card-description-4",
-            ms: "kad-description-4"
-        },
-        localized: true
+      localized: true,
+    },
+    {
+      name: "card-description-6",
+      type: "text",
+      label: {
+        en: "intro-description",
+        ms: "pengenalan-description",
       },
-      {
-        name: 'card-header-5',
-        type: 'text',
-        label: {
-            en: "card-header-5",
-            ms: "kad-header-5"
-        },
-        localized: true
+      localized: true,
+    },
+    {
+      name: "join-our-community",
+      type: "text",
+      label: {
+        en: "join-our-community",
+        ms: "sertai-komuniti-kami",
       },
-      {
-        name: 'card-description-6',
-        type: 'text',
-        label: {
-            en: "intro-description",
-            ms: "pengenalan-description"
-        },
-        localized: true
-      },
-      {
-        name: 'join-our-community',
-        type: 'text',
-        label: {
-            en: "join-our-community",
-            ms: "sertai-komuniti-kami"
-        },
-        localized: true
-      }
+      localized: true,
+    },
     //   {
     //     name: 'logo',
     //     type: 'upload',
-    //     relationTo: 'media', 
+    //     relationTo: 'media',
     //     label: 'Site Logo',
     //   },
-        // {
-        //     name: 'items',
-        //     type: 'array',
-        //     required: true,
-        //     maxRows: 8,
-        //     fields: [
-        //     {
-        //         name: 'page',
-        //         type: 'relationship',
-        //         relationTo: 'pages', // "pages" is the slug of an existing collection
-        //         required: true,
-        //     },
-        //     ],
-        // },
-    ],
+    // {
+    //     name: 'items',
+    //     type: 'array',
+    //     required: true,
+    //     maxRows: 8,
+    //     fields: [
+    //     {
+    //         name: 'page',
+    //         type: 'relationship',
+    //         relationTo: 'pages', // "pages" is the slug of an existing collection
+    //         required: true,
+    //     },
+    //     ],
+    // },
+  ],
 };
