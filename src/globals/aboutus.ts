@@ -1,4 +1,5 @@
 import { GlobalConfig } from "payload";
+import type { Field } from 'payload'
 
 // Globals for About Us Page
 export const AboutUsGlobals: GlobalConfig = {
@@ -22,8 +23,8 @@ export const AboutUsGlobals: GlobalConfig = {
       name: "intro-header",
       type: "text",
       label: {
-        en: "intro-header",
-        ms: "pengenalan-header",
+        en: "Intro Header",
+        ms: "Pengenalan Header",
       },
       localized: true,
     },
@@ -31,80 +32,11 @@ export const AboutUsGlobals: GlobalConfig = {
       name: "intro-description",
       type: "text",
       label: {
-        en: "intro-description",
-        ms: "pengenalan-description",
+        en: "Intro Description",
+        ms: "Pengenalan Description",
       },
       localized: true,
-    },
-    {
-      name: "card-header-1",
-      type: "text",
-      label: "card-header-1",
-      localized: true,
-    },
-    {
-      name: "card-description-1",
-      type: "text",
-      label: {
-        en: "intro-description",
-        ms: "pengenalan-description",
-      },
-      localized: true,
-    },
-    {
-      name: "card-header-2",
-      type: "text",
-      label: {
-        en: "card-header-2",
-        ms: "kad-header-2",
-      },
-      localized: true,
-    },
-    {
-      name: "card-description-2",
-      type: "text",
-      label: {
-        en: "card-description-2",
-        ms: "kad-description-2",
-      },
-      localized: true,
-    },
-    {
-      name: "card-header-3",
-      type: "text",
-      label: {
-        en: "card-header-3",
-        ms: "kad-header-3",
-      },
-      localized: true,
-    },
-    {
-      name: "card-description-4",
-      type: "text",
-      label: {
-        en: "card-description-4",
-        ms: "kad-description-4",
-      },
-      localized: true,
-    },
-    {
-      name: "card-header-5",
-      type: "text",
-      label: {
-        en: "card-header-5",
-        ms: "kad-header-5",
-      },
-      localized: true,
-    },
-    {
-      name: "card-description-6",
-      type: "text",
-      label: {
-        en: "intro-description",
-        ms: "pengenalan-description",
-      },
-      localized: true,
-    },
+    },  
     {
       name: "join-our-community",
       type: "text",
@@ -114,25 +46,101 @@ export const AboutUsGlobals: GlobalConfig = {
       },
       localized: true,
     },
-    //   {
-    //     name: 'logo',
-    //     type: 'upload',
-    //     relationTo: 'media',
-    //     label: 'Site Logo',
-    //   },
-    // {
-    //     name: 'items',
-    //     type: 'array',
-    //     required: true,
-    //     maxRows: 8,
-    //     fields: [
-    //     {
-    //         name: 'page',
-    //         type: 'relationship',
-    //         relationTo: 'pages', // "pages" is the slug of an existing collection
-    //         required: true,
-    //     },
-    //     ],
-    // },
+    {
+      name: 'vision-and-mission',
+      type: 'array',
+      label: {
+        en: "Vision and Mission",
+        ms: "Visi dan Misi"
+      },
+      localized: true,
+      fields: [
+        {
+          name: 'card-header-left',
+          type: 'text',
+          label: {
+            en: "Card Header Left",
+            ms: "Kad Header Kiri"
+          },
+          localized: true
+          //relationTo: 'pages', // "pages" is the slug of an existing collection
+        },
+        {
+          name: 'card-description-left',
+          type: 'text',
+          label: {
+            en: "Card Description Left",
+            ms: "Kad Diskripsi Kiri"
+          },
+          localized: true
+          //relationTo: 'pages', // "pages" is the slug of an existing collection
+        },
+        {
+          name: 'card-header-right',
+          type: 'text',
+          label: {
+            en: "Card Header Right",
+            ms: "Kad Header Kanan"
+          },
+          localized: true
+        },
+        {
+          name: 'card-description-right',
+          type: 'text',
+          label: {
+            en: "Card Description Right",
+            ms: "Kad Diskripsi Kanan"
+          },
+          localized: true
+        },
+      ],
+    },
+    {
+      name: 'our-values',
+      type: 'array',
+      label: {
+        en: "Our Values",
+        ms: "Nilai Kami"
+      },
+      localized: true,
+      fields: [
+        {
+          name: 'card-header-left',
+          type: 'text',
+          label: {
+            en: "Card Header Left",
+            ms: "Kad Header Kiri"
+          },
+          localized: true
+        },
+        {
+          name: 'card-description-left',
+          type: 'text',
+          label: {
+            en: "Card Description Left",
+            ms: "Kad Deskripsi Kiri"
+          },
+          localized: true
+        },
+        {
+          name: 'card-header-right',
+          type: 'text',
+          label: {
+            en: "Card Header Right",
+            ms: "Kad Header Kanan"
+          },
+          localized: true
+        },
+        {
+          name: 'card-description-right',
+          type: 'text',
+          label: {
+            en: "Card Description Right",
+            ms: "Kad Deskripsi Kanan"
+          },
+          localized: true
+        },
+      ],
+    },
   ],
 };
