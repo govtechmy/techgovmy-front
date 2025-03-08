@@ -6,6 +6,7 @@ import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
+import { AboutUsGlobals } from "./globals/aboutus";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
@@ -47,6 +48,7 @@ export default buildConfig({
       });
     }
   },
+  globals: [AboutUsGlobals],
   collections: [Users, Media, Products, Unit, People, Roles],
 
   editor: lexicalEditor(),
@@ -62,4 +64,17 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+  localization: {
+    locales: [
+      {
+        label: "Bahasa Melayu",
+        code: "ms-MY",
+      },
+      {
+        label: "English",
+        code: "en-GB",
+      },
+    ],
+    defaultLocale: "en-GB",
+  },
 });
