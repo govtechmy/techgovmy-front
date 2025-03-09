@@ -36,15 +36,6 @@ export const AboutUsGlobals: GlobalConfig = {
         ms: "Pengenalan Description",
       },
       localized: true,
-    },  
-    {
-      name: "join-our-community",
-      type: "text",
-      label: {
-        en: "join-our-community",
-        ms: "sertai-komuniti-kami",
-      },
-      localized: true,
     },
     {
       name: 'vision-and-mission',
@@ -56,43 +47,34 @@ export const AboutUsGlobals: GlobalConfig = {
       localized: true,
       fields: [
         {
-          name: 'card-header-left',
+          name: 'card-header',
           type: 'text',
           label: {
-            en: "Card Header Left",
-            ms: "Kad Header Kiri"
+            en: "Card Header",
+            ms: "Kad Header"
           },
           localized: true
           //relationTo: 'pages', // "pages" is the slug of an existing collection
         },
         {
-          name: 'card-description-left',
+          name: 'image-link',
           type: 'text',
           label: {
-            en: "Card Description Left",
-            ms: "Kad Diskripsi Kiri"
+            en: "Image Link",
+            ms: "Pautan Gambar"
+          },
+          localized: true
+        },
+        {
+          name: 'card-description',
+          type: 'text',
+          label: {
+            en: "Card Description",
+            ms: "Kad Diskripsi"
           },
           localized: true
           //relationTo: 'pages', // "pages" is the slug of an existing collection
-        },
-        {
-          name: 'card-header-right',
-          type: 'text',
-          label: {
-            en: "Card Header Right",
-            ms: "Kad Header Kanan"
-          },
-          localized: true
-        },
-        {
-          name: 'card-description-right',
-          type: 'text',
-          label: {
-            en: "Card Description Right",
-            ms: "Kad Diskripsi Kanan"
-          },
-          localized: true
-        },
+        }
       ],
     },
     {
@@ -105,41 +87,61 @@ export const AboutUsGlobals: GlobalConfig = {
       localized: true,
       fields: [
         {
-          name: 'card-header-left',
+          name: 'card-header',
           type: 'text',
           label: {
-            en: "Card Header Left",
-            ms: "Kad Header Kiri"
+            en: "Card Header",
+            ms: "Kad Header"
           },
           localized: true
         },
         {
-          name: 'card-description-left',
+          name: 'image-link',
           type: 'text',
           label: {
-            en: "Card Description Left",
-            ms: "Kad Deskripsi Kiri"
+            en: "Image Link",
+            ms: "Pautan Gambar"
           },
           localized: true
         },
         {
-          name: 'card-header-right',
+          name: 'card-description',
           type: 'text',
           label: {
-            en: "Card Header Right",
-            ms: "Kad Header Kanan"
+            en: "Card Description",
+            ms: "Kad Deskripsi"
+          },
+          localized: true
+        }
+      ],
+    },
+    {
+      name: 'community',
+      type: 'array',
+      label: {
+        en: "Community Card",
+        ms: "Kad Kommunitiy"
+      },
+      localized: true,
+      fields: [
+        {
+          name: 'card-title',
+          type: 'text',
+          label: {
+            en: "Card Title",
+            ms: "Tajuk Kad"
           },
           localized: true
         },
         {
-          name: 'card-description-right',
+          name: 'href',
           type: 'text',
           label: {
-            en: "Card Description Right",
-            ms: "Kad Deskripsi Kanan"
+            en: "Card Link",
+            ms: "Pautan Kad"
           },
           localized: true
-        },
+        }
       ],
     },
   ],

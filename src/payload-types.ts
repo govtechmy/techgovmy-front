@@ -401,22 +401,26 @@ export interface AboutUs {
   title?: string | null;
   'intro-header'?: string | null;
   'intro-description'?: string | null;
-  'join-our-community'?: string | null;
   'vision-and-mission'?:
     | {
-        'card-header-left'?: string | null;
-        'card-description-left'?: string | null;
-        'card-header-right'?: string | null;
-        'card-description-right'?: string | null;
+        'card-header'?: string | null;
+        'image-link'?: string | null;
+        'card-description'?: string | null;
         id?: string | null;
       }[]
     | null;
   'our-values'?:
     | {
-        'card-header-left'?: string | null;
-        'card-description-left'?: string | null;
-        'card-header-right'?: string | null;
-        'card-description-right'?: string | null;
+        'card-header'?: string | null;
+        'image-link'?: string | null;
+        'card-description'?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  community?:
+    | {
+        'card-title'?: string | null;
+        href?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -431,23 +435,27 @@ export interface AboutUsSelect<T extends boolean = true> {
   title?: T;
   'intro-header'?: T;
   'intro-description'?: T;
-  'join-our-community'?: T;
   'vision-and-mission'?:
     | T
     | {
-        'card-header-left'?: T;
-        'card-description-left'?: T;
-        'card-header-right'?: T;
-        'card-description-right'?: T;
+        'card-header'?: T;
+        'image-link'?: T;
+        'card-description'?: T;
         id?: T;
       };
   'our-values'?:
     | T
     | {
-        'card-header-left'?: T;
-        'card-description-left'?: T;
-        'card-header-right'?: T;
-        'card-description-right'?: T;
+        'card-header'?: T;
+        'image-link'?: T;
+        'card-description'?: T;
+        id?: T;
+      };
+  community?:
+    | T
+    | {
+        'card-title'?: T;
+        href?: T;
         id?: T;
       };
   updatedAt?: T;

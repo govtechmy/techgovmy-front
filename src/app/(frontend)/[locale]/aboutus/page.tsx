@@ -1,162 +1,117 @@
-import { getTranslations } from "next-intl/server";
+
 import React from "react";
+import { getTranslations } from "next-intl/server";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@govtechmy/myds-react/breadcrumb"
+import { fetchGlobal } from "@/utils/globals";
+import Link from "next/link";
 
-export default async function AboutPage() {
+export default async function AboutPage({ params }: { params: { locale: string } }) {
+
   const t = await getTranslations("About");
-  return (
-    <div className="flex-1 w-full border-otl-divider border-x justify-center">
+  const aboutUs = await fetchGlobal(params.locale, "about-us")
+
+    return (
+      <div className="w-full border-otl-divider border-x justify-center">
         <div className="h-[166px] px-4 py-6">
-            <div className="max-w-5xl m-auto">
-                <Breadcrumb >
-                    <BreadcrumbItem>
-                        <BreadcrumbLink href="/">
-                            {t('home')}
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbPage>{t('title')}</BreadcrumbPage>
-                </Breadcrumb>
-                <div className="text-3xl font-semibold my-2">
-                    <h1>{t('title')}</h1>
-                </div>
+          <div className="max-w-5xl m-auto">
+            <Breadcrumb>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">
+                  {t('home')}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbPage>{aboutUs?.title}</BreadcrumbPage>
+            </Breadcrumb>
+            <div className="text-3xl font-semibold my-2">
+              <h1>{aboutUs?.title}</h1>
             </div>
+          </div>
         </div>
+
         <div className="mx-auto max-w-5xl p-6">
-            <figure className="w-full text-center py-8 flex flex-col items-center">
-                <img src="/static/images/aboutus.png" alt={t('title')} className="h-auto w-full m-auto rounded" />
-                <figcaption className="mt-2 text-center text-gray-600">
-                    {/* <!-- figure caption here --> */}
-                </figcaption>
-            </figure>
-            <div className="flex flex-col gap-[24px] my-16">
-                <h2 className="font-semibold text-3xl">
-                    {t('intro_header')}
-                </h2>
-                <div className="font-normal text-base leading-[26px]">
-                    {t('intro_description')}
-                </div>
+          <figure className="w-full text-center py-8 flex flex-col items-center">
+            <img src="/static/images/aboutus.png" alt={aboutUs?.intro_header || "About Us"} className="h-auto w-full m-auto rounded" />
+            <figcaption className="mt-2 text-center text-gray-600">{/* Caption */}</figcaption>
+          </figure>
 
+          <div className="flex flex-col gap-[24px] my-6">
+            <h2 className="font-semibold text-3xl">{aboutUs?.["intro-header"]}</h2>
+            <div className="font-normal text-base leading-[26px]">
+              {aboutUs?.["intro-description"]}
             </div>
+          </div>
 
-            {/* Our Mission Our Vision */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 my-12">
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm">
-                    <div className="flex items-center justify-start w-auto h-84 bg-orange-100 rounded-full mb-4">
-                        <img src="/static/images/misikami.png" className="icon" />
-                    </div>
-
-                    <h3 className="my-4 text-xl font-semibold text-gray-900">{t('card1_title')}</h3>
-                    <p className="text-gray-600 text-base font-normal leading-normal">
-                        {t('card1_description')}
-                    </p>
+          {/* Our Mission & Vision */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 my-12">
+            {aboutUs["vision-and-mission"].map((value: {[key: string]: string}, index: number) => (
+              <div key={`misivisi_${index}`} className="p-6 border border-gray-200 rounded-lg shadow-sm">
+                <div className="flex items-center justify-start w-auto h-20 bg-orange-100 rounded-full mb-4">
+                  <img src={value?.["image-link"]} className="icon" alt={value?.["card-header"]} />
                 </div>
+                <h3 className="my-4 text-xl font-semibold text-gray-900">{value?.["card-header"]}</h3>
+                <p className="text-gray-600 text-base font-normal leading-normal">
+                  {value?.["card-description"]}
+                </p>
+              </div>
+            ))}
+          </div>
 
-
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm">
-                    <div className="flex items-center justify-start w-auto h-84 bg-orange-100 rounded-full mb-4">
-                        <img src="/static/images/visikami.png" className="icon" />
-                    </div>
-
-                    <h3 className="my-4 text-xl font-semibold text-gray-800">{t('card2_title')}</h3>
-                    <p className="text-gray-600">
-                        {t('card2_description')} 
-                    </p>
+          {/* Our Values */}
+          <h3 className="mb-2 text-xl font-semibold text-gray-800">{aboutUs?.our_values}</h3>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-12">
+            {aboutUs["our-values"].map((value: {[key: string]: string}, index: number) => (
+              <div key={index} className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4">
+                <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
+                  <img src={value?.["image-link"]} className="icon" alt={value?.["card-header"]} />
                 </div>
+                <div className="flex-1">
+                  <h3 className="mb-2 text-xl font-semibold text-gray-800">{value?.["card-header"]}</h3>
+                  <p className="text-gray-600">
+                    {value?.["card-description"] || aboutUs?.[`value_card${index - 2}_description`]}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Our Community */}
+          <section className="max-w-6xl mx-auto px-4 pt-8 text-left">
+            <h2 className="text-3xl font-semibold mb-2">{t('our_community')}</h2>
+          </section>
+
+          <section className="max-w-6xl mx-auto px-4 py-12">
+            <div className="overflow-x-auto">
+              <div className="grid grid-cols-3 gap-8 sm:grid-cols-3 justify-center text-center min-w-max">
+                {aboutUs.community.map((value: {[key: string]: string}, index: number) => (
+                  <Link key={`community_${index}`} href={value?.["href"]}>
+                    <KadKommuniti 
+                      community_text={value?.["card-title"]}
+                    />
+                  </Link>
+                ))}
+              </div>
             </div>
-
-            {/* Our Values */}
-            <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('our_values')} </h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-4">
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4">
-                    <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
-                        <img src="/static/images/inovasi.png" className="icon" />
-                    </div>
-                    <div className="flex-1">
-                        <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('value_card1_title')}</h3>
-                        <p className="text-gray-600">
-                            {t('value_card1_description')}
-                        </p>
-                    </div>
-                </div>
-
-
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4">
-                    <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
-                        <img src="/static/images/berpusatkanpengguna.png" className="icon" />
-                    </div>
-                    <div className="flex-1">
-                        <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('value_card2_title')}</h3>
-                        <p className="text-gray-600">
-                            {t('value_card2_description')}
-                        </p>
-                    </div>
-                </div>
-                
-            </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-12">
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4">
-                    <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
-                        <img src="/static/images/ketelusan.png" className="icon" />
-                    </div>
-                    <div className="flex-1">
-                        <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('value_card3_title')}</h3>
-                        <p className="text-gray-600">
-                            {t('value_card3_description')}
-                        </p>
-                    </div>
-                </div>
-
-
-                <div className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4">
-                    <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
-                        <img src="/static/images/kerjasama.png" className="icon" />
-                    </div>
-                    <div className="flex-1">
-                        <h3 className="mb-2 text-xl font-semibold text-gray-800">{t('value_card4_title')}</h3>
-                        <p className="text-gray-600">
-                            {t('value_card4_description')}
-                        </p>
-                    </div>
-                </div>
-                
-            </div>
-
-            <section className="max-w-6xl mx-auto px-4 pt-8 text-left">
-                <h2 className="text-3xl font-semibold mb-2">{t('our_community')}</h2>
-            </section>
-
-            <section className="max-w-6xl mx-auto px-4 py-12">
-                <div className="overflow-x-auto">
-                    <div className="grid grid-cols-3 gap-8 sm:grid-cols-3 justify-center text-center min-w-max">
-                        <KadKommuniti community_text="community1_text" />
-                        <KadKommuniti community_text="community2_text" />
-                        <KadKommuniti community_text="community3_text" />
-                    </div>
-                </div>
-            </section>
-
+          </section>
         </div>
-    </div>
-  );
+      </div>
+    );
 }
 
 
 const KadKommuniti=async({community_text}: { community_text: string })=>{
-    const t = await getTranslations("About");
 
     return <div className="flex flex-col items-center">
         <img
             src="/static/images/komuniti.png"
-            alt={t(community_text)}
+            alt={community_text}
             className="rounded-md border-2 border-orange-500"
         />
-        <a
-            href="#"
+        <div
             className="mt-4 inline-flex items-center text-orange-600 hover:text-orange-700 font-medium"
         >
-            {t(community_text)}
-            <span className="ml-1">→</span>
-        </a>
+          {community_text}
+          <span className="ml-1">→</span>
+        </div>
 </div>
 }
