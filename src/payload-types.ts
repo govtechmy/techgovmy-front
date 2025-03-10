@@ -406,7 +406,7 @@ export interface AboutUs {
   'vision-and-mission'?:
     | {
         'card-header'?: string | null;
-        'image-link'?: string | null;
+        icon?: ('flag' | 'eye' | 'thumbsUp' | 'userGroup' | 'star') | null;
         'card-description'?: string | null;
         id?: string | null;
       }[]
@@ -414,7 +414,7 @@ export interface AboutUs {
   'our-values'?:
     | {
         'card-header'?: string | null;
-        'image-link'?: string | null;
+        icon?: ('flag' | 'eye' | 'thumbsUp' | 'userGroup' | 'star') | null;
         'card-description'?: string | null;
         id?: string | null;
       }[]
@@ -476,7 +476,7 @@ export interface AboutUsSelect<T extends boolean = true> {
     | T
     | {
         'card-header'?: T;
-        'image-link'?: T;
+        icon?: T;
         'card-description'?: T;
         id?: T;
       };
@@ -484,7 +484,7 @@ export interface AboutUsSelect<T extends boolean = true> {
     | T
     | {
         'card-header'?: T;
-        'image-link'?: T;
+        icon?: T;
         'card-description'?: T;
         id?: T;
       };

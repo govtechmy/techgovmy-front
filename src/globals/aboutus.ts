@@ -57,13 +57,20 @@ export const AboutUsGlobals: GlobalConfig = {
           //relationTo: 'pages', // "pages" is the slug of an existing collection
         },
         {
-          name: 'image-link',
-          type: 'text',
+          name: 'icon',
+          type: 'select',
           label: {
-            en: "Image Link",
-            ms: "Pautan Gambar"
+            en: "Icon name",
+            ms: "Nama Ikon"
           },
-          localized: true
+          localized: true,
+          options: [
+            'flag',
+            'eye',
+            'thumbsUp',
+            'userGroup',
+            'star'
+          ]
         },
         {
           name: 'card-description',
@@ -96,13 +103,20 @@ export const AboutUsGlobals: GlobalConfig = {
           localized: true
         },
         {
-          name: 'image-link',
-          type: 'text',
+          name: 'icon',
+          type: 'select',
           label: {
-            en: "Image Link",
-            ms: "Pautan Gambar"
+            en: "Icon name",
+            ms: "Nama Ikon"
           },
-          localized: true
+          localized: true,
+          options: [
+            'flag',
+            'eye',
+            'thumbsUp',
+            'userGroup',
+            'star'
+          ]
         },
         {
           name: 'card-description',
