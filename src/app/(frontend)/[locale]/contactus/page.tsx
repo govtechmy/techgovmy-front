@@ -78,7 +78,7 @@ export default async function ContactPage({ params }: { params: { locale: string
           </div>
         </div>
         <iframe
-          className="w-[628px] h-[400px] rounded-xl border border-gray-200"
+          className="w-[39.25rem] h-[25rem] rounded-xl border border-gray-200"
           loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
