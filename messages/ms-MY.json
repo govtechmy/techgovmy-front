@@ -2,5 +2,28 @@
   "HomePage": {
     "title": "Hi Dunia!",
     "about": "Pergi ke halaman Tentang"
+  },
+  "About": {
+    "title": "Tentang Kami",
+    "home": "Home",
+    "intro_header": "Siapakah GovTech?",
+    "intro_description": "orem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequate. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et.",
+    "card1_title": "Misi Kami",
+    "card1_description": "Untuk memacu penggunaan digital dalam sektor awam, menjadikan perkhidmatan kerajaan lebih cekap, mudah diakses dan mengutamakan rakyat.",
+    "card2_title": "Visi Kami",
+    "card2_description": "Malaysia di mana teknologi menjadikan perkhidmatan kerajaan lancar, cekap dan telus—memperkasakan kedua-dua rakyat dan kemajuan negara.",
+    "our_values": "Nilai Kami",
+    "value_card1_title": "Inovasi",
+    "value_card1_description": "Untuk memacu penggunaan digital dalam sektor awam, menjadikan perkhidmatan kerajaan lebih cekap, mudah diakses dan mengutamakan rakyat.",
+    "value_card2_title": "Berpusatkan Pengguna",
+    "value_card2_description": "Untuk memacu penggunaan digital dalam sektor awam, menjadikan perkhidmatan kerajaan lebih cekap, mudah diakses dan mengutamakan rakyat.",
+    "value_card3_title": "Ketelusan",
+    "value_card3_description": "",
+    "value_card4_title": "Kerjasama",
+    "value_card4_description": "",
+    "our_community": "Sertai Komuniti Kami",
+    "community1_text": "Komuniti GovTech",
+    "community2_text": "GovTech Telegram",
+    "community3_text": "Developer Tangan"
   }
 }
