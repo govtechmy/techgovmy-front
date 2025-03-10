@@ -2,5 +2,12 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "Contact": {
+    "title": "Contact us",
+    "home": "Home",
+    "contact_us": "Contact Us",
+    "office_name": "GovTech Malaysia Office",
+    "inquiries_feedback": "Inquiries & Feedback"
   }
 }
