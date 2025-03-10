@@ -2,5 +2,12 @@
   "HomePage": {
     "title": "Hi Dunia!",
     "about": "Pergi ke halaman Tentang"
+  },
+  "Contact": {
+    "title": "Hubungi kami",
+    "home": "Utama",
+    "contact_us": "Hubungi Kami",
+    "office_name": "Pejabat GovTech Malaysia",
+    "inquiries_feedback": "Pertanyaan & Maklum Balas"
   }
 }
