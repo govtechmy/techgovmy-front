@@ -15,9 +15,9 @@ export default async function ContactPage({ params }: { params: { locale: string
   //   const contactUs = await fetchGlobal(params.locale, "contact-us")
 
   return (
-    <div className="w-full border-otl-divider border-x justify-center px-6">
+    <div className="w-full border-otl-divider max-w-5xl m-auto border-x justify-center px-6">
       <div className="h-[4.75rem] py-6">
-        <div className="max-w-5xl m-auto">
+        <div className=" m-auto">
           <Breadcrumb className="pl-0">
             <BreadcrumbItem>
               <BreadcrumbLink href="/">{t("home")}</BreadcrumbLink>
@@ -30,7 +30,7 @@ export default async function ContactPage({ params }: { params: { locale: string
           </div>
         </div>
       </div>
-      <section className="max-w-5xl h-[33rem] border-b py-16 gap-16 mx-auto flex justify-between">
+      <section className=" h-[33rem] border-b py-16 gap-16 mx-auto flex justify-between">
         <div className="w-[18.875rem] h-[23rem]">
           <h1 className="text-txt-black-900 text-xl font-semibold">{t("office_name")}</h1>
           <p className="text-txt-black-700 text-base font-light pt-2">
