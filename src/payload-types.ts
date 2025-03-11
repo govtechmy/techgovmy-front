@@ -93,9 +93,11 @@ export interface Config {
   };
   globals: {
     'about-us': AboutUs;
+    footer: Footer;
   };
   globalsSelect: {
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: 'ms-MY' | 'en-GB';
   user: User & {
@@ -429,6 +431,41 @@ export interface AboutUs {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  address?: string | null;
+  'last-updated'?: string | null;
+  copyright?: string | null;
+  'follow-us'?:
+    | {
+        icon?: ('facebook' | 'x' | 'linkedin' | 'instagram' | 'youtube') | null;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  'right-column-title'?: string | null;
+  'left-column-title'?: string | null;
+  'right-column-items'?:
+    | {
+        text?: string | null;
+        href?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  'left-column-items'?:
+    | {
+        text?: string | null;
+        href?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about-us_select".
  */
 export interface AboutUsSelect<T extends boolean = true> {
@@ -455,6 +492,41 @@ export interface AboutUsSelect<T extends boolean = true> {
     | T
     | {
         'card-title'?: T;
+        href?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  address?: T;
+  'last-updated'?: T;
+  copyright?: T;
+  'follow-us'?:
+    | T
+    | {
+        icon?: T;
+        link?: T;
+        id?: T;
+      };
+  'right-column-title'?: T;
+  'left-column-title'?: T;
+  'right-column-items'?:
+    | T
+    | {
+        text?: T;
+        href?: T;
+        id?: T;
+      };
+  'left-column-items'?:
+    | T
+    | {
+        text?: T;
         href?: T;
         id?: T;
       };
