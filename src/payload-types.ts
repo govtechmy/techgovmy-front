@@ -93,9 +93,11 @@ export interface Config {
   };
   globals: {
     'about-us': AboutUs;
+    footer: Footer;
   };
   globalsSelect: {
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: 'ms-MY' | 'en-GB';
   user: User & {
@@ -401,22 +403,61 @@ export interface AboutUs {
   title?: string | null;
   'intro-header'?: string | null;
   'intro-description'?: string | null;
-  'join-our-community'?: string | null;
   'vision-and-mission'?:
     | {
-        'card-header-left'?: string | null;
-        'card-description-left'?: string | null;
-        'card-header-right'?: string | null;
-        'card-description-right'?: string | null;
+        'card-header'?: string | null;
+        icon?: ('flag' | 'eye' | 'thumbsUp' | 'userGroup' | 'star') | null;
+        'card-description'?: string | null;
         id?: string | null;
       }[]
     | null;
   'our-values'?:
     | {
-        'card-header-left'?: string | null;
-        'card-description-left'?: string | null;
-        'card-header-right'?: string | null;
-        'card-description-right'?: string | null;
+        'card-header'?: string | null;
+        icon?: ('flag' | 'eye' | 'thumbsUp' | 'userGroup' | 'star') | null;
+        'card-description'?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  community?:
+    | {
+        'card-title'?: string | null;
+        href?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  address?: string | null;
+  'last-updated'?: string | null;
+  copyright?: string | null;
+  'follow-us'?:
+    | {
+        icon?: ('facebook' | 'x' | 'linkedin' | 'instagram' | 'youtube') | null;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  'right-column-title'?: string | null;
+  'left-column-title'?: string | null;
+  'right-column-items'?:
+    | {
+        text?: string | null;
+        href?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  'left-column-items'?:
+    | {
+        text?: string | null;
+        href?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -431,23 +472,62 @@ export interface AboutUsSelect<T extends boolean = true> {
   title?: T;
   'intro-header'?: T;
   'intro-description'?: T;
-  'join-our-community'?: T;
   'vision-and-mission'?:
     | T
     | {
-        'card-header-left'?: T;
-        'card-description-left'?: T;
-        'card-header-right'?: T;
-        'card-description-right'?: T;
+        'card-header'?: T;
+        icon?: T;
+        'card-description'?: T;
         id?: T;
       };
   'our-values'?:
     | T
     | {
-        'card-header-left'?: T;
-        'card-description-left'?: T;
-        'card-header-right'?: T;
-        'card-description-right'?: T;
+        'card-header'?: T;
+        icon?: T;
+        'card-description'?: T;
+        id?: T;
+      };
+  community?:
+    | T
+    | {
+        'card-title'?: T;
+        href?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  address?: T;
+  'last-updated'?: T;
+  copyright?: T;
+  'follow-us'?:
+    | T
+    | {
+        icon?: T;
+        link?: T;
+        id?: T;
+      };
+  'right-column-title'?: T;
+  'left-column-title'?: T;
+  'right-column-items'?:
+    | T
+    | {
+        text?: T;
+        href?: T;
+        id?: T;
+      };
+  'left-column-items'?:
+    | T
+    | {
+        text?: T;
+        href?: T;
         id?: T;
       };
   updatedAt?: T;

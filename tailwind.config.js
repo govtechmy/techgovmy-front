@@ -7,6 +7,14 @@ export default {
     "node_modules/@govtechmy/myds-react/dist/**/*.{js,jsx,ts,tsx}",
   ],
   presets: [preset],
+  theme: {
+    extend: {
+      colours: {
+        lightyellow: "#FFFBF4",
+        bordergrey: "#F4F4F5"
+      }
+    }
+  },
   plugins: [],
   theme: {
     extend: {
