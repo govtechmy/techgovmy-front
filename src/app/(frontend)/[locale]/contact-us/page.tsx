@@ -42,13 +42,13 @@ export default async function ContactPage({ params }: { params: { locale: string
             <br />
             50088 Kuala Lumpur, Malaysia
           </p>
-          <div className="flex gap-4 text-primary-500 text-body-sm font-normal pt-5">
+          <div className="flex gap-4 text-primary-500 text-body-md font-normal pt-5">
             <a
               href="https://maps.app.goo.gl/rrx18TcirEwSNvGQ7"
               target="_blank"
               className="flex gap-2 w-auto items-center"
             >
-              <DirectionIcon className="size-6 text-primary-500 rounded-full bg-primary-50 p-1" />
+              <DirectionIcon className="size-8 text-primary-500 rounded-full bg-primary-50 p-1" />
               Google Maps
             </a>
             <a
@@ -56,22 +56,22 @@ export default async function ContactPage({ params }: { params: { locale: string
               target="_blank"
               className="flex gap-2 w-auto items-center"
             >
-              <DirectionIcon className="size-6 text-primary-500 rounded-full bg-primary-50 p-1" />
+              <DirectionIcon className="size-8 text-primary-500 rounded-full bg-primary-50 p-1" />
               Waze
             </a>
           </div>
           <div className="w-[18.875rem] h-[7.75rem] pt-12">
             <h1 className="text-txt-black-900 text-body-xl font-semibold">{t("inquiries_feedback")}</h1>
-            <div className="flex flex-col gap-4 pt-4">
+            <div className="flex flex-col gap-4 pt-4 text-body-md">
               <a
                 href="mailto:admin@tech.gov.my"
                 className="flex gap-2 w-auto items-center text-primary-500"
               >
-                <EmailIcon className="size-6 rounded-full bg-primary-50 p-1" />
+                <EmailIcon className="size-8 rounded-full bg-primary-50 p-1" />
                 admin@tech.gov.my
               </a>
               <div className="flex gap-2 w-auto items-center text-primary-500">
-                <PhoneIcon className="size-6 rounded-full bg-primary-50 p-1" />
+                <PhoneIcon className="size-8 rounded-full bg-primary-50 p-1" />
                 000 000 0000
               </div>
             </div>
