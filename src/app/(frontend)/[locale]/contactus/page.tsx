@@ -15,7 +15,7 @@ export default async function ContactPage({ params }: { params: { locale: string
   //   const contactUs = await fetchGlobal(params.locale, "contact-us")
 
   return (
-    <div className="w-full border-otl-divider max-w-5xl m-auto border-x justify-center px-6">
+    <div className="w-full border-otl-divider max-w-5xl m-auto justify-center px-6">
       <div className="h-[4.75rem] py-6">
         <div className=" m-auto">
           <Breadcrumb className="pl-0">
@@ -25,15 +25,15 @@ export default async function ContactPage({ params }: { params: { locale: string
             <BreadcrumbSeparator />
             <BreadcrumbPage>{t("contact_us")}</BreadcrumbPage>
           </Breadcrumb>
-          <div className="text-3xl pt-1 font-semibold my-2 text-txt-black-900">
+          <div className="text-heading-sm pt-1 font-semibold my-2 text-txt-black-900">
             <h1>{t("contact_us")}</h1>
           </div>
         </div>
       </div>
-      <section className=" h-[33rem] border-b py-16 gap-16 mx-auto flex justify-between">
+      <section className=" h-[33rem] py-16 gap-16 mx-auto flex justify-between">
         <div className="w-[18.875rem] h-[23rem]">
-          <h1 className="text-txt-black-900 text-xl font-semibold">{t("office_name")}</h1>
-          <p className="text-txt-black-700 text-base font-light pt-2">
+          <h1 className="text-txt-black-900 text-body-xl font-semibold">{t("office_name")}</h1>
+          <p className="text-txt-black-700 text-body-md font-light pt-2">
             Level 37, MOF Inc. Tower,
             <br />
             Platinum Park,
@@ -42,7 +42,7 @@ export default async function ContactPage({ params }: { params: { locale: string
             <br />
             50088 Kuala Lumpur, Malaysia
           </p>
-          <div className="flex gap-4 text-primary-500 text-sm font-normal pt-5">
+          <div className="flex gap-4 text-primary-500 text-body-sm font-normal pt-5">
             <a
               href="https://maps.app.goo.gl/rrx18TcirEwSNvGQ7"
               target="_blank"
@@ -61,7 +61,7 @@ export default async function ContactPage({ params }: { params: { locale: string
             </a>
           </div>
           <div className="w-[18.875rem] h-[7.75rem] pt-12">
-            <h1 className="text-txt-black-900 text-xl font-semibold">{t("inquiries_feedback")}</h1>
+            <h1 className="text-txt-black-900 text-body-xl font-semibold">{t("inquiries_feedback")}</h1>
             <div className="flex flex-col gap-4 pt-4">
               <a
                 href="mailto:admin@tech.gov.my"
