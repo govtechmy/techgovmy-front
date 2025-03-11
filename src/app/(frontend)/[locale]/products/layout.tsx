@@ -98,9 +98,8 @@ export default function ProductPageLayout({
   };
   return (
     <ProductProvider data={sidebarContent}>
-      <div className="flex-1 flex max-w-screen-xl mx-auto w-full h-full">
-        {sidebar}
-        {children}
+      <div className="flex-1 h-full grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 lg:grid-cols-12 w-full mx-auto">
+        <div className="col-span-full w-full max-w-screen-xl flex mx-auto">{children}</div>
       </div>
     </ProductProvider>
   );

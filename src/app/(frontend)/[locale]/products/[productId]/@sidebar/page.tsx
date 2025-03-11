@@ -3,16 +3,16 @@ import { Link } from "@/lib/i18n/routing";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { FC, Fragment } from "react";
-import { useProduct } from "../context";
+import { useProduct } from "../../context";
 
 interface ProductPageSidebarProps {}
 
 const ProductPageSidebar: FC<ProductPageSidebarProps> = ({}) => {
-  const { data, active } = useProduct();
+  const { data } = useProduct();
   const sidebar = data;
 
   return (
-    <div className="w-full lg:w-[300px] lg:min-h-fit">
+    <div className="hidden lg:block w-full lg:w-[300px] lg:min-h-fit">
       <div className="overflow-y-scroll max-h-[calc(100vh-6rem)] hide-scrollbar flex flex-col gap-3 pb-12 lg:w-[300px]">
         {Object.entries(sidebar).map(([type, content], index) => (
           <Fragment key={index}>

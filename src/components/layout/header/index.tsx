@@ -39,8 +39,8 @@ export default function Header() {
   return (
     <Navbar
       showMenu={showMenu}
-      background="lg:border-b-0 shadow-button grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto"
-      className="col-span-full max-w-screen-xl"
+      background="lg:border-b-0 shadow-button grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 lg:grid-cols-12 w-full mx-auto"
+      className="col-span-full max-w-screen-xl w-full max-lg:border-b-0"
     >
       <NavbarContainer>
         <BrandLogo imageSrc="/favicon-color.png">Govtech Malaysia</BrandLogo>

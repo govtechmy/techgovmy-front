@@ -2,12 +2,14 @@
 import Image from "next/image";
 import { useProduct } from "../context";
 import { Tag } from "@govtechmy/myds-react/tag";
-import { ArrowOutgoingIcon } from "@govtechmy/myds-react/icon";
+import { ArrowBackIcon, ArrowOutgoingIcon } from "@govtechmy/myds-react/icon";
+import { useRouter } from "@/lib/i18n/routing";
 
 interface ProductPageProps {}
 
 export default function ProductPage({}: ProductPageProps) {
   const { data, active } = useProduct();
+  const router = useRouter();
 
   const flatProduct = Object.values(data).flat();
   const currentProduct = flatProduct.find((cp) => cp.slug === active);
@@ -18,8 +20,15 @@ export default function ProductPage({}: ProductPageProps) {
 
   return (
     <div className="grid grid-cols-4 gap-4.5 md:grid-cols-8 md:gap-6 lg:grid-cols-12 w-full mx-auto">
-      <div className="col-start-2 col-span-full max-w-[845px] mx-auto w-full overflow-y-scroll max-h-[calc(100vh-6rem)] hide-scrollbar">
-        <div className="flex gap-6 py-8 sticky top-0 z-10 bg-bg-white hide-scrollbar ">
+      <div className="lg:col-start-2 col-span-full col-start-1 lg:max-w-[845px] mx-auto w-full lg:overflow-y-scroll lg:max-h-[calc(100vh-6rem)] lg:hide-scrollbar">
+        <div
+          onClick={() => router.back()}
+          className="py-8 w-fit flex items-center gap-2 lg:hidden text-txt-primary hover:cursor-pointer"
+        >
+          <ArrowBackIcon className="" />
+          <p>Back</p>
+        </div>
+        <div className="flex gap-6 lg:py-8 pb-8 lg:sticky lg:top-0 lg:z-10 bg-bg-white lg:hide-scrollbar ">
           <div className="w-[72px] h-[72px] relative border border-otl-gray-200 shadow-card flex items-center justify-center rounded-md">
             <Image
               alt={currentProduct.name}
@@ -50,7 +59,7 @@ export default function ProductPage({}: ProductPageProps) {
           </div>
         </div>
         <div className="h-full w-full space-y-6">
-          <div className="w-full lg:h-[485.4px] relative border border-otl-gray-200 rounded-md overflow-hidden">
+          <div className="w-full h-[239.95px] md:h-[445.8px] lg:h-[485.4px] relative border border-otl-gray-200 rounded-md overflow-hidden">
             <Image
               alt="Product Image Carousel"
               src={"/static/product-carousel/image-slider.png"}
@@ -58,7 +67,7 @@ export default function ProductPage({}: ProductPageProps) {
               className="absolute object-center"
             />
           </div>
-          <div className="py-6">
+          <div className="py-6 max-w-[350px] md:max-w-[600px] lg:max-w-none w-full mx-auto">
             <p className="text-bg-black-500">
               TO USE MARKDOWN HERE:::: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
