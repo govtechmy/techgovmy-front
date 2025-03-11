@@ -15,7 +15,7 @@ export default async function ContactPage({ params }: { params: { locale: string
   //   const contactUs = await fetchGlobal(params.locale, "contact-us")
 
   return (
-    <div className="w-full border-otl-divider max-w-5xl m-auto justify-center px-6">
+    <div className="w-full border-otl-divider max-w-screen-xl px-[6.8125rem] m-auto justify-center">
       <div className="h-[4.75rem] py-6">
         <div className=" m-auto">
           <Breadcrumb className="pl-0">
@@ -61,7 +61,9 @@ export default async function ContactPage({ params }: { params: { locale: string
             </a>
           </div>
           <div className="w-[18.875rem] h-[7.75rem] pt-12">
-            <h1 className="text-txt-black-900 text-body-xl font-semibold">{t("inquiries_feedback")}</h1>
+            <h1 className="text-txt-black-900 text-body-xl font-semibold">
+              {t("inquiries_feedback")}
+            </h1>
             <div className="flex flex-col gap-4 pt-4 text-body-md">
               <a
                 href="mailto:admin@tech.gov.my"
