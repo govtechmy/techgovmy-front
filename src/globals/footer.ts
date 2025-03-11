@@ -11,15 +11,6 @@ export const FooterGlobals: GlobalConfig = {
   },
   fields: [
     {
-      name: "address",
-      type: "text",
-      label: {
-        en: "Address",
-        ms: "Alamat",
-      },
-      localized: true,
-    },
-    {
       name: "last-updated",
       type: "text",
       label: {
@@ -47,20 +38,19 @@ export const FooterGlobals: GlobalConfig = {
       localized: true,
       fields: [
         {
-            name: 'icon',
-            type: 'select',
-            label: {
-              en: "Icon name",
-              ms: "Nama Ikon"
-            },
-            localized: true,
-            options: [
-              'facebook',
-              'x',
-              'linkedin',
-              'instagram',
-              'youtube'
-            ]
+          name: 'icon',
+          type: 'select',
+          label: {
+            en: "Icon name",
+            ms: "Nama Ikon"
+          },
+          options: [
+            'facebook',
+            'x',
+            'linkedin',
+            'instagram',
+            'youtube'
+          ]
         },
         {
           name: 'link',
@@ -69,85 +59,82 @@ export const FooterGlobals: GlobalConfig = {
             en: "Link",
             ms: "Pautan"
           },
-          localized: true
         },
       ],
     },
     {
-        name: 'right-column-title',
-        type: 'text',
-        label: {
-            en: "Right Column Title",
-            ms: "Tajuk Ruangan Kanan"
-        },
-        localized: true,
+      name: 'right-column-title',
+      type: 'text',
+      label: {
+          en: "Right Column Title",
+          ms: "Tajuk Ruangan Kanan"
+      },
+      localized: true,
     },
     {
-        name: 'left-column-title',
-        type: 'text',
-        label: {
-            en: "Left Column Title",
-            ms: "Tajuk Ruangan Kiri"
-        },
-        localized: true,
+      name: 'left-column-title',
+      type: 'text',
+      label: {
+          en: "Left Column Title",
+          ms: "Tajuk Ruangan Kiri"
+      },
+      localized: true,
     },
     {
-        name: 'right-column-items',
-        type: 'array',
-        label: {
-            en: "Right Column Items",
-            ms: "Perkara Ruangan Kanan"
+      name: 'right-column-items',
+      type: 'array',
+      label: {
+          en: "Right Column Items",
+          ms: "Perkara Ruangan Kanan"
+      },
+      localized: true,
+      fields: [
+        {
+          name: 'text',
+          type: 'text',
+          label: {
+              en: "Text",
+              ms: "Tulisan"
+          },
+          localized: true,
         },
-        localized: true,
-        fields: [
-            {
-                name: 'text',
-                type: 'text',
-                label: {
-                    en: "Text",
-                    ms: "Tulisan"
-                },
-                localized: true,
-            },
-            {
-                name: 'href',
-                type: 'text',
-                label: {
-                    en: "Link",
-                    ms: "Pautan"
-                },
-                localized: true,
-            },
-        ],
+        {
+          name: 'href',
+          type: 'text',
+          label: {
+              en: "Link",
+              ms: "Pautan"
+          },
+        },
+      ],
     },
     {
-        name: 'left-column-items',
-        type: 'array',
-        label: {
-            en: "Left Column Items",
-            ms: "Perkara Ruangan Kiri"
+      name: 'left-column-items',
+      type: 'array',
+      label: {
+          en: "Left Column Items",
+          ms: "Perkara Ruangan Kiri"
+      },
+      localized: true,
+      fields: [
+        {
+          name: 'text',
+          type: 'text',
+          label: {
+              en: "Text",
+              ms: "Tulisan"
+          },
+          localized: true,
         },
-        localized: true,
-        fields: [
-            {
-                name: 'text',
-                type: 'text',
-                label: {
-                    en: "Text",
-                    ms: "Tulisan"
-                },
-                localized: true,
-            },
-            {
-                name: 'href',
-                type: 'text',
-                label: {
-                    en: "Link",
-                    ms: "Pautan"
-                },
-                localized: true,
-            },
-        ],
+        {
+          name: 'href',
+          type: 'text',
+          label: {
+              en: "Link",
+              ms: "Pautan"
+          },
+        },
+      ],
     }
 
   ],
