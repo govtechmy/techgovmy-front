@@ -8,12 +8,12 @@ import {
   BreadcrumbSeparator,
 } from "@govtechmy/myds-react/breadcrumb";
 import { PhoneIcon, EmailIcon, DirectionIcon } from "@govtechmy/myds-react/icon";
-// import { fetchGlobal } from "@/utils/globals";
+import { fetchGlobal } from "@/utils/globals";
 
 export default async function ContactPage({ params }: { params: { locale: string } }) {
   const t = await getTranslations("Contact");
-  //   const contactUs = await fetchGlobal(params.locale, "contact-us")
-
+  const contact = await fetchGlobal(params.locale, "contact-us");
+  console.log(params.locale);
   return (
     <div className="w-full border-otl-divider max-w-screen-xl px-[6.8125rem] m-auto justify-center">
       <div className="h-[4.75rem] py-6">
@@ -34,17 +34,14 @@ export default async function ContactPage({ params }: { params: { locale: string
         <div className="w-[18.875rem] h-[23rem]">
           <h1 className="text-txt-black-900 text-body-xl font-semibold">{t("office_name")}</h1>
           <p className="text-txt-black-700 text-body-md font-light pt-2">
-            Level 37, MOF Inc. Tower,
-            <br />
-            Platinum Park,
-            <br />
-            No.9 Persiaran KLCC,
-            <br />
-            50088 Kuala Lumpur, Malaysia
+            {contact.address_line_1}<br />
+            {contact.address_line_2}<br />
+            {contact.address_line_3}<br />
+            {contact.address_line_4}
           </p>
           <div className="flex gap-4 text-primary-500 text-body-md font-normal pt-5">
             <a
-              href="https://maps.app.goo.gl/rrx18TcirEwSNvGQ7"
+              href={contact.google_maps_url}
               target="_blank"
               className="flex gap-2 w-auto items-center"
             >
@@ -52,7 +49,7 @@ export default async function ContactPage({ params }: { params: { locale: string
               Google Maps
             </a>
             <a
-              href="https://www.waze.com/live-map/directions/my/wilayah-persekutuan-kuala-lumpur/kuala-lumpur/mof-inc-tower-or-platinum-park?to=place.ChIJr3w_CiY3zDERelSeJYoysOY"
+              href={contact.waze_url}
               target="_blank"
               className="flex gap-2 w-auto items-center"
             >
@@ -66,15 +63,15 @@ export default async function ContactPage({ params }: { params: { locale: string
             </h1>
             <div className="flex flex-col gap-4 pt-4 text-body-md">
               <a
-                href="mailto:admin@tech.gov.my"
+                href={`mailto:${contact.email}`}
                 className="flex gap-2 w-auto items-center text-primary-500"
               >
                 <EmailIcon className="size-8 rounded-full bg-primary-50 p-1" />
-                admin@tech.gov.my
+                {contact.email}
               </a>
               <div className="flex gap-2 w-auto items-center text-primary-500">
                 <PhoneIcon className="size-8 rounded-full bg-primary-50 p-1" />
-                000 000 0000
+                {contact.phone}
               </div>
             </div>
           </div>
