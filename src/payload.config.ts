@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 import sharp from "sharp";
 import { AboutUsGlobals } from "./globals/aboutus";
 import { FooterGlobals } from "./globals/footer";
-import { ContactGlobals } from "./globals/contact";
+import { ContactGlobals } from "./globals/contactus";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";

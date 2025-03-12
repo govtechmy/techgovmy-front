@@ -94,12 +94,12 @@ export interface Config {
   globals: {
     'about-us': AboutUs;
     footer: Footer;
-    contact: Contact;
+    'contact-us': ContactUs;
   };
   globalsSelect: {
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
-    contact: ContactSelect<false> | ContactSelect<true>;
+    'contact-us': ContactUsSelect<false> | ContactUsSelect<true>;
   };
   locale: 'ms-MY' | 'en-GB';
   user: User & {
@@ -467,9 +467,9 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact".
+ * via the `definition` "contact-us".
  */
-export interface Contact {
+export interface ContactUs {
   id: string;
   address_line_1?: string | null;
   address_line_2?: string | null;
@@ -553,9 +553,9 @@ export interface FooterSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact_select".
+ * via the `definition` "contact-us_select".
  */
-export interface ContactSelect<T extends boolean = true> {
+export interface ContactUsSelect<T extends boolean = true> {
   address_line_1?: T;
   address_line_2?: T;
   address_line_3?: T;

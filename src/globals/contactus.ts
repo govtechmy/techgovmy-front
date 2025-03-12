@@ -1,8 +1,8 @@
 import { GlobalConfig } from "payload";
 
 export const ContactGlobals: GlobalConfig = {
-  slug: "contact",
-  label: "Contact",
+  slug: "contact-us",
+  label: "Contact Us",
   access: {
     read: () => true, // Allow public read access
   },
