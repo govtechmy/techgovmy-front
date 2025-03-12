@@ -94,10 +94,12 @@ export interface Config {
   globals: {
     'about-us': AboutUs;
     footer: Footer;
+    contact: Contact;
   };
   globalsSelect: {
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    contact: ContactSelect<false> | ContactSelect<true>;
   };
   locale: 'ms-MY' | 'en-GB';
   user: User & {
@@ -435,7 +437,6 @@ export interface AboutUs {
  */
 export interface Footer {
   id: string;
-  address?: string | null;
   'last-updated'?: string | null;
   copyright?: string | null;
   'follow-us'?:
@@ -461,6 +462,23 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact".
+ */
+export interface Contact {
+  id: string;
+  address_line_1?: string | null;
+  address_line_2?: string | null;
+  address_line_3?: string | null;
+  address_line_4?: string | null;
+  google_maps_url?: string | null;
+  waze_url?: string | null;
+  email?: string | null;
+  phone?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -504,7 +522,6 @@ export interface AboutUsSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  address?: T;
   'last-updated'?: T;
   copyright?: T;
   'follow-us'?:
@@ -530,6 +547,23 @@ export interface FooterSelect<T extends boolean = true> {
         href?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_select".
+ */
+export interface ContactSelect<T extends boolean = true> {
+  address_line_1?: T;
+  address_line_2?: T;
+  address_line_3?: T;
+  address_line_4?: T;
+  google_maps_url?: T;
+  waze_url?: T;
+  email?: T;
+  phone?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
