@@ -94,10 +94,12 @@ export interface Config {
   globals: {
     'about-us': AboutUs;
     footer: Footer;
+    navbar: Navbar;
   };
   globalsSelect: {
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    navbar: NavbarSelect<false> | NavbarSelect<true>;
   };
   locale: 'ms-MY' | 'en-GB';
   user: User & {
@@ -435,7 +437,6 @@ export interface AboutUs {
  */
 export interface Footer {
   id: string;
-  address?: string | null;
   'last-updated'?: string | null;
   copyright?: string | null;
   'follow-us'?:
@@ -458,6 +459,22 @@ export interface Footer {
     | {
         text?: string | null;
         href?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navbar".
+ */
+export interface Navbar {
+  id: string;
+  'navbar-items'?:
+    | {
+        title?: string | null;
+        link?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -504,7 +521,6 @@ export interface AboutUsSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  address?: T;
   'last-updated'?: T;
   copyright?: T;
   'follow-us'?:
@@ -528,6 +544,22 @@ export interface FooterSelect<T extends boolean = true> {
     | {
         text?: T;
         href?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navbar_select".
+ */
+export interface NavbarSelect<T extends boolean = true> {
+  'navbar-items'?:
+    | T
+    | {
+        title?: T;
+        link?: T;
         id?: T;
       };
   updatedAt?: T;
