@@ -12,8 +12,7 @@ import { fetchGlobal } from "@/utils/globals";
 
 export default async function ContactPage({ params }: { params: { locale: string } }) {
   const t = await getTranslations("Contact");
-  const contact = await fetchGlobal(params.locale, "contact-us");
-  console.log(params.locale);
+  const contact = await fetchGlobal(params.locale, "contact");
   return (
     <div className="w-full border-otl-divider max-w-screen-xl px-[6.8125rem] m-auto justify-center">
       <div className="h-[4.75rem] py-6">
