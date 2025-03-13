@@ -33,10 +33,12 @@ export default async function ContactPage({ params }: { params: { locale: string
         <div className="w-[18.875rem] h-[23rem]">
           <h1 className="text-txt-black-900 text-body-xl font-semibold">{t("office_name")}</h1>
           <p className="text-txt-black-700 text-body-md font-light pt-2">
-            {contact.address_line_1}<br />
-            {contact.address_line_2}<br />
-            {contact.address_line_3}<br />
-            {contact.address_line_4}
+            {contact.address.split(",").map((line: string, index: number) => (
+              <React.Fragment key={index}>
+                {line.trim()}
+                {index < contact.address.split(",").length - 1 && <br />}
+              </React.Fragment>
+            ))}
           </p>
           <div className="flex gap-4 text-primary-500 text-body-md font-normal pt-5">
             <a
@@ -47,11 +49,7 @@ export default async function ContactPage({ params }: { params: { locale: string
               <DirectionIcon className="size-8 text-primary-500 rounded-full bg-primary-50 p-1" />
               Google Maps
             </a>
-            <a
-              href={contact.waze_url}
-              target="_blank"
-              className="flex gap-2 w-auto items-center"
-            >
+            <a href={contact.waze_url} target="_blank" className="flex gap-2 w-auto items-center">
               <DirectionIcon className="size-8 text-primary-500 rounded-full bg-primary-50 p-1" />
               Waze
             </a>
