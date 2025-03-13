@@ -95,11 +95,13 @@ export interface Config {
     'about-us': AboutUs;
     footer: Footer;
     navbar: Navbar;
+    contact: Contact;
   };
   globalsSelect: {
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     navbar: NavbarSelect<false> | NavbarSelect<true>;
+    contact: ContactSelect<false> | ContactSelect<true>;
   };
   locale: 'ms-MY' | 'en-GB';
   user: User & {
@@ -483,6 +485,20 @@ export interface Navbar {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact".
+ */
+export interface Contact {
+  id: string;
+  address?: string | null;
+  google_maps_url?: string | null;
+  waze_url?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about-us_select".
  */
 export interface AboutUsSelect<T extends boolean = true> {
@@ -562,6 +578,20 @@ export interface NavbarSelect<T extends boolean = true> {
         link?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_select".
+ */
+export interface ContactSelect<T extends boolean = true> {
+  address?: T;
+  google_maps_url?: T;
+  waze_url?: T;
+  email?: T;
+  phone?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

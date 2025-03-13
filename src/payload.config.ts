@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 import sharp from "sharp";
 import { AboutUsGlobals } from "./globals/aboutus";
 import { FooterGlobals } from "./globals/footer";
+import { ContactGlobals } from "./globals/contactus";
 import { NavBarGlobals } from "./globals/navbar";
 
 import { Users } from "./collections/Users";
@@ -50,7 +51,7 @@ export default buildConfig({
       });
     }
   },
-  globals: [AboutUsGlobals, FooterGlobals, NavBarGlobals],
+  globals: [AboutUsGlobals, FooterGlobals, NavBarGlobals, ContactGlobals],
   collections: [Users, Media, Products, Unit, People, Roles],
 
   editor: lexicalEditor(),
