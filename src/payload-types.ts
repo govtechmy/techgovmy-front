@@ -94,11 +94,13 @@ export interface Config {
   globals: {
     'about-us': AboutUs;
     footer: Footer;
+    navbar: Navbar;
     contact: Contact;
   };
   globalsSelect: {
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    navbar: NavbarSelect<false> | NavbarSelect<true>;
     contact: ContactSelect<false> | ContactSelect<true>;
   };
   locale: 'ms-MY' | 'en-GB';
@@ -467,6 +469,22 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navbar".
+ */
+export interface Navbar {
+  id: string;
+  'navbar-items'?:
+    | {
+        title?: string | null;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "contact".
  */
 export interface Contact {
@@ -542,6 +560,22 @@ export interface FooterSelect<T extends boolean = true> {
     | {
         text?: T;
         href?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navbar_select".
+ */
+export interface NavbarSelect<T extends boolean = true> {
+  'navbar-items'?:
+    | T
+    | {
+        title?: T;
+        link?: T;
         id?: T;
       };
   updatedAt?: T;
