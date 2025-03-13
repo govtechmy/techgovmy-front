@@ -8,40 +8,12 @@ export const ContactGlobals: GlobalConfig = {
   },
   fields: [
     {
-      name: "address_line_1",
+      name: "address",
       type: "text",
       label: {
-        en: "Address Line 1",
-        ms: "Alamat Baris 1",
+        en: "Address",
+        ms: "Alamat",
       },
-      localized: true,
-    },
-    {
-      name: "address_line_2",
-      type: "text",
-      label: {
-        en: "Address Line 2",
-        ms: "Alamat Baris 2",
-      },
-      localized: true,
-    },
-    {
-      name: "address_line_3",
-      type: "text",
-      label: {
-        en: "Address Line 3",
-        ms: "Alamat Baris 3",
-      },
-      localized: true,
-    },
-    {
-      name: "address_line_4",
-      type: "text",
-      label: {
-        en: "Address Line 4",
-        ms: "Alamat Baris 4",
-      },
-      localized: true,
     },
     {
       name: "google_maps_url",
@@ -74,7 +46,6 @@ export const ContactGlobals: GlobalConfig = {
         en: "Phone Number",
         ms: "Nombor Telefon",
       },
-      localized: true,
     },
   ],
 };
