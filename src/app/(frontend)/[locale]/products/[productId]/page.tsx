@@ -4,6 +4,7 @@ import { useProduct } from "../context";
 import { Tag } from "@govtechmy/myds-react/tag";
 import { ArrowBackIcon, ArrowOutgoingIcon } from "@govtechmy/myds-react/icon";
 import { useRouter } from "@/lib/i18n/routing";
+import ProductImages from "./product-images";
 
 interface ProductPageProps {}
 
@@ -59,14 +60,7 @@ export default function ProductPage({}: ProductPageProps) {
           </div>
         </div>
         <div className="h-full w-full space-y-6">
-          <div className="w-full h-[239.95px] md:h-[445.8px] lg:h-[485.4px] relative border border-otl-gray-200 rounded-md overflow-hidden">
-            <Image
-              alt="Product Image Carousel"
-              src={"/static/product-carousel/image-slider.png"}
-              fill={true}
-              className="absolute object-center"
-            />
-          </div>
+          <ProductImages />
           <div className="py-6 max-w-[350px] md:max-w-[600px] lg:max-w-none w-full mx-auto">
             <p className="text-bg-black-500">
               TO USE MARKDOWN HERE:::: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed

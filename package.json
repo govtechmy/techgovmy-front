@@ -23,6 +23,7 @@
     "@payloadcms/richtext-lexical": "latest",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
+    "embla-carousel-react": "^8.5.2",
     "graphql": "^16.8.1",
     "next": "15.1.5",
     "next-intl": "^3.26.5",
