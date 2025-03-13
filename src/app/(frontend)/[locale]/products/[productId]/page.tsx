@@ -22,13 +22,13 @@ export default function ProductPage({}: ProductPageProps) {
     <div className="grid grid-cols-4 gap-4.5 md:grid-cols-8 md:gap-6 lg:grid-cols-12 w-full mx-auto">
       <div className="lg:col-start-2 col-span-full col-start-1 lg:max-w-[845px] mx-auto w-full lg:overflow-y-scroll lg:max-h-[calc(100vh-6rem)] lg:hide-scrollbar">
         <div
-          onClick={() => router.back()}
-          className="py-8 w-fit flex items-center gap-2 lg:hidden text-txt-primary hover:cursor-pointer"
+          onClick={() => router.push("/products")}
+          className="py-8 flex w-fit items-center gap-2 lg:hidden text-txt-primary hover:cursor-pointer"
         >
           <ArrowBackIcon className="" />
           <p>Back</p>
         </div>
-        <div className="flex gap-6 lg:py-8 pb-8 lg:sticky lg:top-0 lg:z-10 bg-bg-white lg:hide-scrollbar ">
+        <div className="flex w-full gap-6 lg:py-8 pb-8 lg:sticky lg:top-0 lg:z-10 bg-bg-white lg:hide-scrollbar ">
           <div className="w-[72px] h-[72px] relative border border-otl-gray-200 shadow-card flex items-center justify-center rounded-md">
             <Image
               alt={currentProduct.name}

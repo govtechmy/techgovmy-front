@@ -8,12 +8,12 @@ import { useProduct } from "../../context";
 interface ProductPageSidebarProps {}
 
 const ProductPageSidebar: FC<ProductPageSidebarProps> = ({}) => {
-  const { data } = useProduct();
+  const { data, active } = useProduct();
   const sidebar = data;
 
   return (
     <div className="hidden lg:block w-full lg:w-[300px] lg:min-h-fit">
-      <div className="overflow-y-scroll max-h-[calc(100vh-6rem)] hide-scrollbar flex flex-col gap-3 pb-12 lg:w-[300px]">
+      <div className="overflow-y-scroll overflow-x-visible max-h-[calc(100vh-6rem)] hide-scrollbar flex flex-col gap-3 pb-12 lg:w-[302px] px-2">
         {Object.entries(sidebar).map(([type, content], index) => (
           <Fragment key={index}>
             <p className="pt-8 pb-1 gap-4.5 text-body-xl font-semibold">{type}</p>
@@ -21,8 +21,11 @@ const ProductPageSidebar: FC<ProductPageSidebarProps> = ({}) => {
               const content = (
                 <div
                   className={cn(
-                    "p-3 gap-4 border border-otl-gray-200 rounded-md bg-bg-dialog flex items-center",
+                    "p-3 gap-4 w-full border border-otl-gray-200 rounded-md bg-bg-dialog flex items-center",
                     type === "In Development" && "grayscale border-opacity-10 opacity-30",
+                    active === ct.slug &&
+                      type !== "In Development" &&
+                      "ring ring-fr-primary border border-otl-primary-300",
                   )}
                 >
                   <div className="relative flex w-12 h-12 items-center justify-center bg-bg-dialog-active border border-otl-gray-200 rounded-xs shadow-card">
