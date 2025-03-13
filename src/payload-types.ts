@@ -471,10 +471,7 @@ export interface Footer {
  */
 export interface Contact {
   id: string;
-  address_line_1?: string | null;
-  address_line_2?: string | null;
-  address_line_3?: string | null;
-  address_line_4?: string | null;
+  address?: string | null;
   google_maps_url?: string | null;
   waze_url?: string | null;
   email?: string | null;
@@ -556,10 +553,7 @@ export interface FooterSelect<T extends boolean = true> {
  * via the `definition` "contact_select".
  */
 export interface ContactSelect<T extends boolean = true> {
-  address_line_1?: T;
-  address_line_2?: T;
-  address_line_3?: T;
-  address_line_4?: T;
+  address?: T;
   google_maps_url?: T;
   waze_url?: T;
   email?: T;
