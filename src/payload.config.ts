@@ -17,6 +17,7 @@ import { Unit } from "./collections/Unit";
 import { People } from "./collections/People";
 import { Products } from "./collections/Products";
 import { Roles } from "./collections/Roles";
+import { Jobs } from "./collections/Jobs";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -52,7 +53,7 @@ export default buildConfig({
     }
   },
   globals: [AboutUsGlobals, FooterGlobals, NavBarGlobals, ContactGlobals],
-  collections: [Users, Media, Products, Unit, People, Roles],
+  collections: [Users, Media, Products, Unit, People, Roles, Jobs],
 
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
