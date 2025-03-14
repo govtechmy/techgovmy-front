@@ -29,11 +29,10 @@ export default function Header() {
       name: "Produk",
       href: "/products",
     },
-    // Hide this page.
-    // {
-    //   name: t("Nav.Header.maintenance"),
-    //   href: "/maintenance",
-    // },
+    {
+      name: "Contact Us",
+      href: "/contact-us",
+    },
   ];
 
   return (
