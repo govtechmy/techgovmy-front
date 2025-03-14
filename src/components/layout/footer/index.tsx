@@ -1,59 +1,107 @@
 "use client";
+
 import {
-  Address,
   Footer,
-  FooterBottomSection,
-  FooterCopyright,
-  FooterCopyrightDate,
-  FooterCopyrightLinkWrapper,
-  FooterMainInfo,
-  FooterTopSection,
-  ImageWithTitle,
+  SiteInfo,
+  FooterSection,
+  SiteLinkGroup,
+  SiteLink,
+  FooterLogo,
 } from "@govtechmy/myds-react/footer";
+import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "@govtechmy/myds-react/icon";
 import { Link } from "@govtechmy/myds-react/link";
 
 export default function LayoutFooter() {
   return (
-    <Footer
-      background="grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto border-0"
-      className="px-0 max-w-screen-xl col-span-full lg:py-12"
-    >
-      <FooterTopSection>
-        <FooterMainInfo>
-          <ImageWithTitle imgSrc="/favicon-color.png" imgAlt="JataNegara">
-            Govtech Malaysia
-          </ImageWithTitle>
-          <Address>
-            Level 37, MOF Inc. Tower,{"\n"}Platinum Park,{"\n"}No.9 Persiaran KLCC,{"\n"}50088 Kuala
-            Lumpur, Malaysia
-            {"\n"}
-          </Address>
-        </FooterMainInfo>
-        {/* <FooterContent>
-          <FooterContentColumn title={"Open Source"}>
+    <Footer>
+      <FooterSection className="">
+        <SiteInfo>
+          <div className="text-txt-black-900 flex items-center gap-x-2.5">
+            <FooterLogo
+              logoTitle={
+                <p className="font-poppins text-body-md whitespace-nowrap font-semibold">
+                  Govtech Malaysia
+                </p>
+              }
+              logo={
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Coat_of_arms_of_Malaysia.svg/500px-Coat_of_arms_of_Malaysia.svg.png"
+                  width={36}
+                  alt="Malaysia Coat of Arms"
+                  className="select-none"
+                />
+              }
+            />
+          </div>
+          <p className="text-txt-black-700 text-body-sm not-prose">
+            Level 37, MOF Inc. Tower Platinum Park, No.9 Persiaran KLCC,
+            <br />
+            50088 Kuala Lumpur, Malaysia
+          </p>
+          <p className="text-txt-black-900 text-body-sm font-semibold not-prose">Follow us</p>
+          <div className="flex gap-3">
             <Link
-              href="/"
-              underline="hover"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook link"
+              underline="none"
               className="hover:text-txt-black-900"
             >
-              Github Repo
+              <FacebookIcon className="text-txt-black-700" />
             </Link>
             <Link
-              href="/"
-              underline="hover"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter link"
+              underline="none"
               className="hover:text-txt-black-900"
             >
-              Figma
+              <TwitterIcon className="text-txt-black-700" />
             </Link>
-          </FooterContentColumn>
-        </FooterContent> */}
-      </FooterTopSection>
-      <FooterBottomSection>
-        <FooterCopyright>
-          <FooterCopyrightDate>All right reserved</FooterCopyrightDate>
-        </FooterCopyright>
-        {/* <FooterTimestamp time="2025-01-15T10:00:00Z">As of</FooterTimestamp> */}
-      </FooterBottomSection>
+            <Link
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram link"
+              underline="none"
+              className="hover:text-txt-black-900"
+            >
+              <InstagramIcon className="text-txt-black-700" />
+            </Link>
+            <Link
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Youtube link"
+              underline="none"
+              className="hover:text-txt-black-900"
+            >
+              <YoutubeIcon className="text-txt-black-700" />
+            </Link>
+          </div>
+        </SiteInfo>
+
+        <SiteLinkGroup groupTitle=""></SiteLinkGroup>
+        <SiteLinkGroup groupTitle=""></SiteLinkGroup>
+        <SiteLinkGroup groupTitle="Govtech Malaysia">
+          <SiteLink href="#">About Us</SiteLink>
+          <SiteLink href="#">Product</SiteLink>
+          <SiteLink href="#">Join Our Team</SiteLink>
+          <SiteLink href="#">Contact us</SiteLink>
+        </SiteLinkGroup>
+        <SiteLinkGroup groupTitle="Open Source">
+          <SiteLink href="#">Frontend Repo: NextJS</SiteLink>
+          <SiteLink href="#">Web Design: Figma</SiteLink>
+        </SiteLinkGroup>
+      </FooterSection>
+      <FooterSection className="text-txt-black-500 md:max-lg:gap-4.5 mx-auto flex w-full max-w-[1280px] flex-col justify-between border-none text-sm max-md:gap-4 lg:flex-row lg:gap-6">
+        <div className="flex flex-col gap-3 lg:flex-row">
+          <p>All Rights Reserved © 2025</p>
+        </div>
+        <p>Last updated: 14th March 2025</p>
+      </FooterSection>
     </Footer>
   );
 }

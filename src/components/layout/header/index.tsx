@@ -1,17 +1,16 @@
 "use client";
 
 import {
-  BrandLogo,
   Navbar,
-  NavbarActionGroup,
-  NavbarContainer,
-  NavigationMenuCombo,
-  NavItemsMenu,
+  NavbarLogo,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarAction,
 } from "@govtechmy/myds-react/navbar";
 import { useState } from "react";
 import ThemeToggle from "./theme-toggle";
 import LocaleSwitch from "./locale-switch";
-import { usePathname } from "@/lib/i18n/routing";
+import { Link, usePathname } from "@/lib/i18n/routing";
 
 export default function Header() {
   const pathname = usePathname();
@@ -36,27 +35,22 @@ export default function Header() {
   ];
 
   return (
-    <Navbar
-      showMenu={showMenu}
-      background="lg:border-b-0 shadow-button grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 lg:grid-cols-12 w-full mx-auto"
-      className="col-span-full max-w-screen-xl w-full max-lg:border-b-0"
-    >
-      <NavbarContainer>
-        <BrandLogo imageSrc="/favicon-color.png">Govtech Malaysia</BrandLogo>
+    <Navbar className="">
+      <NavbarLogo src="/favicon-color.png" alt="Govtech Logo">
+        Govtech Malaysia
+      </NavbarLogo>
+      <NavbarMenu>
+        {nav_items.map((nav) => (
+          <NavbarMenuItem key={nav.href} href={nav.href}>
+            {nav.name}
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
 
-        <NavigationMenuCombo showMenu={showMenu} setMenu={setMenu}>
-          {nav_items.map((nav) => (
-            <NavItemsMenu key={nav.href} href={nav.href} active={active(nav.href)}>
-              {nav.name}
-            </NavItemsMenu>
-          ))}
-        </NavigationMenuCombo>
-      </NavbarContainer>
-
-      <NavbarActionGroup showMenu={showMenu} setMenu={setMenu}>
+      <NavbarAction>
         <ThemeToggle />
         <LocaleSwitch />
-      </NavbarActionGroup>
+      </NavbarAction>
     </Navbar>
   );
 }

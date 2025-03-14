@@ -15,8 +15,8 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
-    "@govtechmy/myds-react": "^0.0.13",
-    "@govtechmy/myds-style": "^0.0.4",
+    "@govtechmy/myds-react": "^0.0.16",
+    "@govtechmy/myds-style": "^0.0.7",
     "@payloadcms/db-mongodb": "3.25.0",
     "@payloadcms/next": "3.25.0",
     "@payloadcms/payload-cloud": "3.25.0",
@@ -28,7 +28,7 @@
     "next": "15.1.5",
     "next-intl": "^3.26.5",
     "next-themes": "^0.4.4",
-    "payload": "latest",
+    "payload": "3.25.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "0.32.6",
