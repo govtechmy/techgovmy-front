@@ -5,6 +5,8 @@ import { Tag } from "@govtechmy/myds-react/tag";
 import { ArrowBackIcon, ArrowOutgoingIcon } from "@govtechmy/myds-react/icon";
 import { useRouter } from "@/lib/i18n/routing";
 import ProductImages from "./product-images";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import { dummy } from "./dummy";
 
 interface ProductPageProps {}
 
@@ -62,42 +64,10 @@ export default function ProductPage({}: ProductPageProps) {
         <div className="h-full w-full space-y-6">
           <ProductImages />
           <div className="py-6 max-w-[350px] md:max-w-[600px] lg:max-w-none w-full mx-auto">
-            <p className="text-bg-black-500">
-              TO USE MARKDOWN HERE:::: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequate. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing.
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequate. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem
-              ipsum dolor sit amet, consectetur adipiscing. Sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequate. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing.
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequate. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem
-              ipsum dolor sit amet, consectetur adipiscing. Sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequate. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing.
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequate. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem
-              ipsum dolor sit amet, consectetur adipiscing. Sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
-            </p>
+            <RichText
+              data={dummy as any}
+              className="flex flex-col gap-6 article [&_blockquote]:flex [&_blockquote]:flex-col [&_blockquote]:gap-3 [&_em]:text-base [&_em]:text-dim-500 [&_p]:whitespace-pre-line"
+            />
           </div>
         </div>
       </div>

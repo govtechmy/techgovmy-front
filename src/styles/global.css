@@ -6,6 +6,8 @@
 /* Import Dark theme */
 @import "@govtechmy/myds-style/dark.css";
 
+@import "@/styles/articles.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

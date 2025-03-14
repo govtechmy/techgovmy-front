@@ -1,0 +1,45 @@
+.article {
+  p {
+    @apply text-bg-black-700 text-body-md;
+  }
+
+  h1 {
+    @apply text-heading-sm font-semibold;
+  }
+
+  h2 {
+    @apply text-heading-xs font-semibold;
+  }
+
+  h3 {
+    @apply text-body-xl font-semibold;
+  }
+
+  h4 {
+    @apply text-body-lg font-semibold;
+  }
+
+  h5 {
+    @apply text-body-md font-semibold;
+  }
+
+  h6 {
+    @apply text-body-sm font-semibold;
+  }
+
+  ul {
+    @apply list-outside list-disc;
+  }
+
+  ol {
+    @apply list-outside list-decimal text-txt-black-900 text-body-sm space-y-3 py-6;
+  }
+
+  a {
+    @apply text-txt-primary [text-underline-position:from-font] underline hover:underline;
+  }
+
+  blockquote {
+    @apply text-balance text-body-lg text-txt-black-900;
+  }
+}
