@@ -92,6 +92,10 @@ export const Jobs: CollectionConfig = {
           label: "Closed",
           value: "closed",
         },
+        {
+          label: "Draft",
+          value: "draft",
+        },
       ],
     },
   ],
