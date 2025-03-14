@@ -72,6 +72,7 @@ export interface Config {
     units: Unit;
     people: Person;
     roles: Role;
+    jobs: Job;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -84,6 +85,7 @@ export interface Config {
     units: UnitsSelect<false> | UnitsSelect<true>;
     people: PeopleSelect<false> | PeopleSelect<true>;
     roles: RolesSelect<false> | RolesSelect<true>;
+    jobs: JobsSelect<false> | JobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -217,6 +219,21 @@ export interface Role {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "jobs".
+ */
+export interface Job {
+  id: string;
+  title: string;
+  employmentType: 'full-time' | 'part-time';
+  location: string;
+  category: 'design' | 'backend' | 'frontend' | 'data-science' | 'cyber-security' | 'full-stack' | 'ai-ml';
+  description: string;
+  status: 'open' | 'closed';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -245,6 +262,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'roles';
         value: string | Role;
+      } | null)
+    | ({
+        relationTo: 'jobs';
+        value: string | Job;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -363,6 +384,20 @@ export interface PeopleSelect<T extends boolean = true> {
  */
 export interface RolesSelect<T extends boolean = true> {
   name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "jobs_select".
+ */
+export interface JobsSelect<T extends boolean = true> {
+  title?: T;
+  employmentType?: T;
+  location?: T;
+  category?: T;
+  description?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
 }
