@@ -1,13 +1,7 @@
 import { ReactNode } from "react";
 import ProductProvider from "./context";
 
-export default function ProductPageLayout({
-  children,
-  sidebar,
-}: {
-  children: ReactNode;
-  sidebar: ReactNode;
-}) {
+export default function ProductPageLayout({ children }: { children: ReactNode }) {
   const sidebarContent = {
     Active: [
       {

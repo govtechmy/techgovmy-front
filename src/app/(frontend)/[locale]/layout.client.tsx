@@ -27,7 +27,7 @@ export default function LocaleClientLayout({
         <Masthead>
           <MastheadHeader>
             <MastheadTitle>Official Malaysian Government Website</MastheadTitle>
-            <MastheadTrigger>Here's how you know</MastheadTrigger>
+            <MastheadTrigger>Here&apos;s how you know</MastheadTrigger>
           </MastheadHeader>
           <MastheadContent>
             <MastheadSection

@@ -7,18 +7,11 @@ import {
   NavbarMenuItem,
   NavbarAction,
 } from "@govtechmy/myds-react/navbar";
-import { useState } from "react";
 import ThemeToggle from "./theme-toggle";
 import LocaleSwitch from "./locale-switch";
-import { Link, usePathname } from "@/lib/i18n/routing";
+import { Suspense } from "react";
 
 export default function Header() {
-  const pathname = usePathname();
-  const [showMenu, setMenu] = useState<boolean>(false);
-
-  const active = (href: string) =>
-    pathname === href && pathname === "/" ? true : `/${pathname.split("/")[1]}` === href;
-
   const nav_items: Array<{ name: string; href: string }> = [
     {
       name: "Tentang Kami",
@@ -48,8 +41,10 @@ export default function Header() {
       </NavbarMenu>
 
       <NavbarAction>
-        <ThemeToggle />
-        <LocaleSwitch />
+        <Suspense>
+          <ThemeToggle />
+          <LocaleSwitch />
+        </Suspense>
       </NavbarAction>
     </Navbar>
   );

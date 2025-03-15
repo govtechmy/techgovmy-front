@@ -10,6 +10,7 @@ import {
 } from "@govtechmy/myds-react/footer";
 import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "@govtechmy/myds-react/icon";
 import { Link } from "@govtechmy/myds-react/link";
+import Image from "next/image";
 
 export default function LayoutFooter() {
   return (
@@ -24,10 +25,11 @@ export default function LayoutFooter() {
                 </p>
               }
               logo={
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Coat_of_arms_of_Malaysia.svg/500px-Coat_of_arms_of_Malaysia.svg.png"
+                <Image
+                  src="/favicon-color.png"
                   width={36}
-                  alt="Malaysia Coat of Arms"
+                  height={36}
+                  alt="Govtech Logo"
                   className="select-none"
                 />
               }

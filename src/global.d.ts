@@ -1,5 +1,3 @@
-import { routing } from "./lib/i18n/routing";
-
 declare global {
   type Prettify<T> = { [K in keyof T]: T[K] } & {};
 
@@ -13,8 +11,15 @@ declare global {
     [K in T]: K extends `...${string}` ? string[] : string;
   };
 
-  interface PageProps<TParams extends string = never, TSearchParams extends string = never> {
+  // For Server Components
+  interface ServerPageProps<TParams extends string = never, TSearchParams extends string = never> {
     params: Promise<Prettify<UnionToIntersection<ParamObject<TParams>> & { locale: string }>>;
+    searchParams: Promise<Partial<Record<TSearchParams, string | string[]>>>;
+  }
+
+  // For Client Components
+  interface ClientPageProps<TParams extends string = never, TSearchParams extends string = never> {
+    params: Prettify<UnionToIntersection<ParamObject<TParams>> & { locale: string }>;
     searchParams: Partial<Record<TSearchParams, string | string[]>>;
   }
 }
