@@ -1,7 +1,5 @@
 # gnu-website
 
-blank
-
 ## Attributes
 
 - **Database**: mongodb
