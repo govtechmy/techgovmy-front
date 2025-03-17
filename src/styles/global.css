@@ -6,19 +6,44 @@
 /* Import Dark theme */
 @import "@govtechmy/myds-style/dark.css";
 
+@import "@/styles/articles.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  --_govtech-600: 239 78 35;
-  --_govtech-700: 167 44 11;
-}
+@layer base {
+  html {
+    box-sizing: border-box;
+  }
 
-:root {
-  --txt-govtech-600: var(--_govtech-600);
-}
+  * {
+    --_govtech-600: 239 78 35;
+    --_govtech-700: 167 44 11;
+  }
 
-.dark {
-  --txt-govtech-600: var(--_govtech-600);
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  :root {
+    --txt-govtech-600: var(--_govtech-600);
+  }
+
+  .dark {
+    --txt-govtech-600: var(--_govtech-600);
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

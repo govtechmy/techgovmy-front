@@ -1,38 +1,51 @@
 "use client";
 
 import {
-  BrandLogo,
   Navbar,
-  NavbarActionGroup,
-  NavbarContainer,
-  NavigationMenuCombo,
-  NavItemsMenu,
+  NavbarLogo,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarAction,
 } from "@govtechmy/myds-react/navbar";
-import { useState } from "react";
 import ThemeToggle from "./theme-toggle";
 import LocaleSwitch from "./locale-switch";
+import { Suspense } from "react";
 
 export default function Header() {
-  const [showMenu, setMenu] = useState<boolean>(false);
+  const nav_items: Array<{ name: string; href: string }> = [
+    {
+      name: "Tentang Kami",
+      href: "/about-us",
+    },
+    {
+      name: "Produk",
+      href: "/products",
+    },
+    {
+      name: "Contact Us",
+      href: "/contact-us",
+    },
+  ];
 
   return (
-    <Navbar
-      showMenu={showMenu}
-      background="lg:border-b-0 shadow-button grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto"
-      className="col-span-full max-w-screen-xl"
-    >
-      <NavbarContainer>
-        <BrandLogo imageSrc="/favicon-color.png">Govtech Malaysia</BrandLogo>
+    <Navbar className="">
+      <NavbarLogo src="/favicon-color.png" alt="Govtech Logo">
+        Govtech Malaysia
+      </NavbarLogo>
+      <NavbarMenu>
+        {nav_items.map((nav) => (
+          <NavbarMenuItem key={nav.href} href={nav.href}>
+            {nav.name}
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
 
-        <NavigationMenuCombo showMenu={showMenu} setMenu={setMenu}>
-          <p>hello</p>
-        </NavigationMenuCombo>
-      </NavbarContainer>
-
-      <NavbarActionGroup showMenu={showMenu} setMenu={setMenu}>
-        <ThemeToggle />
-        <LocaleSwitch />
-      </NavbarActionGroup>
+      <NavbarAction>
+        <Suspense>
+          <ThemeToggle />
+          <LocaleSwitch />
+        </Suspense>
+      </NavbarAction>
     </Navbar>
   );
 }

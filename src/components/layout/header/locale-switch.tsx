@@ -20,11 +20,7 @@ export default function LocaleSwitch() {
   const params = useParams();
   const locale = params.locale as "ms-MY" | "en-GB";
 
-  if (!locale) {
-    return null;
-  }
-
-  const [isPending, startTransition] = useTransition();
+  const [_, startTransition] = useTransition();
 
   const onValueChange = (locale: string) => {
     startTransition(() => {
@@ -45,6 +41,10 @@ export default function LocaleSwitch() {
       short: "BM",
     },
   };
+
+  if (!locale) {
+    return null;
+  }
 
   return (
     <Select

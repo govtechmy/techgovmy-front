@@ -228,7 +228,7 @@ export interface Job {
   location: string;
   category: 'design' | 'backend' | 'frontend' | 'data-science' | 'cyber-security' | 'full-stack' | 'ai-ml';
   description: string;
-  status: 'open' | 'closed';
+  status: 'open' | 'closed' | 'draft';
   updatedAt: string;
   createdAt: string;
 }

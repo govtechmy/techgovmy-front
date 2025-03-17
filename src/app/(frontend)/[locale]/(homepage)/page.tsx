@@ -1,4 +1,3 @@
-import { getTranslations } from "next-intl/server";
 import React from "react";
 import { Tag } from "@govtechmy/myds-react/tag";
 import { ChevronRightIcon } from "@govtechmy/myds-react/icon";
@@ -6,8 +5,6 @@ import Image from "next/image";
 import HomepageClient from "./page.client";
 
 export default async function HomePage() {
-  const t = await getTranslations();
-
   return (
     <>
       <section
