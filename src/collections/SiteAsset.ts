@@ -16,16 +16,6 @@ export const SiteAsset: CollectionConfig = {
       type: 'text',
       required: false,
     },
-    {
-      name: 'location',
-      type: 'select',
-      required: true,
-      options: [
-        { label: 'Homepage', value: 'homepage' },
-        { label: 'About Us', value: 'about-us' },
-        { label: 'Contact Us', value: 'contact-us' },
-      ],
-    },
   ],
   upload: true,
 }
