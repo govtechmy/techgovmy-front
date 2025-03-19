@@ -73,6 +73,8 @@ export interface Config {
     people: Person;
     roles: Role;
     jobs: Job;
+    'product-asset': ProductAsset;
+    'site-asset': SiteAsset;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -86,6 +88,8 @@ export interface Config {
     people: PeopleSelect<false> | PeopleSelect<true>;
     roles: RolesSelect<false> | RolesSelect<true>;
     jobs: JobsSelect<false> | JobsSelect<true>;
+    'product-asset': ProductAssetSelect<false> | ProductAssetSelect<true>;
+    'site-asset': SiteAssetSelect<false> | SiteAssetSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -234,6 +238,47 @@ export interface Job {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-asset".
+ */
+export interface ProductAsset {
+  id: string;
+  alt: string;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-asset".
+ */
+export interface SiteAsset {
+  id: string;
+  alt: string;
+  description?: string | null;
+  location: 'homepage' | 'about-us' | 'contact-us';
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -266,6 +311,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'jobs';
         value: string | Job;
+      } | null)
+    | ({
+        relationTo: 'product-asset';
+        value: string | ProductAsset;
+      } | null)
+    | ({
+        relationTo: 'site-asset';
+        value: string | SiteAsset;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -400,6 +453,45 @@ export interface JobsSelect<T extends boolean = true> {
   status?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-asset_select".
+ */
+export interface ProductAssetSelect<T extends boolean = true> {
+  alt?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-asset_select".
+ */
+export interface SiteAssetSelect<T extends boolean = true> {
+  alt?: T;
+  description?: T;
+  location?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
