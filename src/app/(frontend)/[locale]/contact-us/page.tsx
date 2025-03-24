@@ -16,12 +16,11 @@ export default async function ContactPage({ params }: ServerPageProps) {
   const t = await getTranslations("Contact");
   const payload = await getPayload({ config });
   const contact = await payload.findGlobal({
-    slug: "contact",
+    slug: "site-info",
     locale: locale as "en-GB" | "ms-MY",
     depth: 3,
   });
 
-  // const contact = await fetchGlobal(locale, "contact");
   return (
     <div className="w-full border-otl-divider max-w-screen-xl px-10 md:px-[5.25rem] lg:px-[6.8125rem] mx-auto justify-center space-y-8 md:space-y-16 pt-8 md:pt-10 lg:pt-16 pb-9">
       <div className="space-y-6">
@@ -91,7 +90,7 @@ export default async function ContactPage({ params }: ServerPageProps) {
           loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.773879567851!2d101.71582507497114!3d3.154234496821147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37260a3f7caf%3A0xe6b0328a259e547a!2sMOF%20Inc%20Tower%20%7C%20Platinum%20Park!5e0!3m2!1sen!2smy!4v1741581925490!5m2!1sen!2smy"
+          src={contact.google_embed_url || ""}
         />
       </section>
       <div />

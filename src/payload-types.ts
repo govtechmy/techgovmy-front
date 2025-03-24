@@ -68,13 +68,13 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
-    products: Product;
-    units: Unit;
-    people: Person;
-    roles: Role;
-    jobs: Job;
     'product-asset': ProductAsset;
     'site-asset': SiteAsset;
+    jobs: Job;
+    people: Person;
+    products: Product;
+    roles: Role;
+    units: Unit;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -83,13 +83,13 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    products: ProductsSelect<false> | ProductsSelect<true>;
-    units: UnitsSelect<false> | UnitsSelect<true>;
-    people: PeopleSelect<false> | PeopleSelect<true>;
-    roles: RolesSelect<false> | RolesSelect<true>;
-    jobs: JobsSelect<false> | JobsSelect<true>;
     'product-asset': ProductAssetSelect<false> | ProductAssetSelect<true>;
     'site-asset': SiteAssetSelect<false> | SiteAssetSelect<true>;
+    jobs: JobsSelect<false> | JobsSelect<true>;
+    people: PeopleSelect<false> | PeopleSelect<true>;
+    products: ProductsSelect<false> | ProductsSelect<true>;
+    roles: RolesSelect<false> | RolesSelect<true>;
+    units: UnitsSelect<false> | UnitsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -98,16 +98,16 @@ export interface Config {
     defaultIDType: string;
   };
   globals: {
+    'site-info': SiteInfo;
     'about-us': AboutUs;
-    footer: Footer;
     navbar: Navbar;
-    contact: Contact;
+    footer: Footer;
   };
   globalsSelect: {
+    'site-info': SiteInfoSelect<false> | SiteInfoSelect<true>;
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
-    footer: FooterSelect<false> | FooterSelect<true>;
     navbar: NavbarSelect<false> | NavbarSelect<true>;
-    contact: ContactSelect<false> | ContactSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: 'ms-MY' | 'en-GB';
   user: User & {
@@ -160,6 +160,7 @@ export interface User {
 export interface Media {
   id: string;
   alt: string;
+  description?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -171,70 +172,6 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products".
- */
-export interface Product {
-  id: string;
-  name: string;
-  logo: string | Media;
-  description: string;
-  status: 'Active' | 'Under Development' | 'Discontinued' | 'Beta' | 'Maintenance';
-  url?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "units".
- */
-export interface Unit {
-  id: string;
-  name: string;
-  acronym: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "people".
- */
-export interface Person {
-  id: string;
-  name: string;
-  email: string;
-  picture?: (string | null) | Media;
-  unit: string | Unit;
-  role?: (string | null) | Role;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "roles".
- */
-export interface Role {
-  id: string;
-  name: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "jobs".
- */
-export interface Job {
-  id: string;
-  title: string;
-  employmentType: 'full-time' | 'part-time';
-  location: string;
-  category: 'design' | 'backend' | 'frontend' | 'data-science' | 'cyber-security' | 'full-stack' | 'ai-ml';
-  description: string;
-  status: 'open' | 'closed' | 'draft';
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -264,7 +201,6 @@ export interface SiteAsset {
   id: string;
   alt: string;
   description?: string | null;
-  location: 'homepage' | 'about-us' | 'contact-us';
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -276,6 +212,70 @@ export interface SiteAsset {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "jobs".
+ */
+export interface Job {
+  id: string;
+  title: string;
+  employmentType: 'full-time' | 'part-time';
+  location: string;
+  category: 'design' | 'backend' | 'frontend' | 'data-science' | 'cyber-security' | 'full-stack' | 'ai-ml';
+  description: string;
+  status: 'open' | 'closed' | 'draft';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "people".
+ */
+export interface Person {
+  id: string;
+  name: string;
+  email: string;
+  picture?: (string | null) | Media;
+  unit: string | Unit;
+  role?: (string | null) | Role;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "units".
+ */
+export interface Unit {
+  id: string;
+  name: string;
+  acronym: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "roles".
+ */
+export interface Role {
+  id: string;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: string;
+  name: string;
+  logo: string | Media;
+  description: string;
+  status: 'Active' | 'Under Development' | 'Discontinued' | 'Beta' | 'Maintenance';
+  url?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -293,32 +293,32 @@ export interface PayloadLockedDocument {
         value: string | Media;
       } | null)
     | ({
-        relationTo: 'products';
-        value: string | Product;
-      } | null)
-    | ({
-        relationTo: 'units';
-        value: string | Unit;
-      } | null)
-    | ({
-        relationTo: 'people';
-        value: string | Person;
-      } | null)
-    | ({
-        relationTo: 'roles';
-        value: string | Role;
-      } | null)
-    | ({
-        relationTo: 'jobs';
-        value: string | Job;
-      } | null)
-    | ({
         relationTo: 'product-asset';
         value: string | ProductAsset;
       } | null)
     | ({
         relationTo: 'site-asset';
         value: string | SiteAsset;
+      } | null)
+    | ({
+        relationTo: 'jobs';
+        value: string | Job;
+      } | null)
+    | ({
+        relationTo: 'people';
+        value: string | Person;
+      } | null)
+    | ({
+        relationTo: 'products';
+        value: string | Product;
+      } | null)
+    | ({
+        relationTo: 'roles';
+        value: string | Role;
+      } | null)
+    | ({
+        relationTo: 'units';
+        value: string | Unit;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -383,6 +383,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  description?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -394,65 +395,6 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products_select".
- */
-export interface ProductsSelect<T extends boolean = true> {
-  name?: T;
-  logo?: T;
-  description?: T;
-  status?: T;
-  url?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "units_select".
- */
-export interface UnitsSelect<T extends boolean = true> {
-  name?: T;
-  acronym?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "people_select".
- */
-export interface PeopleSelect<T extends boolean = true> {
-  name?: T;
-  email?: T;
-  picture?: T;
-  unit?: T;
-  role?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "roles_select".
- */
-export interface RolesSelect<T extends boolean = true> {
-  name?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "jobs_select".
- */
-export interface JobsSelect<T extends boolean = true> {
-  title?: T;
-  employmentType?: T;
-  location?: T;
-  category?: T;
-  description?: T;
-  status?: T;
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -480,7 +422,6 @@ export interface ProductAssetSelect<T extends boolean = true> {
 export interface SiteAssetSelect<T extends boolean = true> {
   alt?: T;
   description?: T;
-  location?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -492,6 +433,65 @@ export interface SiteAssetSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "jobs_select".
+ */
+export interface JobsSelect<T extends boolean = true> {
+  title?: T;
+  employmentType?: T;
+  location?: T;
+  category?: T;
+  description?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "people_select".
+ */
+export interface PeopleSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  picture?: T;
+  unit?: T;
+  role?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
+export interface ProductsSelect<T extends boolean = true> {
+  name?: T;
+  logo?: T;
+  description?: T;
+  status?: T;
+  url?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "roles_select".
+ */
+export interface RolesSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "units_select".
+ */
+export interface UnitsSelect<T extends boolean = true> {
+  name?: T;
+  acronym?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -524,6 +524,35 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-info".
+ */
+export interface SiteInfo {
+  id: string;
+  site_name: string;
+  address: string;
+  google_maps_url: string;
+  waze_url: string;
+  google_embed_url: string;
+  email: string;
+  phone: string;
+  'social-media'?:
+    | {
+        icon?: ('facebook' | 'x' | 'linkedin' | 'instagram' | 'youtube') | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: ('/' | '/about-us' | '/products' | '/contact-us' | '/disclaimer' | '/privacy-policy') | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -562,67 +591,89 @@ export interface AboutUs {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "footer".
- */
-export interface Footer {
-  id: string;
-  'last-updated'?: string | null;
-  copyright?: string | null;
-  'follow-us'?:
-    | {
-        icon?: ('facebook' | 'x' | 'linkedin' | 'instagram' | 'youtube') | null;
-        link?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  'right-column-title'?: string | null;
-  'left-column-title'?: string | null;
-  'right-column-items'?:
-    | {
-        text?: string | null;
-        href?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  'left-column-items'?:
-    | {
-        text?: string | null;
-        href?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "navbar".
  */
 export interface Navbar {
   id: string;
-  'navbar-items'?:
-    | {
-        title?: string | null;
-        link?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  'navbar-items': {
+    link: {
+      type?: ('reference' | 'custom') | null;
+      newTab?: boolean | null;
+      reference?: ('/' | '/about-us' | '/products' | '/contact-us' | '/disclaimer' | '/privacy-policy') | null;
+      url?: string | null;
+      label: string;
+    };
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact".
+ * via the `definition` "footer".
  */
-export interface Contact {
+export interface Footer {
   id: string;
-  address?: string | null;
-  google_maps_url?: string | null;
-  waze_url?: string | null;
-  email?: string | null;
-  phone?: string | null;
+  govtech_label: string;
+  govtech_route?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: ('/' | '/about-us' | '/products' | '/contact-us' | '/disclaimer' | '/privacy-policy') | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  opensource_label: string;
+  open_source?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: ('/' | '/about-us' | '/products' | '/contact-us' | '/disclaimer' | '/privacy-policy') | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  copyright?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-info_select".
+ */
+export interface SiteInfoSelect<T extends boolean = true> {
+  site_name?: T;
+  address?: T;
+  google_maps_url?: T;
+  waze_url?: T;
+  google_embed_url?: T;
+  email?: T;
+  phone?: T;
+  'social-media'?:
+    | T
+    | {
+        icon?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -661,48 +712,21 @@ export interface AboutUsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "footer_select".
- */
-export interface FooterSelect<T extends boolean = true> {
-  'last-updated'?: T;
-  copyright?: T;
-  'follow-us'?:
-    | T
-    | {
-        icon?: T;
-        link?: T;
-        id?: T;
-      };
-  'right-column-title'?: T;
-  'left-column-title'?: T;
-  'right-column-items'?:
-    | T
-    | {
-        text?: T;
-        href?: T;
-        id?: T;
-      };
-  'left-column-items'?:
-    | T
-    | {
-        text?: T;
-        href?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "navbar_select".
  */
 export interface NavbarSelect<T extends boolean = true> {
   'navbar-items'?:
     | T
     | {
-        title?: T;
-        link?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
         id?: T;
       };
   updatedAt?: T;
@@ -711,14 +735,40 @@ export interface NavbarSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact_select".
+ * via the `definition` "footer_select".
  */
-export interface ContactSelect<T extends boolean = true> {
-  address?: T;
-  google_maps_url?: T;
-  waze_url?: T;
-  email?: T;
-  phone?: T;
+export interface FooterSelect<T extends boolean = true> {
+  govtech_label?: T;
+  govtech_route?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
+  opensource_label?: T;
+  open_source?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
+  copyright?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

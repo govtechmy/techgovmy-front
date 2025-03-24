@@ -18,12 +18,14 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+  preload: true,
 });
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   display: "swap",
   variable: "--font-poppins",
+  preload: true,
 });
 
 export function generateStaticParams() {

@@ -6,20 +6,8 @@ import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
-import { AboutUsGlobals } from "./globals/aboutus";
-import { FooterGlobals } from "./globals/footer";
-import { ContactGlobals } from "./globals/contactus";
-import { NavBarGlobals } from "./globals/navbar";
-
-import { Users } from "./collections/Users";
-import { Media } from "./collections/Media";
-import { Unit } from "./collections/Unit";
-import { People } from "./collections/People";
-import { Products } from "./collections/Products";
-import { Roles } from "./collections/Roles";
-import { Jobs } from "./collections/Jobs";
-import { ProductAsset } from "./collections/ProductAsset";
-import { SiteAsset } from "./collections/SiteAsset";
+import PayloadGlobals from "./globals";
+import PayloadCollections, { Users } from "./collections";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -54,8 +42,8 @@ export default buildConfig({
       });
     }
   },
-  globals: [AboutUsGlobals, FooterGlobals, NavBarGlobals, ContactGlobals],
-  collections: [Users, Media, Products, Unit, People, Roles, Jobs, ProductAsset, SiteAsset],
+  globals: PayloadGlobals,
+  collections: PayloadCollections,
 
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

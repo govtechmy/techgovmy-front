@@ -39,10 +39,9 @@ export default function ProductImages() {
               <Image
                 priority
                 src={`/static/product-carousel/${item}`}
-                // width={750}
-                // height={450}
                 fill={true}
                 alt={item}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                 className="absolute object-center"
               />
             </CarouselItem>

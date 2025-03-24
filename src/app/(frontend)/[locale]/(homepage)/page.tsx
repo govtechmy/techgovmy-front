@@ -38,6 +38,7 @@ export default async function HomePage() {
               alt="Govtech Malaysia Hero Image"
               src={"./theme/gtm-hero-img.svg"}
               fill={true}
+              priority={true}
             />
           </div>
         </div>

@@ -1,5 +1,5 @@
+import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
-import type { Field } from 'payload'
 
 // Globals for About Us Page
 export const FooterGlobals: GlobalConfig = {
@@ -11,131 +11,61 @@ export const FooterGlobals: GlobalConfig = {
   },
   fields: [
     {
-      name: "last-updated",
-      type: "text",
-      label: {
-        en: "Last Updated",
-        ms: "Kemaskini Terakhir",
-      },
-      localized: true,
+      type: "row",
+      fields: [
+        {
+          name: "govtech_label",
+          label: "Govtech Section Label",
+          type: "text",
+          required: true,
+          localized: true,
+          admin: {
+            placeholder: "Govtech Malaysia",
+            width: "50%",
+          },
+        },
+      ],
     },
+
+    {
+      name: "govtech_route",
+      label: "Govtech Routes",
+      type: "array",
+      fields: [link({ labelPlaceholder: "Hubungi Kami", localizedLabel: true })],
+    },
+
+    {
+      type: "row",
+      fields: [
+        {
+          name: "opensource_label",
+          label: "Open Source Section Label",
+          type: "text",
+          required: true,
+          localized: true,
+          admin: {
+            width: "50%",
+            placeholder: "Open Source",
+          },
+        },
+      ],
+    },
+
+    {
+      name: "open_source",
+      label: "Open Source Links",
+      type: "array",
+      fields: [link({ labelPlaceholder: "Repo GitHub", localizedLabel: true })],
+    },
+
     {
       name: "copyright",
       type: "text",
-      label: {
-        en: "Copyright",
-        ms: "Hak Cipta",
+      label: "Copyright Text",
+      admin: {
+        placeholder: "All Right Reserved",
       },
       localized: true,
     },
-    {
-      name: 'follow-us',
-      type: 'array',
-      label: {
-        en: "Follow Us",
-        ms: "Ikuti Kami"
-      },
-      localized: true,
-      fields: [
-        {
-          name: 'icon',
-          type: 'select',
-          label: {
-            en: "Icon name",
-            ms: "Nama Ikon"
-          },
-          options: [
-            'facebook',
-            'x',
-            'linkedin',
-            'instagram',
-            'youtube'
-          ]
-        },
-        {
-          name: 'link',
-          type: 'text',
-          label: {
-            en: "Link",
-            ms: "Pautan"
-          },
-        },
-      ],
-    },
-    {
-      name: 'right-column-title',
-      type: 'text',
-      label: {
-          en: "Right Column Title",
-          ms: "Tajuk Ruangan Kanan"
-      },
-      localized: true,
-    },
-    {
-      name: 'left-column-title',
-      type: 'text',
-      label: {
-          en: "Left Column Title",
-          ms: "Tajuk Ruangan Kiri"
-      },
-      localized: true,
-    },
-    {
-      name: 'right-column-items',
-      type: 'array',
-      label: {
-          en: "Right Column Items",
-          ms: "Perkara Ruangan Kanan"
-      },
-      localized: true,
-      fields: [
-        {
-          name: 'text',
-          type: 'text',
-          label: {
-              en: "Text",
-              ms: "Tulisan"
-          },
-          localized: true,
-        },
-        {
-          name: 'href',
-          type: 'text',
-          label: {
-              en: "Link",
-              ms: "Pautan"
-          },
-        },
-      ],
-    },
-    {
-      name: 'left-column-items',
-      type: 'array',
-      label: {
-          en: "Left Column Items",
-          ms: "Perkara Ruangan Kiri"
-      },
-      localized: true,
-      fields: [
-        {
-          name: 'text',
-          type: 'text',
-          label: {
-              en: "Text",
-              ms: "Tulisan"
-          },
-          localized: true,
-        },
-        {
-          name: 'href',
-          type: 'text',
-          label: {
-              en: "Link",
-              ms: "Pautan"
-          },
-        },
-      ],
-    }
-
   ],
 };
