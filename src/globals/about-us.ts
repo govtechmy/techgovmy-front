@@ -85,11 +85,11 @@ export const AboutUsGlobals: GlobalConfig = {
       ],
     },
     {
-      name: 'our-values',
+      name: 'our-capabilities',
       type: 'array',
       label: {
-        en: "Our Values",
-        ms: "Nilai Kami"
+        en: "Our Capabilities",
+        ms: "Keupayaan Kami"
       },
       localized: true,
       fields: [

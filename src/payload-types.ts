@@ -571,7 +571,7 @@ export interface AboutUs {
         id?: string | null;
       }[]
     | null;
-  'our-values'?:
+  'our-capabilities'?:
     | {
         'card-header'?: string | null;
         icon?: ('flag' | 'eye' | 'thumbsUp' | 'userGroup' | 'star') | null;
@@ -691,7 +691,7 @@ export interface AboutUsSelect<T extends boolean = true> {
         'card-description'?: T;
         id?: T;
       };
-  'our-values'?:
+  'our-capabilities'?:
     | T
     | {
         'card-header'?: T;

@@ -57,28 +57,45 @@ export default async function AboutPage({ params }: ServerPageProps) {
         </div>
       </div>
 
-      <div className="mx-auto max-w-5xl p-6">
-        <figure className="w-full text-center py-8 flex flex-col items-center">
-          <Image
-            src="/static/images/aboutus.png"
-            alt={aboutUs?.["intro-header"] || "About Us"}
-            className="h-auto w-full m-auto rounded"
-            height={566}
-            width={845}
-          />
-          <figcaption className="mt-2 text-center text-gray-600"></figcaption>
-        </figure>
+      <section
+        className="w-full py-[64px] px-[24px] min-h-[400px] text-left justify-start flex flex-col items-center bg-[url('/static/images/aboutus-header.png')] bg-cover bg-center"
+      >
+        <div className="container gap-[10px] flex flex-col">
+          <div className="text-[48px] pb-[30px]">
+            {aboutUs?.["intro-header"]}asdf
+          </div>
+          <div className="text-heading-2xs">
+            {aboutUs?.["intro-header"]}111
+          </div>
+        </div>
+      </section>
 
-        <div className="flex flex-col gap-[24px] my-6">
+      <section
+        className="w-full bg-[#FAFAFA] py-[64px] px-[24px] min-h-[574px] text-left justify-start flex flex-col items-center bg-[url('/static/images/card-2.png')] bg-no-repeat bg-center"
+      >
+        <div className="container gap-[10px] flex flex-col">
+          <div className="text-[48px] pb-[30px]">
+            {aboutUs?.["intro-header"]}asdf
+          </div>
+          <div className="text-heading-2xs">
+            {aboutUs?.["intro-header"]}111
+          </div>
+        </div>
+      </section>
+
+
+      <div className="mx-auto max-w-5xl p-6">
+
+        {/* <div className="flex flex-col gap-[24px] my-6">
           <h2 className="font-semibold text-heading-sm text-txt-black-900">
             {aboutUs?.["intro-header"]}
           </h2>
           <div className="font-normal text-heading-2xs leading-[26px] text-txt-black-700">
             {aboutUs?.["intro-description"]}
           </div>
-        </div>
+        </div> */}
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 my-12">
+        {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2 my-12">
           {aboutUs["vision-and-mission"] &&
             aboutUs["vision-and-mission"].map((value, index: number) => {
               const IconComponent = iconMap[value?.icon || "flag"];
@@ -101,12 +118,12 @@ export default async function AboutPage({ params }: ServerPageProps) {
                 </div>
               );
             })}
-        </div>
+        </div> */}
 
         <h3 className="mb-2 text-heading-sm font-semibold text-txt-black-900">{t("our_values")}</h3>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-12">
-          {aboutUs["our-values"] &&
-            aboutUs["our-values"].map((value, index: number) => {
+          {aboutUs["our-capabilities"] &&
+            aboutUs["our-capabilities"].map((value, index: number) => {
               const IconComponent = iconMap[value?.icon || "flag"];
               return (
                 <div
@@ -129,13 +146,13 @@ export default async function AboutPage({ params }: ServerPageProps) {
             })}
         </div>
 
-        <section className="max-w-6xl mx-auto px-4 pt-8 text-left">
+        {/* <section className="max-w-6xl mx-auto px-4 pt-8 text-left">
           <h2 className="text-heading-sm font-semibold mb-2 text-txt-black-900">
             {t("our_community")}
           </h2>
-        </section>
+        </section> */}
 
-        <section className="max-w-6xl mx-auto px-4 py-12">
+        {/* <section className="max-w-6xl mx-auto px-4 py-12">
           <div className="overflow-x-auto">
             <div className="grid grid-cols-3 gap-8 sm:grid-cols-3 justify-center text-center min-w-max">
               {aboutUs.community &&
@@ -146,7 +163,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
                 ))}
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );
