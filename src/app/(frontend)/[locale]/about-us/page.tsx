@@ -42,85 +42,52 @@ export default async function AboutPage({ params }: ServerPageProps) {
 
   return (
     <div className="w-full border-otl-divider border-x justify-center">
-      <div className="h-[166px] px-4 py-6">
-        <div className="max-w-5xl m-auto">
-          <Breadcrumb>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">{t("home")}</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbPage>{aboutUs?.title}</BreadcrumbPage>
-          </Breadcrumb>
-          <div className="text-heading-md font-semibold my-2 text-txt-black-900">
-            <h1>{aboutUs?.title}</h1>
-          </div>
-        </div>
-      </div>
-
       <section
-        className="w-full py-[64px] px-[24px] min-h-[400px] text-left justify-start flex flex-col items-center bg-[url('/static/images/aboutus-header.png')] bg-cover bg-center"
+        className="grid grid-cols-4 gap-4.5 px-4.5 py-6 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto lg:h-[400px] md:h-[700px] h-[800px] 
+        lg:bg-[url('/static/images/aboutus-header.png')] bg-cover bg-no-repeat bg-center
+        md:bg-[url('/static/images/aboutus-tablet.png')]
+        bg-[url('/static/images/aboutus-mobile.png')]"
       >
-        <div className="container gap-[10px] flex flex-col">
-          <div className="text-[48px] pb-[30px]">
-            {aboutUs?.["intro-header"]}asdf
-          </div>
-          <div className="text-heading-2xs">
-            {aboutUs?.["intro-header"]}111
+        <div className="col-span-full lg:col-span-6 flex items-center justify-center lg:justify-end">
+          <div className="max-w-[600px] px-[3rem] flex flex-col gap-[10px]">
+            <div className="text-heading-xl text-black-900">
+              {aboutUs?.["intro-header"]}
+            </div>
+            <div className="text-heading-3xs text-gray-500">
+              {aboutUs?.["intro-description"]}
+            </div>
           </div>
         </div>
       </section>
 
+
       <section
-        className="w-full bg-[#FAFAFA] py-[64px] px-[24px] min-h-[574px] text-left justify-start flex flex-col items-center bg-[url('/static/images/card-2.png')] bg-no-repeat bg-center"
+        className="grid grid-cols-4 gap-4.5 px-4.5 py-6 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto"
       >
-        <div className="container gap-[10px] flex flex-col">
-          <div className="text-[48px] pb-[30px]">
-            {aboutUs?.["intro-header"]}asdf
-          </div>
-          <div className="text-heading-2xs">
-            {aboutUs?.["intro-header"]}111
+        <div className="max-w-[1280px] m-[1rem] px-[1rem] py-[2rem] lg:mx-[6rem] lg:my-[1rem] col-span-full 
+          bg-[#FAFAFA] bg-none md:bg-none h-[720px] md:h-[518px] lg:h-[446px]
+          lg:bg-[url('/static/images/card-2.png')] lg:bg-cover lg:bg-no-repeat lg:bg-center
+          flex"
+        >
+          <div className="w-full lg:w-2/3 flex flex-col gap-[10px] justify-center">
+            <div className="text-heading-md text-black-900">
+              {aboutUs?.["future-header"]}
+            </div>
+            <div className="text-heading-3xs text-gray-500">
+              {aboutUs?.["future-description"] &&
+                aboutUs["future-description"].map((value, index: number) => {
+                  return <p key={`${index}_futue`} className="my-4">{value?.["line-text"]}</p>
+                })
+              }
+            </div>
           </div>
         </div>
       </section>
-
 
       <div className="mx-auto max-w-5xl p-6">
 
-        {/* <div className="flex flex-col gap-[24px] my-6">
-          <h2 className="font-semibold text-heading-sm text-txt-black-900">
-            {aboutUs?.["intro-header"]}
-          </h2>
-          <div className="font-normal text-heading-2xs leading-[26px] text-txt-black-700">
-            {aboutUs?.["intro-description"]}
-          </div>
-        </div> */}
 
-        {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2 my-12">
-          {aboutUs["vision-and-mission"] &&
-            aboutUs["vision-and-mission"].map((value, index: number) => {
-              const IconComponent = iconMap[value?.icon || "flag"];
-              return (
-                <div
-                  key={`misivisi_${index}`}
-                  className="p-6 border border-gray-200 rounded-lg shadow-sm"
-                >
-                  <div className="flex items-center justify-start w-auto h-20 bg-orange-100 rounded-full mb-4">
-                    <div className="bg-[#FFF7EA] w-[84px] h-[84px] flex items-center justify-center rounded-[50%] text-txt-govtech-600">
-                      <IconComponent className="w-[42px] h-[42px] " />
-                    </div>
-                  </div>
-                  <h3 className="my-4 text-heading-xs font-semibold text-txt-black-900">
-                    {value?.["card-header"]}
-                  </h3>
-                  <p className="text-txt-black-700 text-heading-2xs font-normal leading-normal">
-                    {value?.["card-description"]}
-                  </p>
-                </div>
-              );
-            })}
-        </div> */}
-
-        <h3 className="mb-2 text-heading-sm font-semibold text-txt-black-900">{t("our_values")}</h3>
+        <h3 className="mb-8 text-heading-sm font-semibold text-txt-black-900">{t("our_capabilities")}</h3>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-12">
           {aboutUs["our-capabilities"] &&
             aboutUs["our-capabilities"].map((value, index: number) => {
@@ -131,7 +98,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
                   className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4"
                 >
                   <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
-                    <div className="bg-[#FFF7EA] w-[48px] h-[48px] flex items-center justify-center rounded text-txt-govtech-600">
+                    <div className="bg-[#F7F3FF] w-[48px] h-[48px] flex items-center justify-center rounded text-txt-govtech-600">
                       <IconComponent className="w-[28px] h-[28px] " />
                     </div>
                   </div>
