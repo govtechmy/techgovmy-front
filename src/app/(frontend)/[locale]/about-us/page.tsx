@@ -60,7 +60,6 @@ export default async function AboutPage({ params }: ServerPageProps) {
         </div>
       </section>
 
-
       <section
         className="grid grid-cols-4 gap-4.5 py-0 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto"
       >
@@ -113,43 +112,8 @@ export default async function AboutPage({ params }: ServerPageProps) {
             })}
         </div>
 
-        {/* <section className="max-w-6xl mx-auto px-4 pt-8 text-left">
-          <h2 className="text-heading-sm font-semibold mb-2 text-txt-black-900">
-            {t("our_community")}
-          </h2>
-        </section> */}
-
-        {/* <section className="max-w-6xl mx-auto px-4 py-12">
-          <div className="overflow-x-auto">
-            <div className="grid grid-cols-3 gap-8 sm:grid-cols-3 justify-center text-center min-w-max">
-              {aboutUs.community &&
-                aboutUs.community.map((value, index: number) => (
-                  <Link key={`community_${index}`} href={value?.["href"] || "#"}>
-                    <KadKommuniti community_text={value?.["card-title"] || ""} />
-                  </Link>
-                ))}
-            </div>
-          </div>
-        </section> */}
       </div>
     </div>
   );
 }
 
-const KadKommuniti = async ({ community_text }: { community_text: string }) => {
-  return (
-    <div className="flex flex-col items-center">
-      <Image
-        src="/static/images/komuniti.png"
-        alt={community_text}
-        height={200}
-        width={200}
-        className="rounded-md border-2 border-orange-500"
-      />
-      <div className="mt-4 inline-flex items-center text-txt-black-900 font-medium text-body-xl">
-        {community_text}
-        <span className="ml-1">→</span>
-      </div>
-    </div>
-  );
-};
