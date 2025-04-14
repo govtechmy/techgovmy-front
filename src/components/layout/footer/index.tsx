@@ -26,9 +26,9 @@ export default function LayoutFooter() {
               }
               logo={
                 <Image
-                  src="/favicon-color.png"
-                  width={36}
-                  height={36}
+                  src="/static/images/icons/img-logo-govtech.png"
+                  width={91}
+                  height={32}
                   alt="Govtech Logo"
                   className="select-none"
                 />
