@@ -62,10 +62,10 @@ export default async function AboutPage({ params }: ServerPageProps) {
 
 
       <section
-        className="grid grid-cols-4 gap-4.5 px-4.5 py-6 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto"
+        className="grid grid-cols-4 gap-4.5 py-0 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto"
       >
-        <div className="max-w-[1280px] m-[1rem] px-[1rem] py-[2rem] lg:mx-[6rem] lg:my-[1rem] col-span-full 
-          bg-[#FAFAFA] bg-none md:bg-none h-[720px] md:h-[518px] lg:h-[446px]
+        <div className="max-w-[1280px] px-[1rem] lg:mx-[6rem] lg:my-[1rem] col-span-full 
+          h-[720px] md:h-[518px] lg:h-[446px]
           lg:bg-[url('/static/images/card-2.png')] lg:bg-cover lg:bg-no-repeat lg:bg-center
           flex"
         >
@@ -98,7 +98,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
                   className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4"
                 >
                   <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
-                    <div className="bg-[#F7F3FF] w-[48px] h-[48px] flex items-center justify-center rounded text-txt-govtech-600">
+                    <div className="bg-txt-govtech-600 w-[48px] h-[48px] flex items-center justify-center rounded text-govtech-700">
                       <IconComponent className="w-[28px] h-[28px] " />
                     </div>
                   </div>
