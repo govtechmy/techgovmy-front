@@ -40,7 +40,7 @@ export default function Header() {
 
       <NavbarAction>
         <Suspense>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <LocaleSwitch />
         </Suspense>
       </NavbarAction>
