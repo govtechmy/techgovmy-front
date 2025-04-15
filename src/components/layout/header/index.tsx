@@ -29,7 +29,7 @@ export default function Header() {
 
   return (
     <Navbar className="">
-      <NavbarLogo src="/favicon-color.png" alt="Govtech Logo">
+      <NavbarLogo src="/static/images/icons/img-logo-govtech.png" alt="Govtech Logo">
         Govtech Malaysia
       </NavbarLogo>
       <NavbarMenu>
