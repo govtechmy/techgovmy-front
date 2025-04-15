@@ -29,9 +29,7 @@ export default function Header() {
 
   return (
     <Navbar className="">
-      <NavbarLogo src="/static/images/icons/img-logo-govtech.png" alt="Govtech Logo">
-        Govtech Malaysia
-      </NavbarLogo>
+      <NavbarLogo src="/static/images/icons/img-logo-govtech.png" alt="Govtech Logo" />
       <NavbarMenu>
         {nav_items.map((nav) => (
           <NavbarMenuItem key={nav.href} href={nav.href}>

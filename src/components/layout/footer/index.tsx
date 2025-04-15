@@ -8,7 +8,7 @@ import {
   SiteLink,
   FooterLogo,
 } from "@govtechmy/myds-react/footer";
-import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "@govtechmy/myds-react/icon";
+import { FacebookIcon, InstagramIcon, TwitterXIcon, YoutubeIcon } from "@govtechmy/myds-react/icon";
 import { Link } from "@govtechmy/myds-react/link";
 import Image from "next/image";
 
@@ -19,11 +19,6 @@ export default function LayoutFooter() {
         <SiteInfo>
           <div className="text-txt-black-900 flex items-center gap-x-2.5">
             <FooterLogo
-              logoTitle={
-                <p className="font-poppins text-body-md whitespace-nowrap font-semibold">
-                  Govtech Malaysia
-                </p>
-              }
               logo={
                 <Image
                   src="/static/images/icons/img-logo-govtech.png"
@@ -60,7 +55,7 @@ export default function LayoutFooter() {
               underline="none"
               className="hover:text-txt-black-900"
             >
-              <TwitterIcon className="text-txt-black-700" />
+              <TwitterXIcon className="text-txt-black-700" />
             </Link>
             <Link
               href="#"
