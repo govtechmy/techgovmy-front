@@ -1,12 +1,5 @@
 import React from "react";
 import { getTranslations } from "next-intl/server";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@govtechmy/myds-react/breadcrumb";
 import { PhoneIcon, EmailIcon, DirectionIcon } from "@govtechmy/myds-react/icon";
 import { getPayload } from "payload";
 import config from "@payload-config";
@@ -24,13 +17,12 @@ export default async function ContactPage({ params }: ServerPageProps) {
   return (
     <div className="w-full bg-gradient-to-b from-white to-[#EFF6FF]">
       <div className="w-full border-otl-divider max-w-screen-xl px-10 md:px-[5.25rem] lg:px-[6.8125rem]  mx-auto justify-center space-y-8 md:space-y-16 pt-8 md:pt-10 lg:pt-16 pb-9">
-        <div className="space-y-6">
-
-          <h1 className="text-heading-md font-semibold text-txt-black-900">{t("contact_us")}</h1>
-        </div>
-        <section className="gap-16 lg:gap-0 flex-col lg:flex-row mx-auto flex justify-between">
+        <section className="gap-16 lg:gap-0 flex-col lg:flex-row mx-auto flex bg-white rounded-xl border border-otl-divider justify-between lg:w-[70.375rem] lg:h-[32.75rem]">
           <div className="lg:w-[18.875rem] lg:h-[23rem] flex flex-col md:flex-row lg:flex-col w-full gap-12 lg:gap-0 items-start justify-start">
             <div>
+              <h1 className="text-heading-md font-semibold text-txt-black-900 pb-6">
+                {t("contact_us")}
+              </h1>
               <h1 className="text-txt-black-900 text-body-xl font-semibold">{t("office_name")}</h1>
               <p className="text-txt-black-700 text-body-md font-light pt-2">
                 {contact.address &&
@@ -80,7 +72,7 @@ export default async function ContactPage({ params }: ServerPageProps) {
             </div>
           </div>
           <iframe
-            className="w-full lg:w-[39.25rem] h-[21.875rem] md:h-[25rem] rounded-xl border border-gray-200"
+            className="w-full lg:w-[39.25rem] h-[21.875rem] lg:h-[32.75rem] md:h-[25rem] rounded-xl border border-gray-200"
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
