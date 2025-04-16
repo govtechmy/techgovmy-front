@@ -9,7 +9,7 @@ import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
 
 export const metadata = {
-  description: "Mencipta produk digital untuk rakyat",
+  description: "Mencipta produk digital untuk rakyat Malaysia",
   title: "Govtech Malaysia",
 };
 

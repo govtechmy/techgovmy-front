@@ -7,14 +7,6 @@ export default {
     "node_modules/@govtechmy/myds-react/dist/**/*.{js,jsx,ts,tsx}",
   ],
   presets: [preset],
-  theme: {
-    extend: {
-      colours: {
-        lightyellow: "#FFFBF4",
-        bordergrey: "#F4F4F5"
-      }
-    }
-  },
   plugins: [],
   theme: {
     extend: {
@@ -24,11 +16,17 @@ export default {
       },
       colors: {
         govtech: {
-          600: "rgba(var(--_govtech-600) / <alpha-value>)",
           700: "rgba(var(--_govtech-700) / <alpha-value>)",
+          600: "rgba(var(--_govtech-600) / <alpha-value>)",
+          200: "rgba(var(--_govtech-200) / <alpha-value>)",
+          100: "rgba(var(--_govtech-100) / <alpha-value>)",
+          50: "rgba(var(--_govtech-50) / <alpha-value>)",
+          secondary: "rgba(var(--_govtech-secondary) / <alpha-value>)",
+          tertiary: "rgba(var(--_govtech-tertiary) / <alpha-value>)",
         },
         "txt-govtech-600": "rgb(var(--txt-govtech-600))",
-        "txt-govtech-700": "rgb(var(--txt-govtech-700))",
+        "txt-govtech-600-dark": "rgb(var(--txt-govtech-600-dark))",
+        "fr-govtech-100": "rgb(var(--fr-govtech-100))",
       },
     },
   },
