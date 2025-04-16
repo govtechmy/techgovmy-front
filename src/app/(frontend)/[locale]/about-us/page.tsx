@@ -44,49 +44,45 @@ export default async function AboutPage({ params }: ServerPageProps) {
     <div className="w-full border-otl-divider border-x justify-center">
       <section
         className="grid grid-cols-4 gap-4.5 px-4.5 py-6 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto lg:h-[400px] md:h-[700px] h-[800px] 
-        lg:bg-[url('/static/images/aboutus-header.png')] bg-cover bg-no-repeat bg-center
-        md:bg-[url('/static/images/aboutus-tablet.png')]
-        bg-[url('/static/images/aboutus-mobile.png')]"
+        lg:bg-[url('/static/images/about-us/aboutus-header.png')] bg-cover bg-no-repeat bg-center
+        md:bg-[url('/static/images/about-us/aboutus-tablet.png')]
+        bg-[url('/static/images/about-us/aboutus-mobile.png')]"
       >
         <div className="col-span-full lg:col-span-6 flex items-center justify-center lg:justify-end">
           <div className="max-w-[600px] px-[3rem] flex flex-col gap-[10px]">
-            <div className="text-heading-xl text-black-900">
-              {aboutUs?.["intro-header"]}
-            </div>
-            <div className="text-heading-3xs text-gray-500">
-              {aboutUs?.["intro-description"]}
-            </div>
+            <div className="text-heading-xl text-black-900">{aboutUs?.["intro-header"]}</div>
+            <div className="text-heading-3xs text-gray-500">{aboutUs?.["intro-description"]}</div>
           </div>
         </div>
       </section>
 
-      <section
-        className="grid grid-cols-4 gap-4.5 py-0 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto"
-      >
-        <div className="max-w-[1280px] px-[1rem] lg:mx-[6rem] lg:my-[1rem] col-span-full 
+      <section className="grid grid-cols-4 gap-4.5 py-0 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto">
+        <div
+          className="max-w-[1280px] px-[1rem] lg:mx-[6rem] lg:my-[1rem] col-span-full 
           h-[720px] md:h-[518px] lg:h-[446px]
-          lg:bg-[url('/static/images/card-2.png')] lg:bg-cover lg:bg-no-repeat lg:bg-center
+          lg:bg-[url('/static/images/about-us/card-2.png')] lg:bg-cover lg:bg-no-repeat lg:bg-center
           flex"
         >
           <div className="w-full lg:w-2/3 flex flex-col gap-[10px] justify-center">
-            <div className="text-heading-md text-black-900">
-              {aboutUs?.["future-header"]}
-            </div>
+            <div className="text-heading-md text-black-900">{aboutUs?.["future-header"]}</div>
             <div className="text-heading-3xs text-gray-500">
               {aboutUs?.["future-description"] &&
                 aboutUs["future-description"].map((value, index: number) => {
-                  return <p key={`${index}_futue`} className="my-4">{value?.["line-text"]}</p>
-                })
-              }
+                  return (
+                    <p key={`${index}_futue`} className="my-4">
+                      {value?.["line-text"]}
+                    </p>
+                  );
+                })}
             </div>
           </div>
         </div>
       </section>
 
       <div className="mx-auto max-w-5xl p-6">
-
-
-        <h3 className="mb-8 text-heading-sm font-semibold text-txt-black-900">{t("our_capabilities")}</h3>
+        <h3 className="mb-8 text-heading-sm font-semibold text-txt-black-900">
+          {t("our_capabilities")}
+        </h3>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-12">
           {aboutUs["our-capabilities"] &&
             aboutUs["our-capabilities"].map((value, index: number) => {
@@ -111,9 +107,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
               );
             })}
         </div>
-
       </div>
     </div>
   );
 }
-

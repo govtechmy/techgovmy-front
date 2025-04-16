@@ -1,18 +1,21 @@
 import React from "react";
 import { Tag } from "@govtechmy/myds-react/tag";
 import { ChevronRightIcon } from "@govtechmy/myds-react/icon";
-import Image from "next/image";
 import HomepageClient from "./page.client";
+import { cn } from "@/lib/utils";
 
 export default async function HomePage() {
   return (
     <>
       <section
-        className="grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto lg:h-[628px] md:h-[933px] h-[825px] bg-[#FFFBF4]"
-        style={{ backgroundImage: `url('./theme/hero-pattern.svg')` }}
+        className={cn(
+          "grid grid-cols-4 gap-4.5 px-10 md:grid-cols-8 md:gap-6 md:px-[84px] lg:grid-cols-12 w-full mx-auto lg:h-[628px] md:h-[900px] h-[850px]",
+          // Image background
+          "bg-cover bg-no-repeat bg-center lg:bg-[url('/static/images/home/img-bg-hero-desktop.svg')] md:bg-[url('/static/images/home/img-bg-hero-tablet.svg')] bg-[url('/static/images/home/img-bg-hero-mobile.svg')]",
+        )}
       >
-        <div className="max-w-[350px] md:max-w-[600px] lg:max-w-screen-xl mx-auto w-full col-span-full flex flex-col lg:flex-row items-center gap-6 py-16">
-          <div className="lg:flex-1 flex-col flex gap-4.5">
+        <div className="max-w-[350px] md:max-w-[600px] lg:max-w-screen-xl lg:mx-auto w-full col-span-full flex flex-col lg:flex-row items-center gap-6 py-16">
+          <div className="lg:max-w-[680px] w-full lg:flex-1 flex-col flex gap-4.5">
             <Tag
               className="w-fit mb-3 hover:cursor-pointer"
               variant="primary"
@@ -31,15 +34,6 @@ export default async function HomePage() {
               Kami mahu mewujudkan ruang dalam sektor awam yang boleh menjadi tempat para bakat
               terbaik Malaysia berkembang.
             </p>
-          </div>
-          <div className="flex-1 w-full h-full relative">
-            <Image
-              className="absolute"
-              alt="Govtech Malaysia Hero Image"
-              src={"./theme/gtm-hero-img.svg"}
-              fill={true}
-              priority={true}
-            />
           </div>
         </div>
       </section>

@@ -7,68 +7,58 @@ import { FC, ReactNode } from "react";
 
 export const StatisticsSection = () => {
   return (
-    <div className="flex flex-col gap-12 lg:px-[109px]">
-      <div className="flex flex-col gap-4.5">
-        <p className="text-txt-govtech-600 tracking-[0.2em] font-semibold uppercase">Statistik</p>
-        <h2 className="font-heading text-heading-sm font-semibold">
-          Masa Depan Digital Malaysia, Selangkah Kehadapan
-        </h2>
-        <p className="text-txt-black-500 text-body-md">
-          Seiring dengan perkembangan kami, orang ramai boleh mengikuti kemajuan yang membentuk
-          transformasi digital kami.
-        </p>
-      </div>
+    <div className="lg:px-[109px]">
+      <div className="w-full bg-gradient-to-r from-[#F8FBFF] to-[#C5D9F4] relative rounded-xl p-8 gap-8 flex xl:flex-row flex-col h-[691px] md:h-[700px] lg:h-full">
+        <div className="lg:w-[596px] space-y-8 z-10">
+          <div className="space-y-4.5 w-full">
+            <p className="text-txt-govtech-600 text-sm tracking-[0.2em] font-semibold uppercase">
+              Statistik
+            </p>
+            <h2 className="font-heading text-heading-sm font-semibold">
+              Masa Depan Digital Malaysia, Selangkah Kehadapan
+            </h2>
+            <p className="text-txt-black-500 text-body-md">
+              Seiring dengan perkembangan kami, orang ramai boleh mengikuti kemajuan yang membentuk
+              transformasi digital kami.
+            </p>
+          </div>
 
-      <div className="flex items-start flex-wrap md:flex-nowrap gap-6">
-        <div className="flex flex-col gap-3 w-[163px] md:w-[184px] lg:w-[247.5px]">
-          <p className="text-heading-lg text-txt-govtech-600">1</p>
-          <p className="text-txt-black-500 text-body-md font-medium">Projek Dilancarkan</p>
+          <div className="flex items-start flex-wrap md:flex-nowrap gap-6 w-full">
+            <div className="space-y-3 flex-1">
+              <p className="text-heading-lg text-txt-govtech-600 font-semibold">9</p>
+              <p className="text-txt-black-500 text-body-md font-medium">Projek Keseluruhan</p>
+            </div>
+            <div className="space-y-3 flex-1">
+              <p className="text-heading-lg text-txt-govtech-600 font-semibold">3</p>
+              <p className="text-txt-black-500 text-body-md font-medium">Siap Dibangunkan</p>
+            </div>
+            <div className="space-y-3 flex-1">
+              <p className="text-heading-lg text-txt-govtech-600 font-semibold">6</p>
+              <p className="text-txt-black-500 text-body-md font-medium">Dalam Pembangunan</p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-3 w-[163px] md:w-[184px] lg:w-[247.5px]">
-          <p className="text-heading-lg text-txt-govtech-600">9</p>
-          <p className="text-txt-black-500 text-body-md font-medium"> Projek Dalam Pembangunan</p>
-        </div>
-        <div className="flex flex-col gap-3 w-[163px] md:w-[184px] lg:w-[247.5px]">
-          <p className="text-heading-lg text-txt-govtech-600">15</p>
-          <p className="text-txt-black-500 text-body-md font-medium">Ahli Pasukan</p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-interface AboutGovtechSectionProps {
-  reverse_row?: boolean;
-  image_url: string;
-  title: string;
-  description: string;
-  category: string;
-  action: ReactNode;
-}
-
-export const AboutGovtechSection: FC<AboutGovtechSectionProps> = ({
-  reverse_row,
-  image_url,
-  action,
-  category,
-  description,
-  title,
-}) => {
-  return (
-    <div
-      className={cn(
-        "flex gap-8 lg:gap-[133px] items-center w-full h-full lg:h-[400px] lg:px-[109px]",
-        reverse_row ? "flex-col-reverse lg:flex-row-reverse" : "flex-col-reverse lg:flex-row",
-      )}
-    >
-      <div className="lg:w-[410px] h-fit flex flex-col justify-center gap-4.5">
-        <p className="text-txt-govtech-600 tracking-[0.2em] font-semibold uppercase">{category}</p>
-        <h2 className="font-heading text-heading-sm font-semibold">{title}</h2>
-        <p className="text-txt-black-500 text-body-md">{description}</p>
-        <div className="pt-3">{action}</div>
-      </div>
-      <div className="relative flex items-center lg:flex-1 w-full h-[269px] md:h-[463px] lg:h-[519px]">
-        <Image src={image_url} alt={`${category}-${title}`} fill={true} className="absolute" />
+        <Image
+          alt="Image Statistic Desktop"
+          src={"/static/images/home/img-bg-statistik-desktop.svg"}
+          className="lg:block hidden absolute bottom-0 left-0 lg:opacity-50 xl:opacity-100"
+          width={1062}
+          height={370}
+        />
+        <Image
+          alt="Image Statistic Tablet"
+          src={"/static/images/home/img-bg-statistik-tablet.svg"}
+          width={600}
+          height={700}
+          className="hidden md:block lg:hidden absolute bottom-0 left-0"
+        />
+        <Image
+          alt="Image Statistic Mobile"
+          src={"/static/images/home/img-bg-statistik-mobile.svg"}
+          width={394}
+          height={691}
+          className="block md:hidden absolute bottom-0 left-0"
+        />
       </div>
     </div>
   );
@@ -77,115 +67,73 @@ export const AboutGovtechSection: FC<AboutGovtechSectionProps> = ({
 export const PagesSection = () => {
   const pages = [
     {
-      title: "Produk Kami",
-      description: "Kenali produk digital yang telah kami hasilkan untuk rakyat dan pegawai awam.",
-      img_url: "./theme/gtm-our-products.svg",
-      blur: false,
+      headline: "Siapa Kami",
+      title: "Government Technology Malaysia (GovTech)",
+      description:
+        "GovTech Malaysia ialah pasukan dalaman yang menumpukan pada peningkatan perkhidmatan digital dalam sektor awam.",
+      img_url: "./static/images/home/gtm-our-products.svg",
+      route: { href: "/about-us", label: "Tentang GovTech" },
     },
     {
-      title: "Sertai Pasukan Kami",
-      description: "Bina produk dan perkhidmatan digital yang beri impak untuk Malaysia!",
-      img_url: "./theme/gtm-join-us.svg",
-      blur: false,
+      headline: "Usaha Kami",
+      title: "Teknologi untuk Kebaikan Rakyat",
+      description:
+        "Kami mengembangkan idea-idea baru untuk menyelesaikan cabaran awam melalui teknologi digital.",
+      img_url: "./static/images/home/gtm-join-us.svg",
+      route: { href: "/products", label: "Kenali Produk Kami" },
     },
-    // {
-    //   title: "Komuniti GovTech",
-    //   description:
-    //     "Sertai komuniti developer, peminat teknologi dan pegawai awam dalam memacu transformasi digital.",
-    //   img_url: "./theme/gtm-our-community.svg",
-    //   blur: true,
-    // },
+    {
+      headline: "Penyelesaian Berimpak",
+      title: "Memperkasa Rakyat",
+      description:
+        "Penyelesaian kami menjadikan perkhidmatan kerajaan lebih mudah diakses, efisien, dan mesra pengguna untuk semua.",
+      img_url: "./static/images/home/gtm-our-community.svg",
+      route: null,
+    },
   ];
 
   return (
     <div className="flex flex-col gap-12 lg:px-[109px]">
-      <h2 className="text-heading-sm font-semibold">Selesaikan masalah rakyat dan pegawai awam</h2>
       <div className="flex gap-12 lg:flex-row flex-col">
         {pages.map((page, index) => (
           <div
             key={index}
             className={cn(
-              "flex flex-col md:flex-row items-center lg:items-start lg:flex-col gap-6",
-              page.blur && "opacity-20",
+              "flex flex-col md:flex-row items-center md:items-start lg:flex-col gap-6",
             )}
           >
-            <div className="relative w-full h-[217px] md:w-[242px] md:h-[150px] lg:w-[322px] lg:h-[200px] overflow-hidden rounded-lg border border-gray-200">
+            <div className="relative w-full h-[245px] md:w-[208px] md:h-[130px] lg:w-[321px] lg:h-[200px] overflow-hidden rounded-lg border border-gray-200">
               <Image alt={page.title} src={page.img_url} className="absolute" fill={true} />
             </div>
             <div className="space-y-2 flex-1">
-              <Link href={"/"}>
-                <p className="text-body-xl font-semibold flex items-center gap-2">
-                  {page.title} <ArrowForwardIcon className="w-5 h-5" />
-                </p>
-              </Link>
+              <p className="text-xs font-semibold tracking-[0.2em] text-txt-govtech-600 uppercase">
+                {page.headline}
+              </p>
+
+              <p className="text-body-xl font-semibold flex items-center gap-2">{page.title}</p>
+
               <p className="text-body-md text-txt-black-500">{page.description}</p>
+
+              {page.route && (
+                <div className="pt-2.5">
+                  <Link href={page.route.href}>
+                    <Button
+                      className="bg-bg-black-800 border-bg-black-900 hover:bg-bg-black-800/80"
+                      size={"small"}
+                    >
+                      {page.route?.label}
+
+                      <ButtonIcon>
+                        <ArrowForwardIcon />
+                      </ButtonIcon>
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         ))}
       </div>
-    </div>
-  );
-};
-
-export const NewsSection = () => {
-  const pages = [
-    {
-      title: "Produk Kami",
-      description: "Kenali produk digital yang telah kami hasilkan untuk rakyat dan pegawai awam.",
-      img_url: "./theme/gtm-our-products.svg",
-    },
-    {
-      title: "Sertai Pasukan Kami",
-      description: "Bina produk dan perkhidmatan digital yang beri impak untuk Malaysia!",
-      img_url: "./theme/gtm-join-us.svg",
-    },
-    {
-      title: "Komuniti GovTech",
-      description:
-        "Sertai komuniti developer, peminat teknologi dan pegawai awam dalam memacu transformasi digital.",
-      img_url: "./theme/gtm-our-community.svg",
-    },
-    {
-      title: "Komuniti GovTech",
-      description:
-        "Sertai komuniti developer, peminat teknologi dan pegawai awam dalam memacu transformasi digital.",
-      img_url: "./theme/gtm-our-community.svg",
-    },
-  ];
-
-  return (
-    <div className="flex flex-col gap-12 lg:px-[109px]">
-      <h2 className="text-heading-sm font-semibold">Berita Govtech</h2>
-      <div className="flex gap-6 overflow-x-scroll max-w-[1062px]">
-        {pages.map((page, index) => (
-          <div
-            key={index}
-            className={cn(
-              "flex flex-col w-[250px] md:w-[280px] lg:w-[247px] h-full gap-4.5 border border-gray-200 bg-bg-dialog p-3 rounded-lg",
-            )}
-          >
-            <div className="relative w-[226px] h-[117px] md:w-[256px] md:h-[132.41px] lg:w-[223.5px] lg:h-[115.6px] overflow-hidden rounded-sm">
-              <Image
-                alt={page.title}
-                src={page.img_url}
-                className="absolute object-cover"
-                fill={true}
-              />
-            </div>
-            <div className="space-y-2 h-[116px] px-3">
-              <p className="font-semibold">{page.title}</p>
-              <p className="text-body-md text-txt-black-500 line-clamp-3">{page.description}</p>
-            </div>
-            <p className="text-gray-500 px-3 pb-2">6 March 2025</p>
-          </div>
-        ))}
-      </div>
-      <Button className="h-10 bg-bg-black-800 border-bg-black-900" size={"medium"}>
-        Semua Berita
-        <ButtonIcon>
-          <ArrowForwardIcon />
-        </ButtonIcon>
-      </Button>
     </div>
   );
 };
