@@ -560,29 +560,20 @@ export interface SiteInfo {
  */
 export interface AboutUs {
   id: string;
-  title?: string | null;
   'intro-header'?: string | null;
   'intro-description'?: string | null;
-  'vision-and-mission'?:
+  'future-header'?: string | null;
+  'future-description'?:
+    | {
+        'line-text'?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  'our-capabilities'?:
     | {
         'card-header'?: string | null;
         icon?: ('flag' | 'eye' | 'thumbsUp' | 'userGroup' | 'star') | null;
         'card-description'?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  'our-values'?:
-    | {
-        'card-header'?: string | null;
-        icon?: ('flag' | 'eye' | 'thumbsUp' | 'userGroup' | 'star') | null;
-        'card-description'?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  community?:
-    | {
-        'card-title'?: string | null;
-        href?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -680,30 +671,21 @@ export interface SiteInfoSelect<T extends boolean = true> {
  * via the `definition` "about-us_select".
  */
 export interface AboutUsSelect<T extends boolean = true> {
-  title?: T;
   'intro-header'?: T;
   'intro-description'?: T;
-  'vision-and-mission'?:
+  'future-header'?: T;
+  'future-description'?:
+    | T
+    | {
+        'line-text'?: T;
+        id?: T;
+      };
+  'our-capabilities'?:
     | T
     | {
         'card-header'?: T;
         icon?: T;
         'card-description'?: T;
-        id?: T;
-      };
-  'our-values'?:
-    | T
-    | {
-        'card-header'?: T;
-        icon?: T;
-        'card-description'?: T;
-        id?: T;
-      };
-  community?:
-    | T
-    | {
-        'card-title'?: T;
-        href?: T;
         id?: T;
       };
   updatedAt?: T;

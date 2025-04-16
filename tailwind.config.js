@@ -28,6 +28,7 @@ export default {
           700: "rgba(var(--_govtech-700) / <alpha-value>)",
         },
         "txt-govtech-600": "rgb(var(--txt-govtech-600))",
+        "txt-govtech-700": "rgb(var(--txt-govtech-700))",
       },
     },
   },
