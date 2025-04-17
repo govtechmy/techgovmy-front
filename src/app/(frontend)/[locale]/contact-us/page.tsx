@@ -23,7 +23,7 @@ export default async function ContactPage({ params }: ServerPageProps) {
               <h1 className="text-heading-md font-semibold text-txt-black-900 pb-6">
                 {t("contact_us")}
               </h1>
-              <div className="flex flex-col md:flex-row lg:flex-col sm:gap-8">
+              <div className="flex flex-col md:flex-row lg:flex-col sm:gap-8 lg:gap-0">
                 <div>
                   <h1 className="text-txt-black-900 text-body-xl font-semibold">
                     {t("office_name")}
