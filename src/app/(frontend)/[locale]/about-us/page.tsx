@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { getTranslations } from "next-intl/server";
 import {
   FlagIcon,
@@ -62,16 +62,18 @@ export default async function AboutPage({ params }: ServerPageProps) {
               <h2 className="text-black-900 font-heading text-heading-sm font-semibold">
                 {aboutUs?.["future-header"]}
               </h2>
-              <p className="text-body-md text-txt-black-500">
-                {aboutUs?.["future-description"] &&
-                  aboutUs["future-description"].map((value, index) => {
-                    return (
-                      <p key={`${index}_futue`} className={cn(index !== 0 && "my-2")}>
-                        {value?.["line-text"]}
-                      </p>
-                    );
-                  })}
-              </p>
+
+              {aboutUs?.["future-description"] &&
+                aboutUs["future-description"].map((value, index) => {
+                  return (
+                    <p
+                      key={`${index}_futue`}
+                      className={cn("text-body-md text-txt-black-500", index !== 0 && "my-2")}
+                    >
+                      {value?.["line-text"]}
+                    </p>
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -104,7 +106,9 @@ export default async function AboutPage({ params }: ServerPageProps) {
                       <h3 className="mb-2 text-body-xl font-semibold text-txt-black-900">
                         {value?.["card-header"]}
                       </h3>
-                      <p className="text-txt-black-700">{value?.["card-description"]}</p>
+                      <p className="text-body-md leading-7 text-txt-black-700">
+                        {value?.["card-description"]}
+                      </p>
                     </div>
                   </div>
                 );
