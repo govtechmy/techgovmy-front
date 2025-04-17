@@ -111,11 +111,12 @@ export const AboutUsGlobals: GlobalConfig = {
           },
           localized: true,
           options: [
+            'database',
+            'check-shield',
+            'org-chart',
             'flag',
-            'eye',
-            'thumbsUp',
-            'userGroup',
-            'star'
+            'edit',
+            'component'
           ]
         },
         {

@@ -10,10 +10,11 @@ import {
 import Link from "next/link";
 import {
   FlagIcon,
-  StarIcon,
-  EyeShowIcon,
-  ThumbsUpIcon,
-  UserGroupIcon,
+  DatabaseIcon,
+  CheckShieldIcon,
+  EditIcon,
+  ComponentIcon,
+  OrgChartIcon,
 } from "@govtechmy/myds-react/icon";
 import Image from "next/image";
 import { getPayload } from "payload";
@@ -21,11 +22,13 @@ import config from "@payload-config";
 
 const iconMap: Record<string, React.ElementType> = {
   flag: FlagIcon,
-  star: StarIcon,
-  eye: EyeShowIcon,
-  thumbsUp: ThumbsUpIcon,
-  userGroup: UserGroupIcon,
+  database: DatabaseIcon,
+  "org-chart": OrgChartIcon,
+  "check-shield": CheckShieldIcon,
+  edit: EditIcon,
+  component: ComponentIcon
 };
+
 
 export default async function AboutPage({ params }: ServerPageProps) {
   const { locale } = await params;
@@ -48,7 +51,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
         md:bg-[url('/static/images/about-us/aboutus-tablet.png')]
         bg-[url('/static/images/about-us/aboutus-mobile.png')]"
       >
-        <div className="col-span-full lg:col-span-6 flex items-center justify-center lg:justify-end">
+        <div className="col-span-full lg:col-span-6 flex items-start lg:items-center py-8 justify-center">
           <div className="max-w-[600px] px-[3rem] flex flex-col gap-[10px]">
             <div className="text-heading-xl text-black-900">{aboutUs?.["intro-header"]}</div>
             <div className="text-heading-3xs text-gray-500">{aboutUs?.["intro-description"]}</div>
@@ -58,8 +61,9 @@ export default async function AboutPage({ params }: ServerPageProps) {
 
       <section className="grid grid-cols-4 gap-4.5 py-0 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto">
         <div
-          className="max-w-[1280px] px-[1rem] lg:mx-[6rem] lg:my-[1rem] col-span-full 
-          h-[720px] md:h-[518px] lg:h-[446px]
+          className="m-auto max-w-[1280px] px-[1rem] col-span-full 
+          px-8 py-8 my-[45px] min-h-[460px]
+          bg-[#fafafa]
           lg:bg-[url('/static/images/about-us/card-2.png')] lg:bg-cover lg:bg-no-repeat lg:bg-center
           flex"
         >
@@ -86,14 +90,16 @@ export default async function AboutPage({ params }: ServerPageProps) {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-12">
           {aboutUs["our-capabilities"] &&
             aboutUs["our-capabilities"].map((value, index: number) => {
+              console.log("value?.icon", value?.icon)
               const IconComponent = iconMap[value?.icon || "flag"];
+              console.log("IconComponent", IconComponent)
               return (
                 <div
                   key={index}
                   className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4"
                 >
                   <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
-                    <div className="bg-txt-govtech-600 w-[48px] h-[48px] flex items-center justify-center rounded text-govtech-700">
+                    <div className="bg-govtech-50 w-[48px] h-[48px] flex items-center justify-center rounded text-govtech-700">
                       <IconComponent className="w-[28px] h-[28px] " />
                     </div>
                   </div>

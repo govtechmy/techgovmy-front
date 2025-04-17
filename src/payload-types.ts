@@ -572,7 +572,7 @@ export interface AboutUs {
   'our-capabilities'?:
     | {
         'card-header'?: string | null;
-        icon?: ('flag' | 'eye' | 'thumbsUp' | 'userGroup' | 'star') | null;
+        icon?: ('database' | 'check-shield' | 'org-chart' | 'flag' | 'edit' | 'component') | null;
         'card-description'?: string | null;
         id?: string | null;
       }[]
