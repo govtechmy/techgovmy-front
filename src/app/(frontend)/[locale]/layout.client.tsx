@@ -21,7 +21,7 @@ export default function LocaleClientLayout({
     <>
       <main
         className={
-          "min-h-screen h-full flex flex-col bg-bg-white text-txt-black-900 text-body-sm font-body box-border"
+          "box-border flex h-full min-h-screen flex-col bg-bg-white font-body text-body-sm text-txt-black-900"
         }
       >
         <Masthead>

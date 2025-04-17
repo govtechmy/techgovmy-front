@@ -8,40 +8,40 @@ import { FC, ReactNode } from "react";
 export const StatisticsSection = () => {
   return (
     <div className="lg:px-[109px]">
-      <div className="w-full bg-gradient-to-r from-[#F8FBFF] to-[#C5D9F4] relative rounded-xl p-8 gap-8 flex xl:flex-row flex-col h-[691px] md:h-[700px] lg:h-full">
-        <div className="lg:w-[596px] space-y-8 z-10">
-          <div className="space-y-4.5 w-full">
-            <p className="text-txt-govtech-600 text-sm tracking-[0.2em] font-semibold uppercase">
+      <div className="relative flex h-[691px] w-full flex-col gap-8 rounded-xl bg-gradient-to-r from-[#F8FBFF] to-[#C5D9F4] p-8 md:h-[700px] lg:h-full xl:flex-row">
+        <div className="z-10 space-y-8 lg:w-[596px]">
+          <div className="w-full space-y-4.5">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-txt-govtech-600">
               Statistik
             </p>
             <h2 className="font-heading text-heading-sm font-semibold">
               Masa Depan Digital Malaysia, Selangkah Kehadapan
             </h2>
-            <p className="text-txt-black-500 text-body-md">
+            <p className="text-body-md text-txt-black-500">
               Seiring dengan perkembangan kami, orang ramai boleh mengikuti kemajuan yang membentuk
               transformasi digital kami.
             </p>
           </div>
 
-          <div className="flex items-start flex-wrap md:flex-nowrap gap-6 w-full">
-            <div className="space-y-3 flex-1">
-              <p className="text-heading-lg text-txt-govtech-600 font-semibold">9</p>
-              <p className="text-txt-black-500 text-body-md font-medium">Projek Keseluruhan</p>
+          <div className="flex w-full flex-wrap items-start gap-6 md:flex-nowrap">
+            <div className="flex-1 space-y-3">
+              <p className="text-heading-lg font-semibold text-txt-govtech-600">9</p>
+              <p className="text-body-md font-medium text-txt-black-500">Projek Keseluruhan</p>
             </div>
-            <div className="space-y-3 flex-1">
-              <p className="text-heading-lg text-txt-govtech-600 font-semibold">3</p>
-              <p className="text-txt-black-500 text-body-md font-medium">Siap Dibangunkan</p>
+            <div className="flex-1 space-y-3">
+              <p className="text-heading-lg font-semibold text-txt-govtech-600">3</p>
+              <p className="text-body-md font-medium text-txt-black-500">Siap Dibangunkan</p>
             </div>
-            <div className="space-y-3 flex-1">
-              <p className="text-heading-lg text-txt-govtech-600 font-semibold">6</p>
-              <p className="text-txt-black-500 text-body-md font-medium">Dalam Pembangunan</p>
+            <div className="flex-1 space-y-3">
+              <p className="text-heading-lg font-semibold text-txt-govtech-600">6</p>
+              <p className="text-body-md font-medium text-txt-black-500">Dalam Pembangunan</p>
             </div>
           </div>
         </div>
         <Image
           alt="Image Statistic Desktop"
           src={"/static/images/home/img-bg-statistik-desktop.svg"}
-          className="lg:block hidden absolute bottom-0 left-0 lg:opacity-50 xl:opacity-100"
+          className="absolute bottom-0 left-0 hidden lg:block lg:opacity-50 xl:opacity-100"
           width={1062}
           height={370}
         />
@@ -50,14 +50,14 @@ export const StatisticsSection = () => {
           src={"/static/images/home/img-bg-statistik-tablet.svg"}
           width={600}
           height={700}
-          className="hidden md:block lg:hidden absolute bottom-0 left-0"
+          className="absolute bottom-0 left-0 hidden md:block lg:hidden"
         />
         <Image
           alt="Image Statistic Mobile"
           src={"/static/images/home/img-bg-statistik-mobile.svg"}
           width={394}
           height={691}
-          className="block md:hidden absolute bottom-0 left-0"
+          className="absolute bottom-0 left-0 block md:hidden"
         />
       </div>
     </div>
@@ -94,23 +94,23 @@ export const PagesSection = () => {
 
   return (
     <div className="flex flex-col gap-12 lg:px-[109px]">
-      <div className="flex gap-12 lg:flex-row flex-col">
+      <div className="flex flex-col gap-12 lg:flex-row">
         {pages.map((page, index) => (
           <div
             key={index}
             className={cn(
-              "flex flex-col md:flex-row items-center md:items-start lg:flex-col gap-6",
+              "flex flex-col items-center gap-6 md:flex-row md:items-start lg:flex-col",
             )}
           >
-            <div className="relative w-full h-[245px] md:w-[208px] md:h-[130px] lg:w-[321px] lg:h-[200px] overflow-hidden rounded-lg border border-gray-200">
+            <div className="relative h-[245px] w-full overflow-hidden rounded-lg border border-gray-200 md:h-[130px] md:w-[208px] lg:h-[200px] lg:w-[321px]">
               <Image alt={page.title} src={page.img_url} className="absolute" fill={true} />
             </div>
-            <div className="space-y-2 flex-1">
-              <p className="text-xs font-semibold tracking-[0.2em] text-txt-govtech-600 uppercase">
+            <div className="flex-1 space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-txt-govtech-600">
                 {page.headline}
               </p>
 
-              <p className="text-body-xl font-semibold flex items-center gap-2">{page.title}</p>
+              <p className="flex items-center gap-2 text-body-xl font-semibold">{page.title}</p>
 
               <p className="text-body-md text-txt-black-500">{page.description}</p>
 
@@ -118,7 +118,7 @@ export const PagesSection = () => {
                 <div className="pt-2.5">
                   <Link href={page.route.href}>
                     <Button
-                      className="bg-bg-black-800 border-bg-black-900 hover:bg-bg-black-800/80"
+                      className="border-bg-black-900 bg-bg-black-800 hover:bg-bg-black-800/80"
                       size={"small"}
                     >
                       {page.route?.label}

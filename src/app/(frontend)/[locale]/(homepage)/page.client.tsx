@@ -12,12 +12,12 @@ export default function HomepageClient() {
         <section
           key={index}
           className={cn(
-            "grid grid-cols-4 gap-4.5 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto flex-1 bg-bg-white",
+            "mx-auto grid w-full flex-1 grid-cols-4 gap-4.5 bg-bg-white px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12",
           )}
         >
           <div
             className={cn(
-              "max-w-[390px] md:max-w-[600px] lg:max-w-screen-xl mx-auto w-full col-span-full pt-16",
+              "col-span-full mx-auto w-full max-w-[390px] pt-16 md:max-w-[600px] lg:max-w-screen-xl",
               index === arr.length - 1 && "py-16",
             )}
           >
