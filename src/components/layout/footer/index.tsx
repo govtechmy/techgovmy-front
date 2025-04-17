@@ -8,7 +8,7 @@ import {
   SiteLink,
   FooterLogo,
 } from "@govtechmy/myds-react/footer";
-import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "@govtechmy/myds-react/icon";
+import { FacebookIcon, InstagramIcon, TwitterXIcon, YoutubeIcon } from "@govtechmy/myds-react/icon";
 import { Link } from "@govtechmy/myds-react/link";
 import Image from "next/image";
 
@@ -17,30 +17,25 @@ export default function LayoutFooter() {
     <Footer>
       <FooterSection className="">
         <SiteInfo>
-          <div className="text-txt-black-900 flex items-center gap-x-2.5">
+          <div className="flex items-center gap-x-2.5 text-txt-black-900">
             <FooterLogo
-              logoTitle={
-                <p className="font-poppins text-body-md whitespace-nowrap font-semibold">
-                  Govtech Malaysia
-                </p>
-              }
               logo={
                 <Image
-                  src="/favicon-color.png"
-                  width={36}
-                  height={36}
+                  src="/static/images/icons/img-logo-govtech.svg"
+                  width={91}
+                  height={32}
                   alt="Govtech Logo"
                   className="select-none"
                 />
               }
             />
           </div>
-          <p className="text-txt-black-700 text-body-sm not-prose">
+          <p className="not-prose text-body-sm text-txt-black-700">
             Level 37, MOF Inc. Tower Platinum Park, No.9 Persiaran KLCC,
             <br />
             50088 Kuala Lumpur, Malaysia
           </p>
-          <p className="text-txt-black-900 text-body-sm font-semibold not-prose">Follow us</p>
+          <p className="not-prose text-body-sm font-semibold text-txt-black-900">Follow us</p>
           <div className="flex gap-3">
             <Link
               href="#"
@@ -60,7 +55,7 @@ export default function LayoutFooter() {
               underline="none"
               className="hover:text-txt-black-900"
             >
-              <TwitterIcon className="text-txt-black-700" />
+              <TwitterXIcon className="text-txt-black-700" />
             </Link>
             <Link
               href="#"
@@ -98,7 +93,7 @@ export default function LayoutFooter() {
           <SiteLink href="#">Web Design: Figma</SiteLink>
         </SiteLinkGroup>
       </FooterSection>
-      <FooterSection className="text-txt-black-500 md:max-lg:gap-4.5 mx-auto flex w-full max-w-[1280px] flex-col justify-between border-none text-sm max-md:gap-4 lg:flex-row lg:gap-6">
+      <FooterSection className="mx-auto flex w-full max-w-[1280px] flex-col justify-between border-none text-sm text-txt-black-500 max-md:gap-4 md:max-lg:gap-4.5 lg:flex-row lg:gap-6">
         <div className="flex flex-col gap-3 lg:flex-row">
           <p>All Rights Reserved © 2025</p>
         </div>

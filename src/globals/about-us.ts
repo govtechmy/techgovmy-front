@@ -11,15 +11,6 @@ export const AboutUsGlobals: GlobalConfig = {
   },
   fields: [
     {
-      name: "title",
-      type: "text",
-      label: {
-        en: "Title",
-        ms: "Tajuk",
-      },
-      localized: true,
-    },
-    {
       name: "intro-header",
       type: "text",
       label: {
@@ -38,58 +29,67 @@ export const AboutUsGlobals: GlobalConfig = {
       localized: true,
     },
     {
-      name: 'vision-and-mission',
-      type: 'array',
+      name: "future-header",
+      type: "text",
       label: {
-        en: "Vision and Mission",
-        ms: "Visi dan Misi"
+        en: "Future Header",
+        ms: "Masa Depan Header",
       },
       localized: true,
-      fields: [
-        {
-          name: 'card-header',
-          type: 'text',
-          label: {
-            en: "Card Header",
-            ms: "Kad Header"
-          },
-          localized: true
-          //relationTo: 'pages', // "pages" is the slug of an existing collection
-        },
-        {
-          name: 'icon',
-          type: 'select',
-          label: {
-            en: "Icon name",
-            ms: "Nama Ikon"
-          },
-          localized: true,
-          options: [
-            'flag',
-            'eye',
-            'thumbsUp',
-            'userGroup',
-            'star'
-          ]
-        },
-        {
-          name: 'card-description',
-          type: 'text',
-          label: {
-            en: "Card Description",
-            ms: "Kad Diskripsi"
-          },
-          localized: true
-          //relationTo: 'pages', // "pages" is the slug of an existing collection
-        }
-      ],
     },
     {
-      name: 'our-values',
+      name: 'future-description',
       type: 'array',
       label: {
-        en: "Our Values",
-        ms: "Nilai Kami"
+        en: "Future Description",
+        ms: "Masa Depan Deskripsi"
+      },
+      localized: true,
+      fields: [
+        {
+          name: 'line-text',
+          type: 'text',
+          label: {
+            en: "Text",
+            ms: "Ayat"
+          },
+          localized: true
+        },
+      ],
+    },
+    // {
+    //   name: "future-description_p1",
+    //   type: "text",
+    //   label: {
+    //     en: "Future Description Paragraph 1",
+    //     ms: "Masa Depan Deskripsi Perenggan 1",
+    //   },
+    //   localized: true,
+    // },
+    // {
+    //   name: "future-description_p2",
+    //   type: "text",
+    //   label: {
+    //     en: "Future Description Paragraph 2",
+    //     ms: "Masa Depan Deskripsi Perenggan 2",
+    //   },
+    //   localized: true,
+    // },
+    // {
+    //   name: "future-description_p3",
+    //   type: "text",
+    //   label: {
+    //     en: "Future Description Paragraph 3",
+    //     ms: "Masa Depan Deskripsi Perenggan 3",
+    //   },
+    //   localized: true,
+    // },
+    {
+      name: 'our-capabilities',
+      type: 'array',
+      label: {
+        en: "Our Capabilities",
+        ms: "Keupayaan Kami"
       },
       localized: true,
       fields: [
@@ -111,11 +111,12 @@ export const AboutUsGlobals: GlobalConfig = {
           },
           localized: true,
           options: [
+            'database',
+            'check-shield',
+            'org-chart',
             'flag',
-            'eye',
-            'thumbsUp',
-            'userGroup',
-            'star'
+            'edit',
+            'component'
           ]
         },
         {
@@ -124,35 +125,6 @@ export const AboutUsGlobals: GlobalConfig = {
           label: {
             en: "Card Description",
             ms: "Kad Deskripsi"
-          },
-          localized: true
-        }
-      ],
-    },
-    {
-      name: 'community',
-      type: 'array',
-      label: {
-        en: "Community Card",
-        ms: "Kad Kommunitiy"
-      },
-      localized: true,
-      fields: [
-        {
-          name: 'card-title',
-          type: 'text',
-          label: {
-            en: "Card Title",
-            ms: "Tajuk Kad"
-          },
-          localized: true
-        },
-        {
-          name: 'href',
-          type: 'text',
-          label: {
-            en: "Card Link",
-            ms: "Pautan Kad"
           },
           localized: true
         }

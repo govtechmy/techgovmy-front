@@ -4,13 +4,12 @@ import "@/styles/global.css";
 import { cn } from "@/lib/utils";
 import LocaleClientLayout from "./layout.client";
 import { NextIntlClientProvider } from "next-intl";
-import { ThemeProvider } from "next-themes";
 import { routing } from "@/lib/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
 
 export const metadata = {
-  description: "Mencipta produk digital untuk rakyat",
+  description: "Mencipta produk digital untuk rakyat Malaysia",
   title: "Govtech Malaysia",
 };
 
@@ -52,11 +51,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={cn(inter.className, inter.variable, poppins.variable)}>
-        <ThemeProvider attribute={"class"} enableSystem={false}>
-          <NextIntlClientProvider messages={messages}>
-            <LocaleClientLayout>{children}</LocaleClientLayout>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <LocaleClientLayout>{children}</LocaleClientLayout>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
