@@ -20,10 +20,10 @@ export default async function ContactPage({ params }: ServerPageProps) {
         <section className="gap-16 lg:gap-0 flex-col lg:flex-row mx-auto flex bg-white rounded-xl border border-otl-divider justify-between lg:w-[70.375rem] lg:h-[32.75rem]">
           <div className="lg:w-[18.875rem] lg:h-[23rem] flex flex-col md:flex-row lg:flex-col w-full gap-12 lg:gap-0 items-start justify-start">
             <div className="pt-8 px-8">
-              <h1 className="text-heading-md font-semibold text-txt-black-900 pb-6">
+              <h1 className="text-heading-md font-semibold text-txt-black-900 pb-8">
                 {t("contact_us")}
               </h1>
-              <div className="flex flex-col md:flex-row lg:flex-col sm:gap-8 lg:gap-0">
+              <div className="flex flex-col md:flex-row lg:flex-col md:w-[536px] sm:gap-12 lg:gap-0">
                 <div>
                   <h1 className="text-txt-black-900 text-body-xl font-semibold">
                     {t("office_name")}
