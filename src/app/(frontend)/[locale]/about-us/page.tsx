@@ -26,9 +26,8 @@ const iconMap: Record<string, React.ElementType> = {
   "org-chart": OrgChartIcon,
   "check-shield": CheckShieldIcon,
   edit: EditIcon,
-  component: ComponentIcon
+  component: ComponentIcon,
 };
-
 
 export default async function AboutPage({ params }: ServerPageProps) {
   const { locale } = await params;
@@ -44,31 +43,20 @@ export default async function AboutPage({ params }: ServerPageProps) {
   // const IconComponent = iconMap;
 
   return (
-    <div className="w-full border-otl-divider border-x justify-center">
-      <section
-        className="grid grid-cols-4 gap-4.5 px-4.5 py-6 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto lg:h-[400px] md:h-[700px] h-[800px] 
-        lg:bg-[url('/static/images/about-us/aboutus-header.png')] bg-cover bg-no-repeat bg-center
-        md:bg-[url('/static/images/about-us/aboutus-tablet.png')]
-        bg-[url('/static/images/about-us/aboutus-mobile.png')]"
-      >
-        <div className="col-span-full lg:col-span-6 flex items-start lg:items-center py-8 justify-center">
-          <div className="max-w-[600px] px-[3rem] flex flex-col gap-[10px]">
-            <div className="text-heading-xl text-black-900">{aboutUs?.["intro-header"]}</div>
+    <div className="w-full justify-center border-x border-otl-divider">
+      <section className="mx-auto grid h-[800px] w-full grid-cols-4 gap-4.5 bg-[url('/static/images/about-us/aboutus-mobile.png')] bg-cover bg-center bg-no-repeat px-4.5 py-6 md:h-[700px] md:grid-cols-8 md:gap-6 md:bg-[url('/static/images/about-us/aboutus-tablet.png')] md:px-6 lg:h-[400px] lg:grid-cols-12 lg:bg-[url('/static/images/about-us/aboutus-header.png')]">
+        <div className="col-span-full flex items-start justify-center py-8 lg:col-span-6 lg:items-center">
+          <div className="flex max-w-[600px] flex-col gap-[10px] px-[3rem]">
+            <div className="text-black-900 text-heading-xl">{aboutUs?.["intro-header"]}</div>
             <div className="text-heading-3xs text-gray-500">{aboutUs?.["intro-description"]}</div>
           </div>
         </div>
       </section>
 
-      <section className="grid grid-cols-4 gap-4.5 py-0 px-4.5 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12 w-full mx-auto">
-        <div
-          className="m-auto max-w-[1280px] px-[1rem] col-span-full 
-          px-8 py-8 my-[45px] min-h-[460px]
-          bg-[#fafafa]
-          lg:bg-[url('/static/images/about-us/card-2.png')] lg:bg-cover lg:bg-no-repeat lg:bg-center
-          flex"
-        >
-          <div className="w-full lg:w-2/3 flex flex-col gap-[10px] justify-center">
-            <div className="text-heading-md text-black-900">{aboutUs?.["future-header"]}</div>
+      <section className="mx-auto grid w-full grid-cols-4 gap-4.5 px-4.5 py-0 md:grid-cols-8 md:gap-6 md:px-6 lg:grid-cols-12">
+        <div className="col-span-full m-auto my-[45px] flex min-h-[460px] max-w-[1280px] bg-[#fafafa] px-8 px-[1rem] py-8 lg:bg-[url('/static/images/about-us/card-2.png')] lg:bg-cover lg:bg-center lg:bg-no-repeat">
+          <div className="flex w-full flex-col justify-center gap-[10px] lg:w-2/3">
+            <div className="text-black-900 text-heading-md">{aboutUs?.["future-header"]}</div>
             <div className="text-heading-3xs text-gray-500">
               {aboutUs?.["future-description"] &&
                 aboutUs["future-description"].map((value, index: number) => {
@@ -87,20 +75,18 @@ export default async function AboutPage({ params }: ServerPageProps) {
         <h3 className="mb-8 text-heading-sm font-semibold text-txt-black-900">
           {t("our_capabilities")}
         </h3>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:grid-cols-2 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2">
           {aboutUs["our-capabilities"] &&
             aboutUs["our-capabilities"].map((value, index: number) => {
-              console.log("value?.icon", value?.icon)
-              const IconComponent = iconMap[value?.icon || "flag"];
-              console.log("IconComponent", IconComponent)
+              const IconComponent = iconMap[value?.icon || "flag"] || "span";
               return (
                 <div
                   key={index}
-                  className="p-6 border border-gray-200 rounded-lg shadow-sm flex flex-row gap-4"
+                  className="shadow-sm flex flex-row gap-4 rounded-lg border border-gray-200 p-6"
                 >
-                  <div className="flex items-start justify-center w-[48px] h-auto bg-orange-100 rounded-full mb-4">
-                    <div className="bg-govtech-50 w-[48px] h-[48px] flex items-center justify-center rounded text-govtech-700">
-                      <IconComponent className="w-[28px] h-[28px] " />
+                  <div className="bg-orange-100 mb-4 flex h-auto w-[48px] items-start justify-center rounded-full">
+                    <div className="flex h-[48px] w-[48px] items-center justify-center rounded bg-govtech-50 text-govtech-700">
+                      <IconComponent className="h-[28px] w-[28px]" />
                     </div>
                   </div>
                   <div className="flex-1">
