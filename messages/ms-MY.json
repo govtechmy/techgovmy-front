@@ -8,9 +8,10 @@
     "home": "Utama",
     "contact_us": "Hubungi Kami",
     "office_name": "Pejabat GovTech Malaysia",
-    "inquiries_feedback": "Pertanyaan & Maklum Balas"
+    "inquiries_feedback": "Pertanyaan & Maklum Balas",
+    "follow-us": "Ikuti Kami"
   },
-    "About": {
+  "About": {
     "title": "Tentang Kami",
     "home": "Home",
     "intro_header": "Siapakah GovTech?",

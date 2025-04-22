@@ -11,11 +11,18 @@ import {
   MastheadSection,
 } from "@govtechmy/myds-react/masthead";
 import { GovtOfficeIcon, Lock2Icon, LockFillIcon } from "@govtechmy/myds-react/icon";
+import { Footer as FooterType, Navbar, SiteInfo } from "@/payload-types";
 
 export default function LocaleClientLayout({
   children,
+  navbar,
+  footer,
+  siteInfo,
 }: Readonly<{
   children: React.ReactNode;
+  navbar: Navbar;
+  footer: FooterType;
+  siteInfo: SiteInfo;
 }>) {
   return (
     <>
@@ -46,9 +53,9 @@ export default function LocaleClientLayout({
             </MastheadSection>
           </MastheadContent>
         </Masthead>
-        <Header />
+        <Header headerData={navbar} />
         {children}
-        <Footer />
+        <Footer siteInfo={siteInfo} footerData={footer} />
       </main>
     </>
   );

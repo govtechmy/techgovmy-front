@@ -16,10 +16,10 @@ export default async function ContactPage({ params }: ServerPageProps) {
 
   return (
     <div className="w-full bg-gradient-to-b from-white to-[#EFF6FF]">
-      <div className="mx-auto w-full max-w-screen-xl justify-center space-y-8 border-otl-divider px-10 pt-8 md:space-y-16 md:px-[5.25rem] md:pt-16 lg:px-[6.8125rem] lg:py-[5.25rem]">
+      <div className="mx-auto w-full max-w-screen-xl justify-center space-y-8 border-otl-divider px-4 pt-4 md:space-y-16 md:px-[5.25rem] md:pt-16 lg:px-[6.8125rem] lg:py-[5.25rem]">
         <section className="mx-auto flex flex-col justify-between gap-16 rounded-xl border border-otl-divider bg-white lg:h-[32.75rem] lg:w-[70.375rem] lg:flex-row lg:gap-0">
-          <div className="flex w-full flex-col items-start justify-start gap-12 md:flex-row lg:h-[23rem] lg:w-[18.875rem] lg:flex-col lg:gap-0">
-            <div className="px-8 pt-8">
+          <div className="flex w-full flex-col items-start justify-start gap-12 md:flex-row lg:h-[23rem] lg:w-fit lg:flex-col lg:gap-0">
+            <div className="w-full px-4 pt-4 md:px-8 md:pt-8">
               <h1 className="pb-8 text-heading-md font-semibold text-txt-black-900">
                 {t("contact_us")}
               </h1>
@@ -56,7 +56,7 @@ export default async function ContactPage({ params }: ServerPageProps) {
                     </a>
                   </div>
                 </div>
-                <div className="h-[7.75rem] w-[18.875rem] flex-1 lg:pt-12">
+                <div className="h-[7.75rem] flex-1 lg:pt-12">
                   <h1 className="text-body-xl font-semibold text-txt-black-900">
                     {t("inquiries_feedback")}
                   </h1>
@@ -78,7 +78,7 @@ export default async function ContactPage({ params }: ServerPageProps) {
             </div>
           </div>
           <iframe
-            className="h-[21.875rem] w-full rounded-xl border border-gray-200 md:h-[25rem] lg:h-[32.75rem] lg:w-[39.25rem]"
+            className="h-[21.875rem] w-full rounded-xl border border-gray-200 md:h-[25rem] lg:h-[32.75rem] lg:w-[41.25rem]"
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"

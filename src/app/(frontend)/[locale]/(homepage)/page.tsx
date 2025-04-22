@@ -16,7 +16,7 @@ export default async function HomePage() {
       >
         <div className="col-span-full flex w-full max-w-[350px] flex-col items-center gap-6 py-16 md:max-w-[600px] lg:mx-auto lg:max-w-screen-xl lg:flex-row">
           <div className="flex w-full flex-col gap-4.5 lg:max-w-[680px] lg:flex-1">
-            <Tag
+            {/* <Tag
               className="mb-3 w-fit hover:cursor-pointer"
               variant="primary"
               size="small"
@@ -24,7 +24,7 @@ export default async function HomePage() {
             >
               Peluncuran Portal Rasmi MYDS
               <ChevronRightIcon className="h-3 w-3" />
-            </Tag>
+            </Tag> */}
             <h1 className="font-heading text-heading-md font-semibold md:text-heading-lg lg:tracking-tighter">
               Kami bina produk digital untuk meningkatkan{" "}
               <span className="text-txt-govtech-600">kemudahan rakyat</span>

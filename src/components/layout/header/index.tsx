@@ -6,23 +6,9 @@ import LocaleSwitch from "./locale-switch";
 import { Suspense } from "react";
 import { Link } from "@/lib/i18n/routing";
 import Image from "next/image";
+import { Navbar as NavbarType } from "@/payload-types";
 
-export default function Header() {
-  const nav_items: Array<{ name: string; href: string }> = [
-    {
-      name: "Tentang Kami",
-      href: "/about-us",
-    },
-    {
-      name: "Produk",
-      href: "/products",
-    },
-    {
-      name: "Contact Us",
-      href: "/contact-us",
-    },
-  ];
-
+export default function Header({ headerData }: { headerData: NavbarType }) {
   return (
     <Navbar className="">
       <Link href={"/"}>
@@ -35,9 +21,14 @@ export default function Header() {
         />
       </Link>
       <NavbarMenu>
-        {nav_items.map((nav) => (
-          <NavbarMenuItem key={nav.href} href={nav.href} asChild>
-            <Link href={nav.href}>{nav.name}</Link>
+        {headerData["navbar-items"].map((nav) => (
+          <NavbarMenuItem key={nav.id} href={nav.link.reference || nav.link.url || "/"} asChild>
+            <Link
+              target={nav.link.newTab ? "_blank" : "_self"}
+              href={nav.link.reference || nav.link.url || "/"}
+            >
+              {nav.link.label}
+            </Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>

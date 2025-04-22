@@ -7,6 +7,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/lib/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import { getPayload } from "payload";
+import config from "@payload-config";
 
 export const metadata = {
   description: "Mencipta produk digital untuk rakyat Malaysia",
@@ -48,11 +50,33 @@ export default async function RootLayout({
 
   const messages = await getMessages();
 
+  const payload = await getPayload({ config });
+
+  const headerData = await payload.findGlobal({
+    slug: "navbar",
+    locale: locale as "ms-MY" | "en-GB",
+    depth: 3,
+  });
+
+  const footerData = await payload.findGlobal({
+    slug: "footer",
+    locale: locale as "ms-MY" | "en-GB",
+    depth: 3,
+  });
+
+  const siteInfo = await payload.findGlobal({
+    slug: "site-info",
+    locale: locale as "ms-MY" | "en-GB",
+    depth: 3,
+  });
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={cn(inter.className, inter.variable, poppins.variable)}>
         <NextIntlClientProvider messages={messages}>
-          <LocaleClientLayout>{children}</LocaleClientLayout>
+          <LocaleClientLayout navbar={headerData} footer={footerData} siteInfo={siteInfo}>
+            {children}
+          </LocaleClientLayout>
         </NextIntlClientProvider>
       </body>
     </html>

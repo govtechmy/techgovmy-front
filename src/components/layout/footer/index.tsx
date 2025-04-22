@@ -8,14 +8,39 @@ import {
   SiteLink,
   FooterLogo,
 } from "@govtechmy/myds-react/footer";
-import { FacebookIcon, InstagramIcon, TwitterXIcon, YoutubeIcon } from "@govtechmy/myds-react/icon";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  TwitterXIcon,
+  YoutubeIcon,
+} from "@govtechmy/myds-react/icon";
 import { Link } from "@govtechmy/myds-react/link";
+import { Link as RouteLink } from "@/lib/i18n/routing";
 import Image from "next/image";
+import { Footer as FooterType, SiteInfo as SiteInfoType } from "@/payload-types";
+import { useTranslations } from "next-intl";
+import { Fragment } from "react";
 
-export default function LayoutFooter() {
+const socialMap: Record<string, React.ElementType> = {
+  x: TwitterXIcon,
+  facebook: FacebookIcon,
+  instagram: InstagramIcon,
+  linkedin: LinkedinIcon,
+  youtube: YoutubeIcon,
+};
+
+export default function LayoutFooter({
+  footerData,
+  siteInfo,
+}: {
+  footerData: FooterType;
+  siteInfo: SiteInfoType;
+}) {
+  const t = useTranslations();
   return (
     <Footer>
-      <FooterSection className="">
+      <FooterSection className="w-full">
         <SiteInfo>
           <div className="flex items-center gap-x-2.5 text-txt-black-900">
             <FooterLogo
@@ -31,73 +56,72 @@ export default function LayoutFooter() {
             />
           </div>
           <p className="not-prose text-body-sm text-txt-black-700">
-            Level 37, MOF Inc. Tower Platinum Park, No.9 Persiaran KLCC,
-            <br />
-            50088 Kuala Lumpur, Malaysia
+            {/* {siteInfo.address} */}
+            {siteInfo.address &&
+              siteInfo.address.split(",").map((line: string, index: number) => (
+                <Fragment key={index}>
+                  {line.trim()}
+                  {index < siteInfo.address!.split(",").length - 1 && <br />}
+                </Fragment>
+              ))}
           </p>
-          <p className="not-prose text-body-sm font-semibold text-txt-black-900">Follow us</p>
-          <div className="flex gap-3">
-            <Link
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook link"
-              underline="none"
-              className="hover:text-txt-black-900"
-            >
-              <FacebookIcon className="text-txt-black-700" />
-            </Link>
-            <Link
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter link"
-              underline="none"
-              className="hover:text-txt-black-900"
-            >
-              <TwitterXIcon className="text-txt-black-700" />
-            </Link>
-            <Link
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram link"
-              underline="none"
-              className="hover:text-txt-black-900"
-            >
-              <InstagramIcon className="text-txt-black-700" />
-            </Link>
-            <Link
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Youtube link"
-              underline="none"
-              className="hover:text-txt-black-900"
-            >
-              <YoutubeIcon className="text-txt-black-700" />
-            </Link>
-          </div>
+          {siteInfo["social-media"] && siteInfo["social-media"]?.length > 0 && (
+            <>
+              <p className="not-prose text-body-sm font-semibold text-txt-black-900">
+                {t("Contact.follow-us")}
+              </p>
+              <div className="flex gap-3">
+                {siteInfo["social-media"].map((sm) => {
+                  const IconComponent = socialMap[sm.icon || "x"] || "span";
+                  return (
+                    <Link underline="none" className="hover:text-txt-black-900" asChild key={sm.id}>
+                      <RouteLink href={sm.link.url || ""} target="_blank" rel="noopener noreferrer">
+                        <IconComponent className="text-txt-black-700" />
+                      </RouteLink>
+                    </Link>
+                  );
+                })}
+              </div>
+            </>
+          )}
         </SiteInfo>
 
+        {/* Buffer Group */}
         <SiteLinkGroup groupTitle=""></SiteLinkGroup>
         <SiteLinkGroup groupTitle=""></SiteLinkGroup>
-        <SiteLinkGroup groupTitle="Govtech Malaysia">
-          <SiteLink href="#">About Us</SiteLink>
-          <SiteLink href="#">Product</SiteLink>
-          <SiteLink href="#">Join Our Team</SiteLink>
-          <SiteLink href="#">Contact us</SiteLink>
+        {/* End of Buffer Group */}
+
+        <SiteLinkGroup groupTitle={footerData.govtech_label}>
+          {footerData.govtech_route?.map((route) => (
+            <SiteLink key={route.id} asChild className="w-fit">
+              <RouteLink
+                href={route.link.url || route.link.reference || "#"}
+                target={route.link.newTab ? "_blank" : "_self"}
+              >
+                {route.link.label}
+              </RouteLink>
+            </SiteLink>
+          ))}
         </SiteLinkGroup>
-        <SiteLinkGroup groupTitle="Open Source">
-          <SiteLink href="#">Frontend Repo: NextJS</SiteLink>
-          <SiteLink href="#">Web Design: Figma</SiteLink>
+        <SiteLinkGroup groupTitle={footerData.opensource_label}>
+          {footerData.open_source?.map((route) => (
+            <SiteLink key={route.id} asChild className="w-fit">
+              <RouteLink
+                href={route.link.url || route.link.reference || "#"}
+                target={route.link.newTab ? "_blank" : "_self"}
+              >
+                {route.link.label}
+              </RouteLink>
+            </SiteLink>
+          ))}
         </SiteLinkGroup>
       </FooterSection>
       <FooterSection className="mx-auto flex w-full max-w-[1280px] flex-col justify-between border-none text-sm text-txt-black-500 max-md:gap-4 md:max-lg:gap-4.5 lg:flex-row lg:gap-6">
         <div className="flex flex-col gap-3 lg:flex-row">
-          <p>All Rights Reserved © 2025</p>
+          <p>
+            {footerData.copyright} © {new Date().getFullYear()}
+          </p>
         </div>
-        <p>Last updated: 14th March 2025</p>
       </FooterSection>
     </Footer>
   );
