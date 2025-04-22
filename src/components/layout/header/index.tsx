@@ -1,15 +1,11 @@
 "use client";
 
-import {
-  Navbar,
-  NavbarLogo,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarAction,
-} from "@govtechmy/myds-react/navbar";
+import { Navbar, NavbarMenu, NavbarMenuItem, NavbarAction } from "@govtechmy/myds-react/navbar";
 import ThemeToggle from "./theme-toggle";
 import LocaleSwitch from "./locale-switch";
 import { Suspense } from "react";
+import { Link } from "@/lib/i18n/routing";
+import Image from "next/image";
 
 export default function Header() {
   const nav_items: Array<{ name: string; href: string }> = [
@@ -29,20 +25,26 @@ export default function Header() {
 
   return (
     <Navbar className="">
-      <NavbarLogo src="/favicon-color.png" alt="Govtech Logo">
-        Govtech Malaysia
-      </NavbarLogo>
+      <Link href={"/"}>
+        <Image
+          src="/static/images/icons/img-logo-govtech.svg"
+          alt="Govtech Logo"
+          width={91}
+          height={32}
+          className="aspect-auto select-none object-contain"
+        />
+      </Link>
       <NavbarMenu>
         {nav_items.map((nav) => (
-          <NavbarMenuItem key={nav.href} href={nav.href}>
-            {nav.name}
+          <NavbarMenuItem key={nav.href} href={nav.href} asChild>
+            <Link href={nav.href}>{nav.name}</Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
 
       <NavbarAction>
         <Suspense>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <LocaleSwitch />
         </Suspense>
       </NavbarAction>

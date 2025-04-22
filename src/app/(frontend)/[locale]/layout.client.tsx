@@ -10,7 +10,7 @@ import {
   MastheadTrigger,
   MastheadSection,
 } from "@govtechmy/myds-react/masthead";
-import { GovMyIcon, Lock2Icon, LockFillIcon } from "@govtechmy/myds-react/icon";
+import { GovtOfficeIcon, Lock2Icon, LockFillIcon } from "@govtechmy/myds-react/icon";
 
 export default function LocaleClientLayout({
   children,
@@ -21,7 +21,7 @@ export default function LocaleClientLayout({
     <>
       <main
         className={
-          "min-h-screen h-full flex flex-col bg-bg-white text-txt-black-900 text-body-sm font-body box-border"
+          "box-border flex h-full min-h-screen flex-col bg-bg-white font-body text-body-sm text-txt-black-900"
         }
       >
         <Masthead>
@@ -31,7 +31,7 @@ export default function LocaleClientLayout({
           </MastheadHeader>
           <MastheadContent>
             <MastheadSection
-              icon={<GovMyIcon />}
+              icon={<GovtOfficeIcon />}
               title="Official government websites end with .gov.my"
             >
               If the link does not end with <b>.gov.my</b>, exit the website immediately even if it
