@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin
+Disallow: /*/admin
+
+Allow: /*/
+Allow: /*/about-us
+Allow: /*/contact-us
+Allow: /*/products
+Allow: /*/products/
+
+
