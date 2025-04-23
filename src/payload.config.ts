@@ -60,6 +60,8 @@ export default buildConfig({
     s3Storage({
       collections: {
         media: true,
+        "product-asset": true,
+        "site-asset": true,
       },
       bucket: process.env.S3_BUCKET || "",
       config: {
