@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://vercel-domain.com/en-GB/</loc>
+  </url>
+  <url>
+    <loc>https://vercel-domain.com/my-MS/</loc>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://vercel-domain.com/en-GB/about-us</loc>
+  </url>
+  <url>
+    <loc>https://vercel-domain.com/my-MS/about-us</loc>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://vercel-domain.com/en-GB/contact-us</loc>
+  </url>
+  <url>
+    <loc>https://vercel-domain.com/my-MS/contact-us</loc>
+  </url>
+
+  <!-- Product Listing -->
+  <url>
+    <loc>https://vercel-domain.com/en-GB/products</loc>
+  </url>
+  <url>
+    <loc>https://vercel-domain.com/my-MS/products</loc>
+  </url>
+
+  <url>
+    <loc>https://vercel-domain.com/en-GB/products/*</loc>
+  </url>
+
+</urlset>

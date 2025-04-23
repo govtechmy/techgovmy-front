@@ -8,4 +8,4 @@ Allow: /*/contact-us
 Allow: /*/products
 Allow: /*/products/
 
-
+Sitemap: https://our-vercel-domain.com/sitemap.xml
