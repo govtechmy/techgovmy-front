@@ -442,7 +442,37 @@ export interface SiteInfo {
  */
 export interface Homepage {
   id: string;
-  'hero-title'?: string | null;
+  'hero-title': string;
+  'hero-typewriter-text': {
+    text: string;
+    id?: string | null;
+  }[];
+  'hero-description': string;
+  'statistics-section': {
+    headline: string;
+    title: string;
+    description: string;
+  };
+  'pages-section'?: {
+    list?:
+      | {
+          image: string | SiteAsset;
+          headline: string;
+          title: string;
+          description: string;
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ('null' | '/' | '/about-us' | '/products' | '/contact-us' | '/disclaimer' | '/privacy-policy')
+              | null;
+            url?: string | null;
+            label: string;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -564,6 +594,42 @@ export interface SiteInfoSelect<T extends boolean = true> {
  */
 export interface HomepageSelect<T extends boolean = true> {
   'hero-title'?: T;
+  'hero-typewriter-text'?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  'hero-description'?: T;
+  'statistics-section'?:
+    | T
+    | {
+        headline?: T;
+        title?: T;
+        description?: T;
+      };
+  'pages-section'?:
+    | T
+    | {
+        list?:
+          | T
+          | {
+              image?: T;
+              headline?: T;
+              title?: T;
+              description?: T;
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                  };
+              id?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
