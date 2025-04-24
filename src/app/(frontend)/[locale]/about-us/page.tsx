@@ -21,6 +21,8 @@ const iconMap: Record<string, React.ElementType> = {
   component: ComponentIcon,
 };
 
+export const revalidate = 60;
+
 export default async function AboutPage({ params }: ServerPageProps) {
   const { locale } = await params;
   const t = await getTranslations("About");

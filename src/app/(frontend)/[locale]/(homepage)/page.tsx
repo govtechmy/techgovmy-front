@@ -4,6 +4,8 @@ import { ChevronRightIcon } from "@govtechmy/myds-react/icon";
 import HomepageClient from "./page.client";
 import { cn } from "@/lib/utils";
 
+export const revalidate = 60;
+
 export default async function HomePage() {
   return (
     <>
