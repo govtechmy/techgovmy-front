@@ -126,7 +126,7 @@ export const PagesSection = ({ _pages }: { _pages: Homepage["pages-section"] }) 
 
                 {page.link && page.link.reference !== "null" && (
                   <div className="pt-2.5">
-                    <Link href={page.link.url || ""}>
+                    <Link href={page.link.reference || page.link.url || ""}>
                       <Button
                         className="border-bg-black-900 bg-bg-black-800 hover:bg-bg-black-800/80"
                         size={"small"}
