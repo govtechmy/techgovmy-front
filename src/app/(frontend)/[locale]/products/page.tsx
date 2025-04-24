@@ -2,8 +2,6 @@ import { cn } from "@/lib/utils";
 import ProductFilter from "./filter";
 import ProductList from "./list";
 
-export const revalidate = 60;
-
 export default async function ProductPage() {
   return (
     <>

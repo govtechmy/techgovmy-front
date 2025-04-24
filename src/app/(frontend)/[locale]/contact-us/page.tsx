@@ -4,8 +4,6 @@ import { PhoneIcon, EmailIcon, DirectionIcon } from "@govtechmy/myds-react/icon"
 import { getPayload } from "payload";
 import config from "@payload-config";
 
-export const revalidate = 60;
-
 export default async function ContactPage({ params }: ServerPageProps) {
   const { locale } = await params;
   const t = await getTranslations("Contact");

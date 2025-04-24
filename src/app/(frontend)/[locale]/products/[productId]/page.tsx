@@ -9,8 +9,6 @@ import { dummy } from "./dummy";
 
 interface ProductPageProps {}
 
-export const revalidate = 60;
-
 export default function ProductPage({}: ProductPageProps) {
   const router = useRouter();
 
