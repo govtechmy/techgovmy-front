@@ -6,6 +6,7 @@ import { useRouter } from "@/lib/i18n/routing";
 import ProductImages from "./product-images";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { dummy } from "./dummy";
+import Timeline from "./timeline";
 
 interface ProductPageProps {}
 
@@ -14,8 +15,17 @@ export default function ProductPage({}: ProductPageProps) {
 
   const currentProduct: any = null;
 
+  const items = [
+    "Baru",
+    "Perancangan",
+    "Rekabentuk",
+    "Dalam Pembangunan",
+    "Sedia Digunakan",
+    "Aktif",
+  ];
+
   if (!currentProduct) {
-    return null;
+    return <Timeline items={items} />;
   }
 
   return (
@@ -67,6 +77,9 @@ export default function ProductPage({}: ProductPageProps) {
             />
           </div>
         </div>
+
+        {/* Timeline */}
+        <Timeline items={items} />
       </div>
     </div>
   );
