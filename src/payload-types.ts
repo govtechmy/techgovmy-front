@@ -213,11 +213,31 @@ export interface SiteAsset {
  */
 export interface Product {
   id: string;
+  logo: string | ProductAsset;
   name: string;
-  logo: string | Media;
   description: string;
-  status: 'Active' | 'Under Development' | 'Discontinued' | 'Beta' | 'Maintenance';
   url?: string | null;
+  project_start_date: string;
+  type: 'websites' | 'module' | 'libraries' | 'standard' | 'application';
+  /**
+   * To be used in product image carousel
+   */
+  images: {
+    image?: (string | null) | ProductAsset;
+    id?: string | null;
+  }[];
+  status?:
+    | {
+        isActive?: boolean | null;
+        status: string;
+        date?: string | null;
+        /**
+         * Used to determine whether the project is still 'under development' or 'completed'. Meaning the status can 'New', but since it is not yet started, it falls under index 0 which signifies that it is 'under development'
+         */
+        phase_index: '0' | '1';
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -367,11 +387,27 @@ export interface SiteAssetSelect<T extends boolean = true> {
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
-  name?: T;
   logo?: T;
+  name?: T;
   description?: T;
-  status?: T;
   url?: T;
+  project_start_date?: T;
+  type?: T;
+  images?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
+  status?:
+    | T
+    | {
+        isActive?: T;
+        status?: T;
+        date?: T;
+        phase_index?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
