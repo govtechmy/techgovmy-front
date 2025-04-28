@@ -12,7 +12,10 @@
     "follow-us": "Ikuti Kami"
   },
   "Product": {
-    "not-found": "Tiada produk dijumpai"
+    "not-found": "Tiada produk dijumpai",
+    "back": "Kembali ke senarai produk",
+    "project-start": "Tarik mula projek",
+    "project-status": "Status Projek"
   },
   "About": {
     "title": "Tentang Kami",

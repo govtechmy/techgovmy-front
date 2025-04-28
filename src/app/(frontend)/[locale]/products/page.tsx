@@ -32,7 +32,7 @@ export default async function ProductPage({ params }: ServerPageProps) {
         )}
       >
         <div className="col-span-full flex w-full max-w-[350px] flex-col items-center gap-6 py-16 md:max-w-[600px] lg:mx-auto lg:max-w-screen-xl lg:flex-row">
-          <div className="z-10 w-full space-y-4.5 lg:max-w-[628px]">
+          <div className="z-10 w-full space-y-4.5 lg:max-w-[628px] lg:pl-[109px]">
             <h1 className="font-heading text-heading-lg font-semibold">
               {siteInfo.products["hero-title"]}
             </h1>

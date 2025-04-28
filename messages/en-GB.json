@@ -12,7 +12,10 @@
     "follow-us": "Follow Us"
   },
   "Product": {
-    "not-found": "No product found"
+    "not-found": "No product found",
+    "back": "Back to product list",
+    "project-start": "Project start date",
+    "project-status": "Project Status"
   },
   "About": {
     "title": "About us",

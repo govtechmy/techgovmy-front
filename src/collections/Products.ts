@@ -35,6 +35,7 @@ export const Products: CollectionConfig = {
           admin: {
             width: "75%",
           },
+          localized: true,
         },
       ],
     },
@@ -62,6 +63,7 @@ export const Products: CollectionConfig = {
           admin: {
             width: "75%",
           },
+          localized: true,
         },
       ],
     },

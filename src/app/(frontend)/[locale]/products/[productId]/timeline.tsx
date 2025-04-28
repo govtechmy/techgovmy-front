@@ -3,11 +3,10 @@ import { cn } from "@/lib/utils";
 
 interface TimelineProps {
   items: string[];
+  active: number;
 }
 
-export default function Timeline({ items }: TimelineProps) {
-  const active = Math.min(7, items.length - 1);
-
+export default function Timeline({ items, active }: TimelineProps) {
   return (
     <div className="flex flex-col items-center p-6 lg:flex-row lg:justify-center lg:py-20">
       {items.map((title, i) => (
