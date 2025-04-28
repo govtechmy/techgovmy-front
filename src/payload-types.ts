@@ -472,6 +472,14 @@ export interface SiteInfo {
       }[]
     | null;
   /**
+   * Section to write metadata for the site and setting OG Images
+   */
+  'site-meta': {
+    'site-name': string;
+    'site-description': string;
+    og_image: string | SiteAsset;
+  };
+  /**
    * Label for Contact Page used for the labeling content
    */
   'contact-us': {
@@ -641,6 +649,13 @@ export interface SiteInfoSelect<T extends boolean = true> {
               label?: T;
             };
         id?: T;
+      };
+  'site-meta'?:
+    | T
+    | {
+        'site-name'?: T;
+        'site-description'?: T;
+        og_image?: T;
       };
   'contact-us'?:
     | T

@@ -16,8 +16,6 @@ export default function ProductImages({ images }: { images: string[] }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  console.log(images);
-
   useEffect(() => {
     if (!api) return;
 

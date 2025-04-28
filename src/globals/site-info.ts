@@ -135,6 +135,63 @@ export const SiteInfoGlobal: GlobalConfig = {
     },
 
     {
+      name: "site-meta",
+      type: "group",
+      label: "Site Metadata",
+      admin: {
+        description: "Section to write metadata for the site and setting OG Images",
+      },
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "site-name",
+              type: "text",
+              label: "Site Name",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "site-description",
+              type: "textarea",
+              label: "Site Description",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "og_image",
+              type: "upload",
+              relationTo: "site-asset",
+              label: "OG Image",
+              admin: {
+                width: "75%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+      ],
+    },
+
+    {
       name: "contact-us",
       type: "group",
       label: "Contact Us Labels",
