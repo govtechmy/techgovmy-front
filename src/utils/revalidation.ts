@@ -6,7 +6,6 @@ export const revalidate = async (slug: string) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          secret: process.env.REVALIDATE_SECRET_TOKEN,
           path: `/${slug}`,
         }),
       });
