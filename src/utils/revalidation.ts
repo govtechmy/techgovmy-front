@@ -1,4 +1,4 @@
-export const revalidate = async (slug: string) => {
+export const revalidate = async (slug: string = "") => {
     try {
       await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/revalidate`, {
         method: 'POST',
