@@ -1,5 +1,7 @@
 import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
+import { revalidate } from "@/utils/revalidation";
+
 
 // Globals for About Us Page
 export const FooterGlobals: GlobalConfig = {
@@ -68,4 +70,11 @@ export const FooterGlobals: GlobalConfig = {
       localized: true,
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        await revalidate("");
+      },
+    ]
+  }
 };

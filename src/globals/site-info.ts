@@ -1,5 +1,7 @@
 import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
+import { revalidate } from "@/utils/revalidation";
+
 
 export const SiteInfoGlobal: GlobalConfig = {
   slug: "site-info",
@@ -134,4 +136,11 @@ export const SiteInfoGlobal: GlobalConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        await revalidate("");
+      },
+    ]
+  }
 };

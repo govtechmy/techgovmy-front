@@ -1,5 +1,6 @@
 import { GlobalConfig } from "payload";
 import type { Field } from 'payload'
+import { revalidate } from "@/utils/revalidation";
 
 // Globals for About Us Page
 export const AboutUsGlobals: GlobalConfig = {
@@ -131,4 +132,11 @@ export const AboutUsGlobals: GlobalConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        await revalidate("about-us");
+      },
+    ]
+  }
 };
