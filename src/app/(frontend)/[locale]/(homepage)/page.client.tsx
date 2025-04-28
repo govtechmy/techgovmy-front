@@ -1,13 +1,29 @@
 "use client";
 
-import { Homepage } from "@/payload-types";
+import { Homepage, Product, SiteInfo } from "@/payload-types";
 import { PagesSection, StatisticsSection } from "./sections";
 import { cn } from "@/lib/utils";
 
-export default function HomepageClient({ homepage }: { homepage: Homepage }) {
+export default function HomepageClient({
+  homepage,
+  siteInfo,
+  products,
+}: {
+  homepage: Homepage;
+  siteInfo: SiteInfo;
+  products: Product[];
+}) {
   const sections = [
-    { content: <StatisticsSection statistics={homepage["statistics-section"]} /> },
-    { content: <PagesSection _pages={homepage["pages-section"]} /> },
+    {
+      content: (
+        <StatisticsSection
+          statistics={homepage["statistics-section"]}
+          siteInfo={siteInfo}
+          products={products}
+        />
+      ),
+    },
+    { content: <PagesSection pages={homepage["pages-section"]} /> },
   ];
 
   return (

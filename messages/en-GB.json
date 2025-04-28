@@ -11,6 +11,9 @@
     "inquiries_feedback": "Inquiries & Feedback",
     "follow-us": "Follow Us"
   },
+  "Product": {
+    "not-found": "No product found"
+  },
   "About": {
     "title": "About us",
     "home": "Home",

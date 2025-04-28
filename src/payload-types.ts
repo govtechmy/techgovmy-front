@@ -215,10 +215,11 @@ export interface Product {
   id: string;
   logo: string | ProductAsset;
   name: string;
+  slug: string;
   description: string;
   url?: string | null;
   project_start_date: string;
-  type: 'websites' | 'module' | 'libraries' | 'standard' | 'application';
+  type: 'websites' | 'module' | 'libraries' | 'standard' | 'applications';
   /**
    * To be used in product image carousel
    */
@@ -389,6 +390,7 @@ export interface SiteAssetSelect<T extends boolean = true> {
 export interface ProductsSelect<T extends boolean = true> {
   logo?: T;
   name?: T;
+  slug?: T;
   description?: T;
   url?: T;
   project_start_date?: T;
@@ -476,6 +478,16 @@ export interface SiteInfo {
     title: string;
     office_name_label: string;
     inquiries_label: string;
+  };
+  /**
+   * Label for Products Page used for the labeling content
+   */
+  products: {
+    'hero-title': string;
+    'hero-description': string;
+    all_product: string;
+    completed: string;
+    under_dev: string;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -636,6 +648,15 @@ export interface SiteInfoSelect<T extends boolean = true> {
         title?: T;
         office_name_label?: T;
         inquiries_label?: T;
+      };
+  products?:
+    | T
+    | {
+        'hero-title'?: T;
+        'hero-description'?: T;
+        all_product?: T;
+        completed?: T;
+        under_dev?: T;
       };
   updatedAt?: T;
   createdAt?: T;

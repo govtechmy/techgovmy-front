@@ -189,5 +189,80 @@ export const SiteInfoGlobal: GlobalConfig = {
         },
       ],
     },
+    {
+      name: "products",
+      type: "group",
+      label: "Product Page Labels",
+      admin: {
+        description: "Label for Products Page used for the labeling content",
+      },
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "hero-title",
+              type: "text",
+              label: "Hero Title",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "hero-description",
+              type: "textarea",
+              label: "Hero Description",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "all_product",
+              type: "text",
+              label: "All Product Label",
+              admin: {
+                width: "33%",
+              },
+              required: true,
+              localized: true,
+            },
+            {
+              name: "completed",
+              type: "text",
+              label: "Completed Label",
+              admin: {
+                width: "33%",
+              },
+              required: true,
+              localized: true,
+            },
+            {
+              name: "under_dev",
+              type: "text",
+              label: "Under Development Label",
+              admin: {
+                width: "33%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+      ],
+    },
   ],
 };

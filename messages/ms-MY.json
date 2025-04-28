@@ -11,6 +11,9 @@
     "inquiries_feedback": "Pertanyaan & Maklum Balas",
     "follow-us": "Ikuti Kami"
   },
+  "Product": {
+    "not-found": "Tiada produk dijumpai"
+  },
   "About": {
     "title": "Tentang Kami",
     "home": "Home",

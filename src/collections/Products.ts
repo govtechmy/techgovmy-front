@@ -42,6 +42,20 @@ export const Products: CollectionConfig = {
       type: "row",
       fields: [
         {
+          name: "slug",
+          type: "text",
+          required: true,
+          unique: true,
+          admin: {
+            width: "75%",
+          },
+        },
+      ],
+    },
+    {
+      type: "row",
+      fields: [
+        {
           name: "description",
           type: "textarea",
           required: true,
@@ -106,7 +120,7 @@ export const Products: CollectionConfig = {
             },
             {
               label: "Applications",
-              value: "application",
+              value: "applications",
             },
           ],
           admin: {
@@ -151,6 +165,7 @@ export const Products: CollectionConfig = {
               type: "checkbox",
               name: "isActive",
               label: "Active?",
+              defaultValue: false,
               admin: {
                 width: "50%",
               },

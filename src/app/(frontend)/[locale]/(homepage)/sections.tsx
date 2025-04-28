@@ -1,14 +1,19 @@
+import ProductStatistic from "@/components/product-statistic";
 import { Link } from "@/lib/i18n/routing";
 import { cn } from "@/lib/utils";
-import { Homepage } from "@/payload-types";
+import { Homepage, Product, SiteInfo } from "@/payload-types";
 import { Button, ButtonIcon } from "@govtechmy/myds-react/button";
 import { ArrowForwardIcon } from "@govtechmy/myds-react/icon";
 import Image from "next/image";
 
 export const StatisticsSection = ({
   statistics,
+  siteInfo,
+  products,
 }: {
   statistics: Homepage["statistics-section"];
+  siteInfo: SiteInfo;
+  products: Product[];
 }) => {
   return (
     <div className="lg:px-[109px]">
@@ -22,20 +27,7 @@ export const StatisticsSection = ({
             <p className="text-body-md text-txt-black-500">{statistics.description}</p>
           </div>
 
-          <div className="flex w-full flex-wrap items-start gap-6 md:flex-nowrap">
-            <div className="flex-1 space-y-3">
-              <p className="text-heading-lg font-semibold text-txt-govtech-600">9</p>
-              <p className="text-body-md font-medium text-txt-black-500">Projek Keseluruhan</p>
-            </div>
-            <div className="flex-1 space-y-3">
-              <p className="text-heading-lg font-semibold text-txt-govtech-600">3</p>
-              <p className="text-body-md font-medium text-txt-black-500">Siap Dibangunkan</p>
-            </div>
-            <div className="flex-1 space-y-3">
-              <p className="text-heading-lg font-semibold text-txt-govtech-600">6</p>
-              <p className="text-body-md font-medium text-txt-black-500">Dalam Pembangunan</p>
-            </div>
-          </div>
+          <ProductStatistic siteInfo={siteInfo} products={products} />
         </div>
         <Image
           alt="Image Statistic Desktop"
@@ -63,44 +55,17 @@ export const StatisticsSection = ({
   );
 };
 
-export const PagesSection = ({ _pages }: { _pages: Homepage["pages-section"] }) => {
-  const pages = [
-    {
-      headline: "Siapa Kami",
-      title: "Government Technology Malaysia (GovTech)",
-      description:
-        "GovTech Malaysia ialah pasukan dalaman yang menumpukan pada peningkatan perkhidmatan digital dalam sektor awam.",
-      img_url: "./static/images/home/gtm-our-products.svg",
-      route: { href: "/about-us", label: "Tentang GovTech" },
-    },
-    {
-      headline: "Usaha Kami",
-      title: "Teknologi untuk Kebaikan Rakyat",
-      description:
-        "Kami mengembangkan idea-idea baru untuk menyelesaikan cabaran awam melalui teknologi digital.",
-      img_url: "./static/images/home/gtm-join-us.svg",
-      route: { href: "/products", label: "Kenali Produk Kami" },
-    },
-    {
-      headline: "Penyelesaian Berimpak",
-      title: "Memperkasa Rakyat",
-      description:
-        "Penyelesaian kami menjadikan perkhidmatan kerajaan lebih mudah diakses, efisien, dan mesra pengguna untuk semua.",
-      img_url: "./static/images/home/gtm-our-community.svg",
-      route: null,
-    },
-  ];
-
-  if (!_pages) {
+export const PagesSection = ({ pages }: { pages: Homepage["pages-section"] }) => {
+  if (!pages) {
     return null;
   }
 
   return (
     <div className="flex flex-col gap-12 lg:px-[109px]">
       <div className="flex flex-col gap-12 lg:flex-row">
-        {_pages.list &&
-          _pages.list?.length > 0 &&
-          _pages.list!.map((page, index) => (
+        {pages.list &&
+          pages.list?.length > 0 &&
+          pages.list!.map((page, index) => (
             <div
               key={index}
               className={cn(

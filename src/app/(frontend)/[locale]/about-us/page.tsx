@@ -44,7 +44,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
             <h1 className="text-black-900 font-heading text-heading-md font-semibold md:text-heading-lg">
               {aboutUs?.["intro-header"]}
             </h1>
-            <p className="font-body text-body-lg text-gray-500">{aboutUs?.["intro-description"]}</p>
+            <p className="font-body text-body-md text-gray-500">{aboutUs?.["intro-description"]}</p>
           </div>
         </div>
       </section>
