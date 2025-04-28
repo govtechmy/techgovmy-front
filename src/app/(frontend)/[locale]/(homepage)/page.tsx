@@ -3,8 +3,19 @@ import { Tag } from "@govtechmy/myds-react/tag";
 import { ChevronRightIcon } from "@govtechmy/myds-react/icon";
 import HomepageClient from "./page.client";
 import { cn } from "@/lib/utils";
+import config from "@payload-config";
+import { getPayload } from "payload";
 
-export default async function HomePage() {
+export default async function HomePage({ params }: ServerPageProps) {
+  const { locale } = await params;
+  const payload = await getPayload({ config });
+
+  const homepage = await payload.findGlobal({
+    slug: "homepage",
+    locale: locale as "en-GB" | "ms-MY",
+    depth: 3,
+  });
+
   return (
     <>
       <section
@@ -26,19 +37,21 @@ export default async function HomePage() {
               <ChevronRightIcon className="h-3 w-3" />
             </Tag> */}
             <h1 className="font-heading text-heading-md font-semibold md:text-heading-lg lg:tracking-tighter">
-              Kami bina produk digital untuk meningkatkan{" "}
-              <span className="text-txt-govtech-600">kemudahan rakyat</span>
+              {homepage["hero-title"]}{" "}
+              {/* Since not using typewriter effect, this text is here, so use first item in the array */}
+              <span className="text-txt-govtech-600">
+                {homepage["hero-typewriter-text"] &&
+                  homepage["hero-typewriter-text"].length > 0 &&
+                  homepage["hero-typewriter-text"][0].text}
+              </span>
               <span className="text-govtech-700"> |</span>
             </h1>
-            <p className="text-body-lg text-txt-black-500">
-              Kami mahu mewujudkan ruang dalam sektor awam yang boleh menjadi tempat para bakat
-              terbaik Malaysia berkembang.
-            </p>
+            <p className="text-body-lg text-txt-black-500">{homepage["hero-description"]}</p>
           </div>
         </div>
       </section>
 
-      <HomepageClient />
+      <HomepageClient homepage={homepage} />
     </>
   );
 }

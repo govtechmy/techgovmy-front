@@ -70,11 +70,7 @@ export interface Config {
     media: Media;
     'product-asset': ProductAsset;
     'site-asset': SiteAsset;
-    jobs: Job;
-    people: Person;
     products: Product;
-    roles: Role;
-    units: Unit;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -85,11 +81,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     'product-asset': ProductAssetSelect<false> | ProductAssetSelect<true>;
     'site-asset': SiteAssetSelect<false> | SiteAssetSelect<true>;
-    jobs: JobsSelect<false> | JobsSelect<true>;
-    people: PeopleSelect<false> | PeopleSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
-    roles: RolesSelect<false> | RolesSelect<true>;
-    units: UnitsSelect<false> | UnitsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -99,12 +91,14 @@ export interface Config {
   };
   globals: {
     'site-info': SiteInfo;
+    homepage: Homepage;
     'about-us': AboutUs;
     navbar: Navbar;
     footer: Footer;
   };
   globalsSelect: {
     'site-info': SiteInfoSelect<false> | SiteInfoSelect<true>;
+    homepage: HomepageSelect<false> | HomepageSelect<true>;
     'about-us': AboutUsSelect<false> | AboutUsSelect<true>;
     navbar: NavbarSelect<false> | NavbarSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
@@ -215,56 +209,6 @@ export interface SiteAsset {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "jobs".
- */
-export interface Job {
-  id: string;
-  title: string;
-  employmentType: 'full-time' | 'part-time';
-  location: string;
-  category: 'design' | 'backend' | 'frontend' | 'data-science' | 'cyber-security' | 'full-stack' | 'ai-ml';
-  description: string;
-  status: 'open' | 'closed' | 'draft';
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "people".
- */
-export interface Person {
-  id: string;
-  name: string;
-  email: string;
-  picture?: (string | null) | Media;
-  unit: string | Unit;
-  role?: (string | null) | Role;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "units".
- */
-export interface Unit {
-  id: string;
-  name: string;
-  acronym: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "roles".
- */
-export interface Role {
-  id: string;
-  name: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".
  */
 export interface Product {
@@ -301,24 +245,8 @@ export interface PayloadLockedDocument {
         value: string | SiteAsset;
       } | null)
     | ({
-        relationTo: 'jobs';
-        value: string | Job;
-      } | null)
-    | ({
-        relationTo: 'people';
-        value: string | Person;
-      } | null)
-    | ({
         relationTo: 'products';
         value: string | Product;
-      } | null)
-    | ({
-        relationTo: 'roles';
-        value: string | Role;
-      } | null)
-    | ({
-        relationTo: 'units';
-        value: string | Unit;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -436,33 +364,6 @@ export interface SiteAssetSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "jobs_select".
- */
-export interface JobsSelect<T extends boolean = true> {
-  title?: T;
-  employmentType?: T;
-  location?: T;
-  category?: T;
-  description?: T;
-  status?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "people_select".
- */
-export interface PeopleSelect<T extends boolean = true> {
-  name?: T;
-  email?: T;
-  picture?: T;
-  unit?: T;
-  role?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
@@ -471,25 +372,6 @@ export interface ProductsSelect<T extends boolean = true> {
   description?: T;
   status?: T;
   url?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "roles_select".
- */
-export interface RolesSelect<T extends boolean = true> {
-  name?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "units_select".
- */
-export interface UnitsSelect<T extends boolean = true> {
-  name?: T;
-  acronym?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -551,6 +433,46 @@ export interface SiteInfo {
         id?: string | null;
       }[]
     | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homepage".
+ */
+export interface Homepage {
+  id: string;
+  'hero-title': string;
+  'hero-typewriter-text': {
+    text: string;
+    id?: string | null;
+  }[];
+  'hero-description': string;
+  'statistics-section': {
+    headline: string;
+    title: string;
+    description: string;
+  };
+  'pages-section'?: {
+    list?:
+      | {
+          image: string | SiteAsset;
+          headline: string;
+          title: string;
+          description: string;
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ('null' | '/' | '/about-us' | '/products' | '/contact-us' | '/disclaimer' | '/privacy-policy')
+              | null;
+            url?: string | null;
+            label: string;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -661,6 +583,52 @@ export interface SiteInfoSelect<T extends boolean = true> {
               label?: T;
             };
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homepage_select".
+ */
+export interface HomepageSelect<T extends boolean = true> {
+  'hero-title'?: T;
+  'hero-typewriter-text'?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  'hero-description'?: T;
+  'statistics-section'?:
+    | T
+    | {
+        headline?: T;
+        title?: T;
+        description?: T;
+      };
+  'pages-section'?:
+    | T
+    | {
+        list?:
+          | T
+          | {
+              image?: T;
+              headline?: T;
+              title?: T;
+              description?: T;
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                  };
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
