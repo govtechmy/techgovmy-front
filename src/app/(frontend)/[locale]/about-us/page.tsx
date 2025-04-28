@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-import { getTranslations } from "next-intl/server";
+import React from "react";
 import {
   FlagIcon,
   DatabaseIcon,
@@ -23,7 +22,6 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default async function AboutPage({ params }: ServerPageProps) {
   const { locale } = await params;
-  const t = await getTranslations("About");
   const payload = await getPayload({ config });
 
   const aboutUs = await payload.findGlobal({
@@ -86,7 +84,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
       >
         <div className="col-span-full mx-auto flex w-full max-w-[350px] flex-col pt-16 md:max-w-[600px] lg:mx-auto lg:max-w-screen-xl lg:px-[109px]">
           <h3 className="mb-12 text-heading-sm font-semibold text-txt-black-900">
-            {t("our_capabilities")}
+            {aboutUs["our-capabilities-title"]}
           </h3>
           <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2">
             {aboutUs["our-capabilities"] &&

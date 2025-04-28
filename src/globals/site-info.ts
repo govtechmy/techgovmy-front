@@ -133,5 +133,61 @@ export const SiteInfoGlobal: GlobalConfig = {
         link({ forceCustomUrl: true, labelPlaceholder: "Account Name Here" }),
       ],
     },
+
+    {
+      name: "contact-us",
+      type: "group",
+      label: "Contact Us Labels",
+      admin: {
+        description: "Label for Contact Page used for the labeling content",
+      },
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "title",
+              type: "text",
+
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "office_name_label",
+              type: "text",
+              label: "Office Name Label",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "inquiries_label",
+              type: "text",
+              label: "Inquiries Label",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+      ],
+    },
   ],
 };

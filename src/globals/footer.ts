@@ -14,6 +14,22 @@ export const FooterGlobals: GlobalConfig = {
       type: "row",
       fields: [
         {
+          name: "social_label",
+          label: "Social Media Section Label",
+          type: "text",
+          required: true,
+          localized: true,
+          admin: {
+            placeholder: "Follow Us",
+            width: "50%",
+          },
+        },
+      ],
+    },
+    {
+      type: "row",
+      fields: [
+        {
           name: "govtech_label",
           label: "Govtech Section Label",
           type: "text",

@@ -433,6 +433,14 @@ export interface SiteInfo {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Label for Contact Page used for the labeling content
+   */
+  'contact-us': {
+    title: string;
+    office_name_label: string;
+    inquiries_label: string;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -491,6 +499,7 @@ export interface AboutUs {
         id?: string | null;
       }[]
     | null;
+  'our-capabilities-title'?: string | null;
   'our-capabilities'?:
     | {
         'card-header'?: string | null;
@@ -527,6 +536,7 @@ export interface Navbar {
  */
 export interface Footer {
   id: string;
+  social_label: string;
   govtech_label: string;
   govtech_route?:
     | {
@@ -583,6 +593,13 @@ export interface SiteInfoSelect<T extends boolean = true> {
               label?: T;
             };
         id?: T;
+      };
+  'contact-us'?:
+    | T
+    | {
+        title?: T;
+        office_name_label?: T;
+        inquiries_label?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -648,6 +665,7 @@ export interface AboutUsSelect<T extends boolean = true> {
         'line-text'?: T;
         id?: T;
       };
+  'our-capabilities-title'?: T;
   'our-capabilities'?:
     | T
     | {
@@ -688,6 +706,7 @@ export interface NavbarSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
+  social_label?: T;
   govtech_label?: T;
   govtech_route?:
     | T

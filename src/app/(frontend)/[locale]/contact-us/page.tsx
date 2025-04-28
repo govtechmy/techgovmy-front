@@ -1,12 +1,10 @@
 import React from "react";
-import { getTranslations } from "next-intl/server";
 import { PhoneIcon, EmailIcon, DirectionIcon } from "@govtechmy/myds-react/icon";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
 export default async function ContactPage({ params }: ServerPageProps) {
   const { locale } = await params;
-  const t = await getTranslations("Contact");
   const payload = await getPayload({ config });
   const contact = await payload.findGlobal({
     slug: "site-info",
@@ -21,12 +19,12 @@ export default async function ContactPage({ params }: ServerPageProps) {
           <div className="flex w-full flex-col items-start justify-start gap-12 md:flex-row lg:h-[23rem] lg:w-fit lg:flex-col lg:gap-0">
             <div className="w-full px-4 pt-4 md:px-8 md:pt-8">
               <h1 className="pb-8 text-heading-md font-semibold text-txt-black-900">
-                {t("contact_us")}
+                {contact["contact-us"].title}
               </h1>
               <div className="flex flex-col gap-12 md:flex-row lg:flex-col lg:gap-0">
                 <div className="flex-1">
                   <h1 className="text-body-xl font-semibold text-txt-black-900">
-                    {t("office_name")}
+                    {contact["contact-us"].office_name_label}
                   </h1>
                   <p className="pt-2 text-body-md font-light text-txt-black-700">
                     {contact.address &&
@@ -58,7 +56,7 @@ export default async function ContactPage({ params }: ServerPageProps) {
                 </div>
                 <div className="h-[7.75rem] flex-1 lg:pt-12">
                   <h1 className="text-body-xl font-semibold text-txt-black-900">
-                    {t("inquiries_feedback")}
+                    {contact["contact-us"].inquiries_label}
                   </h1>
                   <div className="flex flex-col gap-4 pt-4 text-body-md">
                     <a
