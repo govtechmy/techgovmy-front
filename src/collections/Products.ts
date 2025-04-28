@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { revalidate } from "@/utils/revalidation";
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -59,4 +60,11 @@ export const Products: CollectionConfig = {
       required: false,
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        await revalidate("");
+      },
+    ]
+  }
 };
