@@ -6,6 +6,9 @@ const withNextIntl = createNextIntlPlugin("./src/lib/i18n/request.ts");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Your Next.js config here
+  experimental: {
+    serverActions: true,
+  },
 };
 
 export default withPayload(withNextIntl(nextConfig));
