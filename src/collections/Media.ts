@@ -19,11 +19,4 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: true,
-  hooks: {
-    afterChange: [
-      async () => {
-        await revalidate("");
-      },
-    ]
-  }
 };

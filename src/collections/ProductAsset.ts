@@ -19,11 +19,4 @@ export const ProductAsset: CollectionConfig = {
     },
   ],
   upload: true,
-  hooks: {
-    afterChange: [
-      async () => {
-        await revalidate("");
-      },
-    ]
-  }
 }

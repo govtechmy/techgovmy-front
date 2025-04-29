@@ -19,11 +19,4 @@ export const SiteAsset: CollectionConfig = {
     },
   ],
   upload: true,
-  hooks: {
-    afterChange: [
-      async () => {
-        await revalidate("");
-      },
-    ]
-  }
 }
