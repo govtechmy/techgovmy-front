@@ -1,10 +1,8 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { getPayload } from "payload";
-import config from "@payload-config";
 
-export const revalidate = async (path: string = "") => {
+export const revalidate = async (path?: string) => {
   try {
     if (path) {
       revalidatePath(path);
@@ -13,5 +11,6 @@ export const revalidate = async (path: string = "") => {
     }
   } catch (error) {
     console.error("Error during revalidation:", error);
+    throw error; // Propagate the error to the caller
   }
 };
