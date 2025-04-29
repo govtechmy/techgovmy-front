@@ -73,7 +73,7 @@ export const FooterGlobals: GlobalConfig = {
   hooks: {
     afterChange: [
       async () => {
-        await revalidate("", true);
+        await revalidate("");
       },
     ]
   }

@@ -14,7 +14,7 @@ export const Users: CollectionConfig = {
   hooks: {
     afterChange: [
       async () => {
-        await revalidate("", true);
+        await revalidate("");
       },
     ]
   }

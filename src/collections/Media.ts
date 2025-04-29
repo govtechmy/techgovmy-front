@@ -22,7 +22,7 @@ export const Media: CollectionConfig = {
   hooks: {
     afterChange: [
       async () => {
-        await revalidate("", true);
+        await revalidate("");
       },
     ]
   }

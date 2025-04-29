@@ -135,7 +135,7 @@ export const AboutUsGlobals: GlobalConfig = {
   hooks: {
     afterChange: [
       async () => {
-        await revalidate("", true);
+        await revalidate("about-us");
       },
     ]
   }
