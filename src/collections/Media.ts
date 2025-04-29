@@ -1,5 +1,5 @@
 import type { CollectionConfig } from "payload";
-import { revalidate } from "@/utils/revalidation";
+
 
 export const Media: CollectionConfig = {
   slug: "media",
