@@ -6,7 +6,7 @@ import config from "@payload-config";
 
 export const revalidate = async (path: string = "") => {
   try {
-    const response = await fetch(`https://techgovmy-front-git-isr-revalidation-my-digital-gnu.vercel.app/api/revalidate`, {  // testing only, will remove later
+    const response = await fetch('/api/revalidate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
