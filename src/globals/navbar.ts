@@ -22,7 +22,7 @@ export const NavBarGlobals: GlobalConfig = {
   hooks: {
     afterChange: [
       async () => {
-        await revalidate("");
+        await revalidate("", true);
       },
     ]
   }
