@@ -5,12 +5,12 @@ import { revalidatePath } from 'next/cache'
 export const revalidate = async (path?: string) => {
   try {
     if (path) {
-      revalidatePath(path);
+      revalidatePath(path, 'page');
     } else {
-      revalidatePath("/[locales]", "layout");
+      revalidatePath('/', 'layout');
     }
   } catch (error) {
     console.error("Error during revalidation:", error);
-    throw error; // Propagate the error to the caller
+    throw error;
   }
 };
