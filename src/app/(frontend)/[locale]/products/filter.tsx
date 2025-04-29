@@ -9,7 +9,7 @@ export default function ProductFilter() {
   const types = ["all", "websites", "module", "libraries", "standard", "applications"] as const;
 
   return (
-    <div className="flex items-center">
+    <div className="flex flex-wrap items-center gap-y-2 lg:gap-y-0">
       {types.map((type) => (
         <Tag
           key={type}

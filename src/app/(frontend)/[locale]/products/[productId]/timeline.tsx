@@ -8,7 +8,7 @@ interface TimelineProps {
 
 export default function Timeline({ items, active }: TimelineProps) {
   return (
-    <div className="flex flex-col items-center p-6 lg:flex-row lg:justify-center lg:py-20">
+    <div className="lg:hide-scrollbar flex flex-col items-center p-6 lg:flex-row lg:justify-start lg:overflow-scroll lg:py-20 xl:overflow-visible">
       {items.map((title, i) => (
         <div key={i} className="flex flex-col items-center lg:flex-row">
           <div className="relative size-1.5 rounded-full bg-govtech-600">

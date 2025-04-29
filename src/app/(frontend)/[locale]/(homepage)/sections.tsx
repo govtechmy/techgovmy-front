@@ -62,7 +62,7 @@ export const PagesSection = ({ pages }: { pages: Homepage["pages-section"] }) =>
 
   return (
     <div className="flex flex-col gap-12 lg:px-[109px]">
-      <div className="flex flex-col gap-12 lg:flex-row">
+      <div className="lg:hide-scrollbar flex flex-col gap-12 lg:flex-row lg:overflow-scroll xl:overflow-visible">
         {pages.list &&
           pages.list?.length > 0 &&
           pages.list!.map((page, index) => (
