@@ -29,10 +29,7 @@ function sanitizeData(data: any): any {
   return sanitized;
 }
 
-export const metadata = {
-  description: "Mencipta produk digital untuk rakyat Malaysia",
-  title: "Govtech Malaysia",
-};
+
 export async function generateMetadata({ params }: ServerPageProps) {
   const { locale } = await params;
 
