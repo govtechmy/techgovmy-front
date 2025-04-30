@@ -19,6 +19,7 @@ import { Link } from "@govtechmy/myds-react/link";
 import { Link as RouteLink } from "@/lib/i18n/routing";
 import Image from "next/image";
 import { Footer as FooterType, SiteInfo as SiteInfoType } from "@/payload-types";
+import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 
 const socialMap: Record<string, React.ElementType> = {
@@ -36,6 +37,7 @@ export default function LayoutFooter({
   footerData: FooterType;
   siteInfo: SiteInfoType;
 }) {
+  const t = useTranslations();
   return (
     <Footer>
       <FooterSection className="w-full">
@@ -53,7 +55,7 @@ export default function LayoutFooter({
               }
             />
           </div>
-          <p className="text-body-sm text-txt-black-700">
+          <p className="not-prose text-body-sm text-txt-black-700">
             {/* {siteInfo.address} */}
             {siteInfo.address &&
               siteInfo.address.split(",").map((line: string, index: number) => (
@@ -66,7 +68,7 @@ export default function LayoutFooter({
           {siteInfo["social-media"] && siteInfo["social-media"]?.length > 0 && (
             <>
               <p className="not-prose text-body-sm font-semibold text-txt-black-900">
-                {footerData.social_label}
+                {t("Contact.follow-us")}
               </p>
               <div className="flex gap-3">
                 {siteInfo["social-media"].map((sm) => {

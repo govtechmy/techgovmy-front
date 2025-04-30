@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function ProductImages({ images }: { images: string[] }) {
+export default function ProductImages() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
@@ -25,18 +25,20 @@ export default function ProductImages({ images }: { images: string[] }) {
     });
   }, [api]);
 
+  const images = ["image-slider.png", "image-slider-1.png", "image-slider-2.png"];
+
   return (
     <Carousel setApi={setApi} className="relative" opts={{ loop: true }}>
-      <CarouselContent className="relative h-[239.95px] w-full overflow-hidden rounded-md border border-otl-gray-200 md:h-[445.8px] lg:h-[382.5px]">
+      <CarouselContent className="w-full h-[239.95px] md:h-[445.8px] lg:h-[485.4px] border border-otl-gray-200 rounded-md overflow-hidden relative">
         {images.map((item, index) => {
           return (
             <CarouselItem
               key={index}
-              className="relative h-[239.95px] w-full md:h-[445.8px] lg:h-[382.5px]"
+              className="relative w-full h-[239.95px] md:h-[445.8px] lg:h-[485.4px]"
             >
               <Image
                 priority
-                src={item}
+                src={`/static/product-carousel/${item}`}
                 fill={true}
                 alt={item}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
@@ -46,8 +48,8 @@ export default function ProductImages({ images }: { images: string[] }) {
           );
         })}
       </CarouselContent>
-      <div className="absolute bottom-0 flex h-[70px] w-full flex-col-reverse items-end gap-6 p-4 lg:flex-row lg:justify-between">
-        <div className="hidden items-center gap-3 lg:flex">
+      <div className="flex flex-col-reverse items-end gap-6 lg:flex-row lg:justify-between absolute bottom-0 h-[70px] p-4 w-full">
+        <div className="hidden lg:flex items-center gap-3">
           <CarouselPrevious className="static size-[40px] transform-none" />
           <CarouselNext className="static size-[40px] transform-none" />
         </div>
