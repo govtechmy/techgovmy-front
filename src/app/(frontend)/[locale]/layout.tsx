@@ -9,19 +9,19 @@ import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
-
+import { Metadata } from "next";
 
 function sanitizeData(data: any): any {
   if (!data) return data;
-  if (typeof data !== 'object') return data;
-  
+  if (typeof data !== "object") return data;
+
   if (Array.isArray(data)) {
-    return data.map(item => sanitizeData(item));
+    return data.map((item) => sanitizeData(item));
   }
-  
+
   const sanitized: any = {};
   for (const [key, value] of Object.entries(data)) {
-    if (value && typeof value === 'object' && 'buffer' in value) {
+    if (value && typeof value === "object" && "buffer" in value) {
       continue;
     }
     sanitized[key] = sanitizeData(value);
@@ -29,8 +29,7 @@ function sanitizeData(data: any): any {
   return sanitized;
 }
 
-
-export async function generateMetadata({ params }: ServerPageProps) {
+export async function generateMetadata({ params }: ServerPageProps): Promise<Metadata> {
   const { locale } = await params;
 
   const payload = await getPayload({ config });
@@ -41,6 +40,7 @@ export async function generateMetadata({ params }: ServerPageProps) {
 
   return {
     title: siteInfo["site-meta"]["site-name"] || "Govtech Malaysia",
+    metadataBase: new URL(process.env.APP_URL),
     description:
       siteInfo["site-meta"]["site-description"] || "Mencipta produk digital untuk rakyat Malaysia",
     openGraph: {
@@ -125,9 +125,9 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={cn(inter.className, inter.variable, poppins.variable)}>
         <NextIntlClientProvider messages={messages}>
-          <LocaleClientLayout 
-            navbar={sanitizedHeaderData} 
-            footer={sanitizedFooterData} 
+          <LocaleClientLayout
+            navbar={sanitizedHeaderData}
+            footer={sanitizedFooterData}
             siteInfo={sanitizedSiteInfo}
           >
             {children}

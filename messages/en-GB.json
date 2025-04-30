@@ -15,7 +15,15 @@
     "not-found": "No product found",
     "back": "Back to product list",
     "project-start": "Project start date",
-    "project-status": "Project Status"
+    "project-status": "Project Status",
+    "filter": {
+      "all": "All",
+      "websites": "Websites",
+      "module": "Module",
+      "libraries": "Libraries",
+      "standard": "Standard",
+      "applications": "Applications"
+    }
   },
   "About": {
     "title": "About us",

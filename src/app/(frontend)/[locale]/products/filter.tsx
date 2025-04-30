@@ -2,9 +2,11 @@
 import { Tag } from "@govtechmy/myds-react/tag";
 import { useProductContext } from "./context";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export default function ProductFilter() {
   const { setFilter, filter } = useProductContext();
+  const t = useTranslations("Product");
 
   const types = ["all", "websites", "module", "libraries", "standard", "applications"] as const;
 
@@ -21,7 +23,7 @@ export default function ProductFilter() {
           size="small"
           onClick={() => setFilter(type)}
         >
-          {type}
+          {t(`filter.${type}`)}
         </Tag>
       ))}
     </div>
