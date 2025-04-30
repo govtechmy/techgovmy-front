@@ -1,6 +1,6 @@
 import { GlobalConfig } from "payload";
 import type { Field } from 'payload'
-import { revalidate } from "@/app/(actions)/revalidate"
+import { revalidate } from "@/lib/revalidate"
 import { routes } from "@/lib/routes";
 
 // Globals for About Us Page

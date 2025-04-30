@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { revalidate } from "@/app/(actions)/revalidate"
+import { revalidate } from "@/lib/revalidate"
 
 export const Users: CollectionConfig = {
   slug: 'users',

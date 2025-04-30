@@ -1,6 +1,6 @@
 import { Product } from "@/payload-types";
 import type { CollectionConfig } from "payload";
-import { revalidate } from "@/app/(actions)/revalidate"
+import { revalidate } from "@/lib/revalidate"
 
 export const Products: CollectionConfig = {
   slug: "products",

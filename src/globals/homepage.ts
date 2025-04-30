@@ -1,7 +1,7 @@
 import link from "@/lib/fields/link";
 import { routes } from "@/lib/routes";
 import { GlobalConfig } from "payload";
-import { revalidate } from "@/app/(actions)/revalidate"
+import { revalidate } from "@/lib/revalidate"
 
 // Globals for Homepage Page
 export const HomepageGlobals: GlobalConfig = {

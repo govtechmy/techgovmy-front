@@ -1,6 +1,6 @@
 import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
-import { revalidate } from "@/app/(actions)/revalidate"
+import { revalidate } from "@/lib/revalidate"
 
 // Globals for About Us Page
 export const NavBarGlobals: GlobalConfig = {
