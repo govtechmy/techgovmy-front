@@ -135,6 +135,194 @@ export const SiteInfoGlobal: GlobalConfig = {
         link({ forceCustomUrl: true, labelPlaceholder: "Account Name Here" }),
       ],
     },
+
+    {
+      name: "site-meta",
+      type: "group",
+      label: "Site Metadata",
+      admin: {
+        description: "Section to write metadata for the site and setting OG Images",
+      },
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "site-name",
+              type: "text",
+              label: "Site Name",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "site-description",
+              type: "textarea",
+              label: "Site Description",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "og_image",
+              type: "upload",
+              relationTo: "site-asset",
+              label: "OG Image",
+              admin: {
+                width: "75%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+      ],
+    },
+
+    {
+      name: "contact-us",
+      type: "group",
+      label: "Contact Us Labels",
+      admin: {
+        description: "Label for Contact Page used for the labeling content",
+      },
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "title",
+              type: "text",
+
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "office_name_label",
+              type: "text",
+              label: "Office Name Label",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "inquiries_label",
+              type: "text",
+              label: "Inquiries Label",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "products",
+      type: "group",
+      label: "Product Page Labels",
+      admin: {
+        description: "Label for Products Page used for the labeling content",
+      },
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "hero-title",
+              type: "text",
+              label: "Hero Title",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "hero-description",
+              type: "textarea",
+              label: "Hero Description",
+              admin: {
+                width: "50%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+        {
+          type: "row",
+          fields: [
+            {
+              name: "all_product",
+              type: "text",
+              label: "All Product Label",
+              admin: {
+                width: "33%",
+              },
+              required: true,
+              localized: true,
+            },
+            {
+              name: "completed",
+              type: "text",
+              label: "Completed Label",
+              admin: {
+                width: "33%",
+              },
+              required: true,
+              localized: true,
+            },
+            {
+              name: "under_dev",
+              type: "text",
+              label: "Under Development Label",
+              admin: {
+                width: "33%",
+              },
+              required: true,
+              localized: true,
+            },
+          ],
+        },
+      ],
+    },
   ],
   hooks: {
     afterChange: [

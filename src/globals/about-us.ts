@@ -40,96 +40,67 @@ export const AboutUsGlobals: GlobalConfig = {
       localized: true,
     },
     {
-      name: 'future-description',
-      type: 'array',
+      name: "future-description",
+      type: "array",
       label: {
         en: "Future Description",
-        ms: "Masa Depan Deskripsi"
+        ms: "Masa Depan Deskripsi",
       },
       localized: true,
       fields: [
         {
-          name: 'line-text',
-          type: 'text',
+          name: "line-text",
+          type: "text",
           label: {
             en: "Text",
-            ms: "Ayat"
+            ms: "Ayat",
           },
-          localized: true
+          localized: true,
         },
       ],
     },
-    // {
-    //   name: "future-description_p1",
-    //   type: "text",
-    //   label: {
-    //     en: "Future Description Paragraph 1",
-    //     ms: "Masa Depan Deskripsi Perenggan 1",
-    //   },
-    //   localized: true,
-    // },
-    // {
-    //   name: "future-description_p2",
-    //   type: "text",
-    //   label: {
-    //     en: "Future Description Paragraph 2",
-    //     ms: "Masa Depan Deskripsi Perenggan 2",
-    //   },
-    //   localized: true,
-    // },
-    // {
-    //   name: "future-description_p3",
-    //   type: "text",
-    //   label: {
-    //     en: "Future Description Paragraph 3",
-    //     ms: "Masa Depan Deskripsi Perenggan 3",
-    //   },
-    //   localized: true,
-    // },
     {
-      name: 'our-capabilities',
-      type: 'array',
+      name: "our-capabilities-title",
+      type: "text",
+      localized: true,
+    },
+    {
+      name: "our-capabilities",
+      type: "array",
       label: {
         en: "Our Capabilities",
-        ms: "Keupayaan Kami"
+        ms: "Keupayaan Kami",
       },
       localized: true,
       fields: [
         {
-          name: 'card-header',
-          type: 'text',
+          name: "card-header",
+          type: "text",
           label: {
             en: "Card Header",
-            ms: "Kad Header"
-          },
-          localized: true
-        },
-        {
-          name: 'icon',
-          type: 'select',
-          label: {
-            en: "Icon name",
-            ms: "Nama Ikon"
+            ms: "Kad Header",
           },
           localized: true,
-          options: [
-            'database',
-            'check-shield',
-            'org-chart',
-            'flag',
-            'edit',
-            'component'
-          ]
         },
         {
-          name: 'card-description',
-          type: 'text',
+          name: "icon",
+          type: "select",
+          label: {
+            en: "Icon name",
+            ms: "Nama Ikon",
+          },
+          localized: true,
+          options: ["database", "check-shield", "org-chart", "flag", "edit", "component"],
+        },
+        {
+          name: "card-description",
+          type: "text",
           label: {
             en: "Card Description",
-            ms: "Kad Deskripsi"
+            ms: "Kad Deskripsi",
           },
-          localized: true
-        }
+          localized: true,
+        },
       ],
     },
   ],

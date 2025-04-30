@@ -33,6 +33,37 @@ export const metadata = {
   description: "Mencipta produk digital untuk rakyat Malaysia",
   title: "Govtech Malaysia",
 };
+export async function generateMetadata({ params }: ServerPageProps) {
+  const { locale } = await params;
+
+  const payload = await getPayload({ config });
+  const siteInfo = await payload.findGlobal({
+    slug: "site-info",
+    locale: locale as "ms-MY" | "en-GB",
+  });
+
+  return {
+    title: siteInfo["site-meta"]["site-name"] || "Govtech Malaysia",
+    description:
+      siteInfo["site-meta"]["site-description"] || "Mencipta produk digital untuk rakyat Malaysia",
+    openGraph: {
+      images: [
+        {
+          url:
+            (typeof siteInfo["site-meta"].og_image !== "string" &&
+              siteInfo["site-meta"].og_image.url) ||
+            "/default-og.png",
+          width: 1200,
+          height: 630,
+          alt:
+            (typeof siteInfo["site-meta"].og_image !== "string" &&
+              siteInfo["site-meta"].og_image.alt) ||
+            "Default OG image",
+        },
+      ],
+    },
+  };
+}
 
 const inter = Inter({
   subsets: ["latin"],

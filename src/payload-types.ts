@@ -213,11 +213,32 @@ export interface SiteAsset {
  */
 export interface Product {
   id: string;
+  logo: string | ProductAsset;
   name: string;
-  logo: string | Media;
+  slug: string;
   description: string;
-  status: 'Active' | 'Under Development' | 'Discontinued' | 'Beta' | 'Maintenance';
   url?: string | null;
+  project_start_date: string;
+  type: 'websites' | 'module' | 'libraries' | 'standard' | 'applications';
+  /**
+   * To be used in product image carousel
+   */
+  images: {
+    image?: (string | null) | ProductAsset;
+    id?: string | null;
+  }[];
+  status?:
+    | {
+        isActive?: boolean | null;
+        status: string;
+        date?: string | null;
+        /**
+         * Used to determine whether the project is still 'under development' or 'completed'. Meaning the status can 'New', but since it is not yet started, it falls under index 0 which signifies that it is 'under development'
+         */
+        phase_index: '0' | '1';
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -367,11 +388,28 @@ export interface SiteAssetSelect<T extends boolean = true> {
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
-  name?: T;
   logo?: T;
+  name?: T;
+  slug?: T;
   description?: T;
-  status?: T;
   url?: T;
+  project_start_date?: T;
+  type?: T;
+  images?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
+  status?:
+    | T
+    | {
+        isActive?: T;
+        status?: T;
+        date?: T;
+        phase_index?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -433,6 +471,32 @@ export interface SiteInfo {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Section to write metadata for the site and setting OG Images
+   */
+  'site-meta': {
+    'site-name': string;
+    'site-description': string;
+    og_image: string | SiteAsset;
+  };
+  /**
+   * Label for Contact Page used for the labeling content
+   */
+  'contact-us': {
+    title: string;
+    office_name_label: string;
+    inquiries_label: string;
+  };
+  /**
+   * Label for Products Page used for the labeling content
+   */
+  products: {
+    'hero-title': string;
+    'hero-description': string;
+    all_product: string;
+    completed: string;
+    under_dev: string;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -491,6 +555,7 @@ export interface AboutUs {
         id?: string | null;
       }[]
     | null;
+  'our-capabilities-title'?: string | null;
   'our-capabilities'?:
     | {
         'card-header'?: string | null;
@@ -527,6 +592,7 @@ export interface Navbar {
  */
 export interface Footer {
   id: string;
+  social_label: string;
   govtech_label: string;
   govtech_route?:
     | {
@@ -583,6 +649,29 @@ export interface SiteInfoSelect<T extends boolean = true> {
               label?: T;
             };
         id?: T;
+      };
+  'site-meta'?:
+    | T
+    | {
+        'site-name'?: T;
+        'site-description'?: T;
+        og_image?: T;
+      };
+  'contact-us'?:
+    | T
+    | {
+        title?: T;
+        office_name_label?: T;
+        inquiries_label?: T;
+      };
+  products?:
+    | T
+    | {
+        'hero-title'?: T;
+        'hero-description'?: T;
+        all_product?: T;
+        completed?: T;
+        under_dev?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -648,6 +737,7 @@ export interface AboutUsSelect<T extends boolean = true> {
         'line-text'?: T;
         id?: T;
       };
+  'our-capabilities-title'?: T;
   'our-capabilities'?:
     | T
     | {
@@ -688,6 +778,7 @@ export interface NavbarSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
+  social_label?: T;
   govtech_label?: T;
   govtech_route?:
     | T

@@ -15,6 +15,17 @@ export default async function HomePage({ params }: ServerPageProps) {
     locale: locale as "en-GB" | "ms-MY",
     depth: 3,
   });
+  const siteInfo = await payload.findGlobal({
+    slug: "site-info",
+    locale: locale as "en-GB" | "ms-MY",
+    depth: 3,
+  });
+
+  const products = await payload.find({
+    collection: "products",
+    locale: locale as "en-GB" | "ms-MY",
+    pagination: false,
+  });
 
   return (
     <>
@@ -51,7 +62,7 @@ export default async function HomePage({ params }: ServerPageProps) {
         </div>
       </section>
 
-      <HomepageClient homepage={homepage} />
+      <HomepageClient homepage={homepage} siteInfo={siteInfo} products={products.docs} />
     </>
   );
 }
