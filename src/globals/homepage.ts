@@ -1,6 +1,7 @@
 import link from "@/lib/fields/link";
 import { routes } from "@/lib/routes";
 import { GlobalConfig } from "payload";
+import { revalidate } from "@/app/(actions)/revalidate"
 
 // Globals for Homepage Page
 export const HomepageGlobals: GlobalConfig = {
@@ -110,4 +111,11 @@ export const HomepageGlobals: GlobalConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        await revalidate("");
+      },
+    ]
+  }
 };

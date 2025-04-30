@@ -1,5 +1,7 @@
 import { GlobalConfig } from "payload";
-import type { Field } from "payload";
+import type { Field } from 'payload'
+import { revalidate } from "@/app/(actions)/revalidate"
+import { routes } from "@/lib/routes";
 
 // Globals for About Us Page
 export const AboutUsGlobals: GlobalConfig = {
@@ -102,4 +104,12 @@ export const AboutUsGlobals: GlobalConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        console.log("PROCCC")
+        await revalidate(routes.ABOUT_US);
+      },
+    ]
+  }
 };
