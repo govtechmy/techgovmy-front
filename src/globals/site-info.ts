@@ -1,6 +1,6 @@
 import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
-import { revalidate } from "@/utils/revalidation";
+import { revalidate } from "@/app/(actions)/revalidate";
 
 
 export const SiteInfoGlobal: GlobalConfig = {
