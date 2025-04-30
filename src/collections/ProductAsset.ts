@@ -1,6 +1,5 @@
 import type { CollectionConfig } from 'payload'
 
-
 export const ProductAsset: CollectionConfig = {
   slug: 'product-asset',
   access: {
