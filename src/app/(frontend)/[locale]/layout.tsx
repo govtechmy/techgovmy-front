@@ -11,23 +11,6 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { Metadata } from "next";
 
-function sanitizeData(data: any): any {
-  if (!data) return data;
-  if (typeof data !== "object") return data;
-
-  if (Array.isArray(data)) {
-    return data.map((item) => sanitizeData(item));
-  }
-
-  const sanitized: any = {};
-  for (const [key, value] of Object.entries(data)) {
-    if (value && typeof value === "object" && "buffer" in value) {
-      continue;
-    }
-    sanitized[key] = sanitizeData(value);
-  }
-  return sanitized;
-}
 
 export async function generateMetadata({ params }: ServerPageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -117,18 +100,15 @@ export default async function RootLayout({
     depth: 3,
   });
 
-  const sanitizedHeaderData = sanitizeData(headerData);
-  const sanitizedFooterData = sanitizeData(footerData);
-  const sanitizedSiteInfo = sanitizeData(siteInfo);
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={cn(inter.className, inter.variable, poppins.variable)}>
         <NextIntlClientProvider messages={messages}>
           <LocaleClientLayout
-            navbar={sanitizedHeaderData}
-            footer={sanitizedFooterData}
-            siteInfo={sanitizedSiteInfo}
+            navbar={headerData}
+            footer={footerData}
+            siteInfo={siteInfo}
           >
             {children}
           </LocaleClientLayout>
