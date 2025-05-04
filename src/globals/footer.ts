@@ -1,5 +1,6 @@
 import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
+import { revalidate } from "@/lib/revalidate"
 
 // Globals for About Us Page
 export const FooterGlobals: GlobalConfig = {
@@ -10,6 +11,22 @@ export const FooterGlobals: GlobalConfig = {
     //   update: ({ req }) => req.user?.role === 'admin', // Only admins can update
   },
   fields: [
+    {
+      type: "row",
+      fields: [
+        {
+          name: "social_label",
+          label: "Social Media Section Label",
+          type: "text",
+          required: true,
+          localized: true,
+          admin: {
+            placeholder: "Follow Us",
+            width: "50%",
+          },
+        },
+      ],
+    },
     {
       type: "row",
       fields: [
@@ -68,4 +85,11 @@ export const FooterGlobals: GlobalConfig = {
       localized: true,
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        await revalidate("");
+      },
+    ]
+  }
 };

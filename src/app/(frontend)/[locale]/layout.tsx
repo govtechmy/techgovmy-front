@@ -9,11 +9,41 @@ import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { Metadata } from "next";
 
-export const metadata = {
-  description: "Mencipta produk digital untuk rakyat Malaysia",
-  title: "Govtech Malaysia",
-};
+
+export async function generateMetadata({ params }: ServerPageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  const payload = await getPayload({ config });
+  const siteInfo = await payload.findGlobal({
+    slug: "site-info",
+    locale: locale as "ms-MY" | "en-GB",
+  });
+
+  return {
+    title: siteInfo["site-meta"]["site-name"] || "Govtech Malaysia",
+    metadataBase: new URL(process.env.APP_URL),
+    description:
+      siteInfo["site-meta"]["site-description"] || "Mencipta produk digital untuk rakyat Malaysia",
+    openGraph: {
+      images: [
+        {
+          url:
+            (typeof siteInfo["site-meta"].og_image !== "string" &&
+              siteInfo["site-meta"].og_image.url) ||
+            "/default-og.png",
+          width: 1200,
+          height: 630,
+          alt:
+            (typeof siteInfo["site-meta"].og_image !== "string" &&
+              siteInfo["site-meta"].og_image.alt) ||
+            "Default OG image",
+        },
+      ],
+    },
+  };
+}
 
 const inter = Inter({
   subsets: ["latin"],
@@ -70,11 +100,16 @@ export default async function RootLayout({
     depth: 3,
   });
 
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={cn(inter.className, inter.variable, poppins.variable)}>
         <NextIntlClientProvider messages={messages}>
-          <LocaleClientLayout navbar={headerData} footer={footerData} siteInfo={siteInfo}>
+          <LocaleClientLayout
+            navbar={headerData}
+            footer={footerData}
+            siteInfo={siteInfo}
+          >
             {children}
           </LocaleClientLayout>
         </NextIntlClientProvider>
