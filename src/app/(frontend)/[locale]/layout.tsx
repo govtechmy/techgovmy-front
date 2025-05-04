@@ -9,8 +9,10 @@ import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { Metadata } from "next";
 
-export async function generateMetadata({ params }: ServerPageProps) {
+
+export async function generateMetadata({ params }: ServerPageProps): Promise<Metadata> {
   const { locale } = await params;
 
   const payload = await getPayload({ config });
@@ -21,6 +23,7 @@ export async function generateMetadata({ params }: ServerPageProps) {
 
   return {
     title: siteInfo["site-meta"]["site-name"] || "Govtech Malaysia",
+    metadataBase: new URL(process.env.APP_URL),
     description:
       siteInfo["site-meta"]["site-description"] || "Mencipta produk digital untuk rakyat Malaysia",
     openGraph: {
@@ -97,11 +100,16 @@ export default async function RootLayout({
     depth: 3,
   });
 
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={cn(inter.className, inter.variable, poppins.variable)}>
         <NextIntlClientProvider messages={messages}>
-          <LocaleClientLayout navbar={headerData} footer={footerData} siteInfo={siteInfo}>
+          <LocaleClientLayout
+            navbar={headerData}
+            footer={footerData}
+            siteInfo={siteInfo}
+          >
             {children}
           </LocaleClientLayout>
         </NextIntlClientProvider>

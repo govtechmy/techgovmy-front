@@ -53,7 +53,7 @@ export default function LayoutFooter({
               }
             />
           </div>
-          <p className="not-prose text-body-sm text-txt-black-700">
+          <p className="text-body-sm text-txt-black-700">
             {/* {siteInfo.address} */}
             {siteInfo.address &&
               siteInfo.address.split(",").map((line: string, index: number) => (

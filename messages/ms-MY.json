@@ -15,7 +15,15 @@
     "not-found": "Tiada produk dijumpai",
     "back": "Kembali ke senarai produk",
     "project-start": "Tarik mula projek",
-    "project-status": "Status Projek"
+    "project-status": "Status Projek",
+    "filter": {
+      "all": "Semua",
+      "websites": "Laman Web",
+      "module": "Modul",
+      "libraries": "Libraries",
+      "standard": "Piawai",
+      "applications": "Aplikasi"
+    }
   },
   "About": {
     "title": "Tentang Kami",

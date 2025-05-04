@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin
+Disallow: /admin/*
+
+Allow: /*/
+Allow: /*/about-us
+Allow: /*/contact-us
+Allow: /*/products
+Allow: /*/products/
+
+Sitemap: https://techgovmy-front-git-feat-new-site-init-my-digital-gnu.vercel.app/sitemap.xml

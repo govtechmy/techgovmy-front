@@ -86,7 +86,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
           <h3 className="mb-12 text-heading-sm font-semibold text-txt-black-900">
             {aboutUs["our-capabilities-title"]}
           </h3>
-          <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2">
+          <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2">
             {aboutUs["our-capabilities"] &&
               aboutUs["our-capabilities"].map((value, index: number) => {
                 const IconComponent = iconMap[value?.icon || "flag"] || "span";

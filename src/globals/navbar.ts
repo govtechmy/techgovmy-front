@@ -1,5 +1,6 @@
 import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
+import { revalidate } from "@/lib/revalidate"
 
 // Globals for About Us Page
 export const NavBarGlobals: GlobalConfig = {
@@ -18,4 +19,11 @@ export const NavBarGlobals: GlobalConfig = {
       maxRows: 6,
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        await revalidate("");
+      },
+    ]
+  }
 };
