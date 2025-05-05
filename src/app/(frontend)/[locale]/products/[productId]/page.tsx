@@ -31,7 +31,7 @@ export default async function ProductPage({ params }: ServerPageProps<"productId
   const product = _product.docs[0];
 
   if (!product) {
-    return notFound();
+    notFound();
   }
 
   return <ProductPageClient product={product} />;
