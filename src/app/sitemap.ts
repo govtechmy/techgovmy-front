@@ -5,7 +5,7 @@ import config from '@payload-config';
 import { routes } from '@/lib/routes';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.APP_URL || 'https://techgovmy-front-git-feat-new-site-init-my-digital-gnu.vercel.app';
+  const baseUrl = process.env.APP_URL || 'https://techgovmy-front-git-staging-my-digital-gnu.vercel.app';
   const payload = await getPayload({ config });
 
   // Get all products
