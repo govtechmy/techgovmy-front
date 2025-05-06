@@ -2,12 +2,11 @@ import { MetadataRoute } from 'next';
 import { routing } from '@/lib/i18n/routing';
 import { getPayload } from 'payload';
 import config from '@payload-config';
+import { routes } from '@/lib/routes';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.APP_URL || 'http://localhost:3000';
   const payload = await getPayload({ config });
-
-  console.log(" SITEMAP is being generated");
 
   // Get all products
   const products = await payload.find({
@@ -15,19 +14,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     depth: 0,
   });
 
-  // Define static routes
-  const staticRoutes = [
-    '',
-    '/about-us',
-    '/contact-us',
-    '/products',
-  ];
+  const routeArray = Object.values(routes);
 
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   // Add static routes for each locale
   for (const locale of routing.locales) {
-    for (const route of staticRoutes) {
+    for (const route of routeArray) {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}${route}`,
         lastModified: new Date(),
