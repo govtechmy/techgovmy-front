@@ -54,7 +54,7 @@ export default function Timeline({ items, active }: TimelineProps) {
                       : i < active
                         ? "text-txt-black-700"
                         : "text-txt-black-disabled",
-                    "line-clamp-2 text-xs font-medium",
+                    "w-max text-xs font-medium",
                   )}
                 >
                   {title}
