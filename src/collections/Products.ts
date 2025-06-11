@@ -1,6 +1,6 @@
 import { Product } from "@/payload-types";
 import type { CollectionConfig } from "payload";
-import { revalidate } from "@/lib/revalidate"
+import { revalidate } from "@/lib/revalidate";
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -158,6 +158,97 @@ export const Products: CollectionConfig = {
       ],
     },
     {
+      name: "metrics",
+      label: "Metrics",
+      type: "array",
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "year",
+              label: "Year",
+              type: "number",
+              required: true,
+              min: 1970,
+              max: 3000,
+              admin: {
+                width: "25%",
+                step: 1,
+              },
+            },
+            {
+              name: "quarter",
+              label: "Quarter",
+              type: "select",
+              required: true,
+              options: [
+                { label: "Q1", value: "Q1" },
+                { label: "Q2", value: "Q2" },
+                { label: "Q3", value: "Q3" },
+                { label: "Q4", value: "Q4" },
+              ],
+              admin: {
+                width: "25%",
+              },
+            },
+          ],
+        },
+        {
+          name: "data",
+          label: "Data Entries",
+          type: "group",
+          fields: [
+            {
+              type: "row",
+              fields: [
+                {
+                  name: "cost_savings",
+                  label: "Cost Savings",
+                  type: "number",
+                  required: true,
+                },
+              ],
+            },
+            {
+              name: "team_members",
+              label: "Team Members",
+              type: "array",
+              required: true,
+              minRows: 1,
+              fields: [
+                {
+                  name: "name",
+                  label: "Name",
+                  type: "text",
+                  required: true,
+                },
+              ],
+            },
+            {
+              name: "usage",
+              label: "Usage",
+              type: "group",
+              fields: [
+                {
+                  name: "total_usage",
+                  label: "Total Usage",
+                  type: "number",
+                  required: true,
+                },
+                {
+                  name: "monthly_usage",
+                  label: "Monthly Usage",
+                  type: "number",
+                  required: true,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
       type: "array",
       name: "status",
       fields: [
@@ -264,6 +355,6 @@ export const Products: CollectionConfig = {
       async () => {
         await revalidate("");
       },
-    ]
-  }
+    ],
+  },
 };

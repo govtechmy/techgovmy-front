@@ -227,6 +227,24 @@ export interface Product {
     image?: (string | null) | ProductAsset;
     id?: string | null;
   }[];
+  metrics?:
+    | {
+        year: number;
+        quarter: 'Q1' | 'Q2' | 'Q3' | 'Q4';
+        data: {
+          cost_savings: number;
+          team_members: {
+            name: string;
+            id?: string | null;
+          }[];
+          usage: {
+            total_usage: number;
+            monthly_usage: number;
+          };
+        };
+        id?: string | null;
+      }[]
+    | null;
   status?:
     | {
         isActive?: boolean | null;
@@ -399,6 +417,30 @@ export interface ProductsSelect<T extends boolean = true> {
     | T
     | {
         image?: T;
+        id?: T;
+      };
+  metrics?:
+    | T
+    | {
+        year?: T;
+        quarter?: T;
+        data?:
+          | T
+          | {
+              cost_savings?: T;
+              team_members?:
+                | T
+                | {
+                    name?: T;
+                    id?: T;
+                  };
+              usage?:
+                | T
+                | {
+                    total_usage?: T;
+                    monthly_usage?: T;
+                  };
+            };
         id?: T;
       };
   status?:
