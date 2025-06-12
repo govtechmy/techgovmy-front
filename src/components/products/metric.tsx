@@ -15,90 +15,14 @@ import {
   SummaryListDetail,
   SummaryListAction,
 } from "@govtechmy/myds-react/summary-list";
+import { Product } from "@/payload-types";
+
 import { useState } from "react";
 
-export default function MetricData() {
-  const [selectedMetrics, setSelectedMetrics] = useState<string>("2024-Q1");
-  console.log(selectedMetrics);
+export default function MetricData({ product }: { product: Product }) {
+  const [selectedMetrics, setSelectedMetrics] = useState<number>(0);
+  const metrics = product.metrics;
 
-  const sampleMetadata = [
-    {
-      year: 2024,
-      quarter: "Q1",
-      data: {
-        cost_savings: 12000,
-        team_members: [
-          { name: "Harris Azmi", id: "" },
-          { name: "Fikri", id: "" },
-          { name: "Irfan", id: "" },
-          { name: "Farhan", id: "" },
-          { name: "Juwaini", id: "" },
-        ],
-        usage: {
-          total_usage: 3000,
-          monthly_usage: 1000,
-        },
-      },
-      id: "1",
-    },
-    {
-      year: 2024,
-      quarter: "Q2",
-      data: {
-        cost_savings: 15000,
-        team_members: [
-          { name: "Harris Azmi", id: "" },
-          { name: "Fikri", id: "" },
-          { name: "Irfan", id: "" },
-          { name: "Farhan", id: "" },
-          { name: "Juwaini", id: "" },
-        ],
-        usage: {
-          total_usage: 4500,
-          monthly_usage: 1500,
-        },
-      },
-      id: "2",
-    },
-    {
-      year: 2025,
-      quarter: "Q1",
-      data: {
-        cost_savings: 8000,
-        team_members: [
-          { name: "Harris Azmi", id: "" },
-          { name: "Fikri", id: "" },
-          { name: "Irfan", id: "" },
-          { name: "Farhan", id: "" },
-          { name: "Juwaini", id: "" },
-        ],
-        usage: {
-          total_usage: 2400,
-          monthly_usage: 800,
-        },
-      },
-      id: "3",
-    },
-    {
-      year: 2025,
-      quarter: "Q2",
-      data: {
-        cost_savings: 18000,
-        team_members: [
-          { name: "Harris Azmi", id: "" },
-          { name: "Fikri", id: "" },
-          { name: "Irfan", id: "" },
-          { name: "Farhan", id: "" },
-          { name: "Juwaini", id: "" },
-        ],
-        usage: {
-          total_usage: 6000,
-          monthly_usage: 2000,
-        },
-      },
-      id: "4",
-    },
-  ];
   return (
     <div className="flex h-full w-full flex-col gap-2">
       <div className="flex items-center gap-4">
@@ -106,15 +30,15 @@ export default function MetricData() {
         <Select
           size="small"
           variant="outline"
-          value={selectedMetrics}
-          onValueChange={(val) => setSelectedMetrics(val)}
+          value={selectedMetrics.toString()}
+          onValueChange={(val) => setSelectedMetrics(Number(val))}
         >
           <SelectTrigger className="text-nowrap">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            {sampleMetadata.map((item, index) => (
-              <SelectItem key={index} value={`${item.year}-${item.quarter}`}>
+            {metrics.map((item, index) => (
+              <SelectItem key={index} value={index.toString()}>
                 {`${item.year} ${item.quarter}`}
               </SelectItem>
             ))}
@@ -122,8 +46,8 @@ export default function MetricData() {
         </Select>
       </div>
 
-      {sampleMetadata
-        .filter((entry) => `${entry.year}-${entry.quarter}` === selectedMetrics)
+      {metrics
+        .filter((_, index) => index === selectedMetrics)
         .map((entry, index) => (
           <SummaryList key={`${selectedMetrics}-${index}`} className="w-full">
             <SummaryListBody className="">
