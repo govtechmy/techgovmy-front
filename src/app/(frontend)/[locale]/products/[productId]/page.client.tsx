@@ -13,14 +13,6 @@ import Metric from "@/components/products/metric";
 export default function ProductPageClient({ product }: { product: Product }) {
   const router = useRouter();
   const t = useTranslations("Product");
-  //later fix type in use state
-
-  interface sampleMetadataInterface {
-    year: number;
-    quarter: string;
-    data: any;
-    id: string;
-  }
 
   return (
     <div className="mx-auto grid w-full grid-cols-4 gap-4.5 md:grid-cols-8 md:gap-6 lg:grid-cols-12">
@@ -83,7 +75,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
             </div>
 
             <div className="h-px bg-otl-divider" />
-            <Metric></Metric>
+            <Metric product={product} />
           </div>
         </div>
       </div>

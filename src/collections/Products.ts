@@ -160,6 +160,7 @@ export const Products: CollectionConfig = {
     {
       name: "metrics",
       label: "Metrics",
+      required: true,
       type: "array",
       fields: [
         {
@@ -351,6 +352,28 @@ export const Products: CollectionConfig = {
     },
   ],
   hooks: {
+    beforeChange: [
+      async ({ data }) => {
+        if (Array.isArray(data.metrics) && data.metrics.length > 1) {
+          const quarterOrder = { Q1: 1, Q2: 2, Q3: 3, Q4: 4 };
+          data.metrics.sort((a, b) => {
+            if (b.year !== a.year) {
+              return b.year - a.year;
+            }
+            const aQuarter =
+              typeof a.quarter === "string" && quarterOrder[a.quarter as keyof typeof quarterOrder]
+                ? (a.quarter as keyof typeof quarterOrder)
+                : "Q1";
+            const bQuarter =
+              typeof b.quarter === "string" && quarterOrder[b.quarter as keyof typeof quarterOrder]
+                ? (b.quarter as keyof typeof quarterOrder)
+                : "Q1";
+            return quarterOrder[bQuarter] - quarterOrder[aQuarter];
+          });
+        }
+        return data;
+      },
+    ],
     afterChange: [
       async () => {
         await revalidate("");

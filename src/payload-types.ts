@@ -227,24 +227,22 @@ export interface Product {
     image?: (string | null) | ProductAsset;
     id?: string | null;
   }[];
-  metrics?:
-    | {
-        year: number;
-        quarter: 'Q1' | 'Q2' | 'Q3' | 'Q4';
-        data: {
-          cost_savings: number;
-          team_members: {
-            name: string;
-            id?: string | null;
-          }[];
-          usage: {
-            total_usage: number;
-            monthly_usage: number;
-          };
-        };
+  metrics: {
+    year: number;
+    quarter: 'Q1' | 'Q2' | 'Q3' | 'Q4';
+    data: {
+      cost_savings: number;
+      team_members: {
+        name: string;
         id?: string | null;
-      }[]
-    | null;
+      }[];
+      usage: {
+        total_usage: number;
+        monthly_usage: number;
+      };
+    };
+    id?: string | null;
+  }[];
   status?:
     | {
         isActive?: boolean | null;
