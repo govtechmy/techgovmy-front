@@ -23,8 +23,12 @@
       "libraries": "Libraries",
       "standard": "Piawai",
       "applications": "Aplikasi"
-    }
+    },
+    "timeline_overline": "Garis Masa",
+    "timeline_title": "Pencapaian Terkini",
+    "timeline_information": "Kementerian kami sentiasa berusaha untuk memberikan impak sebenar kepada negara."
   },
+
   "About": {
     "title": "Tentang Kami",
     "home": "Home",

@@ -23,8 +23,12 @@
       "libraries": "Libraries",
       "standard": "Standard",
       "applications": "Applications"
-    }
+    },
+    "timeline_overline": "Timeline ",
+    "timeline_title": "Latest Achievements ",
+    "timeline_information": "Our ministry continually works to deliver real impact for the nation."
   },
+
   "About": {
     "title": "About us",
     "home": "Home",

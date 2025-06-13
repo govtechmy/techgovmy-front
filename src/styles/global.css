@@ -18,13 +18,13 @@
   }
 
   * {
-    --_govtech-700: 45 28 87;
-    --_govtech-600: 79 55 138;
-    --_govtech-200: 210 192 255;
-    --_govtech-100: 244 238 255;
-    --_govtech-50: 247 243 255;
-    --_govtech-secondary: 0 99 211;
-    --_govtech-tertiary: 37 166 223;
+    --_govtech-700: 45 28 87; /* Dark Indigo / Deep Purple */
+    --_govtech-600: 79 55 138; /* Medium Indigo / Royal Purple */
+    --_govtech-200: 210 192 255; /* Light Lavender / Soft Purple */
+    --_govtech-100: 244 238 255; /* Very Light Lavender / Off-White Purple */
+    --_govtech-50: 247 243 255; /* Almost White with a Lavender Tint */
+    --_govtech-secondary: 0 99 211; /* Vivid Blue / Royal Blue */
+    --_govtech-tertiary: 37 166 223; /* Bright Sky Blue / Cyan-Blue */
   }
 
   *,
