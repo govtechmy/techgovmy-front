@@ -38,7 +38,7 @@ export default function TimelineComponent() {
   return (
     <div className="border-washed-100 grid-cols-12 gap-6 xl:grid xl:border-x">
       <div className="col-span-10 col-start-2 flex flex-col gap-6 max-lg:pt-12 lg:flex-col">
-        <div className="top-16 h-fit space-y-4.5 lg:sticky lg:w-1/3 lg:py-[84px]">
+        <div className="top-16 h-fit space-y-4.5 lg:w-1/3 lg:pb-[42px]">
           <div className="flex gap-x-3">
             <FlagIcon className="shrink-0 text-txt-primary" />
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-txt-primary">

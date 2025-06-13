@@ -78,7 +78,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
           </div>
         </div>
       </div>
-      <div className="col-span-full mx-auto flex w-full flex-col items-center gap-6 py-6 max-md:max-w-[350px] md:px-6 lg:mx-auto lg:grid lg:max-w-screen-xl lg:px-4.5 lg:py-16 xl:px-0">
+      <div className="col-span-full mx-auto flex w-full flex-col items-center gap-6 py-6 max-md:max-w-[350px] md:px-6 lg:mx-auto lg:grid lg:max-w-screen-xl lg:px-4.5 lg:pb-16 xl:px-0">
         <Timeline></Timeline>
       </div>
     </div>
