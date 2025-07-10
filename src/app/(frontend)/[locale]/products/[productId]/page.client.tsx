@@ -6,16 +6,15 @@ import ProductImages from "./product-images";
 import Image from "next/image";
 import { Product } from "@/payload-types";
 import { useTranslations } from "next-intl";
-import { DateTime } from "luxon";
-import { useState } from "react";
 import Metric from "@/components/products/metric";
+import Timeline from "@/components/products/timeline";
 
 export default function ProductPageClient({ product }: { product: Product }) {
   const router = useRouter();
   const t = useTranslations("Product");
 
   return (
-    <div className="mx-auto grid w-full grid-cols-4 gap-4.5 md:grid-cols-8 md:gap-6 lg:grid-cols-12">
+    <div className="mx-auto grid w-full grid-cols-4 gap-4.5 sm:grid-cols-8 md:gap-6 lg:grid-cols-12">
       <div className="col-span-full mx-auto flex w-full max-w-[350px] flex-col items-center gap-6 py-6 md:max-w-full md:px-6 lg:mx-auto lg:grid lg:max-w-screen-xl lg:grid-cols-12 lg:px-4.5 lg:py-16 xl:px-0">
         <div className="flex h-full w-full flex-col gap-12 lg:col-span-6 lg:max-w-[628px]">
           <div
@@ -26,7 +25,7 @@ export default function ProductPageClient({ product }: { product: Product }) {
             <p>{t("back")}</p>
           </div>
 
-          <div className="hidden lg:block">
+          <div className="full hidden aspect-[16/9] lg:block">
             <ProductImages
               images={product.images.map(
                 (img) => (typeof img.image !== "string" && img.image?.url) || "",
@@ -78,6 +77,9 @@ export default function ProductPageClient({ product }: { product: Product }) {
             <Metric product={product} />
           </div>
         </div>
+      </div>
+      <div className="col-span-full mx-auto flex w-full flex-col items-center gap-6 py-6 max-md:max-w-[350px] md:px-6 lg:mx-auto lg:grid lg:max-w-screen-xl lg:px-4.5 lg:pb-16 xl:px-0">
+        <Timeline></Timeline>
       </div>
     </div>
   );
